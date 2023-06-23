@@ -1,0 +1,145 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/extends.scss';
+
+.container_mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  flex-direction: row;
+  top: 0;
+  left: 0;
+  background: #f5f1f030;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  padding: 40px;
+  height: 103px;
+  z-index: 5;
+  width: 100%;
+  box-shadow: 0px 0px 3px black;
+  overflow: hidden;
+
+  transition: all 0.2s;
+  
+  @include bp-custom-down(600px) {
+    align-items: flex-start;
+
+    &__open {
+      height: 340px;
+  
+      & .nav {
+        height: 220px;
+        opacity: 1;
+      }
+  
+      & .burger {
+        position: relative;
+        height: 100%;
+  
+        &__bottom {
+          transform: translateY(0px);
+        }
+      }
+    }
+
+  }
+
+  @include bp-desktop {
+    display: none;
+  }
+}
+
+.navContainer {
+  position: relative;
+  z-index: 4;
+  min-height: 22px;
+  max-height: 22px;
+  transition: all 0.2s;
+  width: 70%;
+  max-width: 500px;
+  cursor: pointer;
+}
+
+.nav {
+  transition: all 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  padding: 0 60px;
+
+  @include bp-custom-down(600px) {
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: space-around;
+    height: 0px;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+.burger {
+  height: 22px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  // transition: all 0.3s;
+
+  &__top {
+    transform: rotate(180deg);
+    top: 0;
+  }
+
+  &__bottom {
+    bottom: 0;
+  }
+
+  @include bp-custom-down(600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-start;
+    width: 22px;
+    position: relative;
+
+    &__bottom {
+      transform: translateY(-22px);
+    }
+    
+    &__top {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.link {
+  font-size: 18px;
+  @include font-orditron-400;
+  color: $carbon;
+  transition: all 0.3s;
+  z-index: 9;
+  width: max-content;
+
+  &__active {
+    color: $salt;
+    @include font-orditron-700;
+  }
+
+  &:hover {
+    color: $salt;
+    @include font-orditron-700;
+  }
+
+  &:not(.link_music) {
+
+    @include bp-mobile {
+      width: 100%;
+    }
+  }
+
+  &_music {
+    z-index: 1;
+  }
+}

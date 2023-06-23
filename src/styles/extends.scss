@@ -1,0 +1,163 @@
+@import './mixins.scss';
+
+%transition01 {
+  transition: all 0.1s;
+}
+
+%transition02 {
+  transition: all 0.2s;
+}
+
+%transition03 {
+  transition: all 0.3s;
+}
+
+%flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%flexBetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%container {
+  padding: 60px;
+  
+  display: flex;
+  align-items: center;
+  height: 100%;
+  z-index: -1;
+
+  @include bp-desktop {
+    min-height: 100vh;
+    max-width: calc(100vw - 303px);
+    overflow-x: hidden;
+  }
+
+  @include bp-tablet {
+    margin-top: 100px;
+    padding: 40px;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 100vw;
+    height: calc(100vh - 103px);
+  }
+
+  @include bp-mobile {
+    height: calc(100% - 103px);
+  }
+}
+
+%title {
+  @include font-archivo-900;
+  font-size: 3rem;
+
+  transform-origin: top;
+  -webkit-transform: scaleY(0.8);
+  transform: scaleY(0.8) translateX(-0.14%);
+
+  @include bp-mobile {
+    font-size: 2rem;
+  }
+}
+
+%bgIllustration {
+  position: fixed;
+  // width: 100%;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  overflow: hidden;
+
+  @include bp-mobile {
+    // right: -20%;
+    transform: scale(0.7);
+  }
+}
+
+%line {
+  width: 2px;
+  height: 700px;
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include bp-tablet {
+    display: none;
+  }
+}
+
+%swipeAnimation {
+  @keyframes swipe {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+}
+
+%swipeLeftAnimation {
+  @keyframes swipeLeft {
+    0% {
+      transform: translateX(100%);
+    }
+  
+    100% {
+      transform: translateX(0%)
+    }
+  }
+}
+
+%scaleAnimation {
+  @keyframes scale {
+    0% {
+      transform: scale(0);
+    }
+
+    50% {
+      transform: scale(1.1)
+    }
+  
+    100% {
+      transform: scale(1)
+    }
+  }
+}
+
+%opacityAnimation {
+  @keyframes opacity {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+%opacityBlurAnimation {
+  @keyframes opacityBlur {
+    0% {
+      background-color: rgba(0, 0, 0, 0);
+    }
+  
+    100% {
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(20px);
+    }
+  }
+  
+}

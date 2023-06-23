@@ -1,0 +1,107 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/extends.scss';
+
+.container {
+  @include bp-desktop {
+    position: sticky;
+    // position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 60px 40px 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #8b8b8b00;
+    z-index: 5;
+  }
+
+  @include bp-desktop {
+    &:hover {
+      .navContainer,
+      .nav {
+        min-height: 0;
+        max-height: 100%;
+      }
+
+      .nav {
+        padding: 60px 0;
+      }
+    }
+  }
+
+  @include bp-tablet {
+    display: none;
+  }
+}
+
+.btqText {
+  @include font-fraunces-300;
+  font-size: 22px;
+
+  @include bp-tablet {
+    display: none;
+  }
+}
+
+.navContainer {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 22px;
+  max-height: 22px;
+  transition: all 0.3s;
+}
+
+.nav {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  row-gap: 60px;
+}
+
+.burger {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+
+  &__top {
+    transform: rotate(180deg);
+    top: 0;
+  }
+
+  &__bottom {
+    bottom: 0;
+  }
+}
+
+.link {
+  font-size: 18px;
+  @include font-orditron-400;
+  color: $carbon;
+  transition: all 0.3s;
+
+  animation: swipe 1s;
+
+  &__active {
+    color: $salt;
+    @include font-orditron-700;
+  }
+
+  &:hover {
+    color: $salt;
+    @include font-orditron-700;
+  }
+}

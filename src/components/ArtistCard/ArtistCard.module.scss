@@ -1,0 +1,238 @@
+@import '@styles/mixins.scss';
+@import '@styles/variables.scss';
+@import '@styles/extends.scss';
+
+.card {
+  min-height: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 300px;
+  width: 100%;
+  border-radius: 10px;
+
+  position: relative;
+
+  @include bp-desktop {
+    &:hover .photo:not(:hover) {
+      transform: scale(1);
+    }
+
+    &:hover .name {
+      transform: translateY(-100%) translateX(-50%) scaleY(0.8);
+      -webkit-transform: translateY(-100%) translateX(-50%) scaleY(0.8);
+    }
+
+    &:hover .link_icons {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0%);
+      pointer-events: all;
+    }
+
+    &:hover .links_container {
+      opacity: 1;
+    }
+
+    &:hover .svg_icon {
+      width: 150px;
+      background: $carbon;
+  
+      &:hover {
+        background-color: $lava;
+      }
+  
+      &::before {
+        transition: all 0.3s;
+        filter: brightness(5);
+        margin-right: 20px;
+        transform: rotate(90deg);
+      }
+  
+      &::after {
+        @include font-orditron-700;
+        font-size: 18px;
+        color: $salt;
+        content: 'MORE';
+        transform-origin: right;
+  
+        animation: swipeLeft 0.3s;
+      }
+    }
+  }
+
+  @include bp-tablet {
+    .link_icons {
+      pointer-events: all;
+    }
+
+    .photo {
+      transform: scale(1);
+    }
+
+    .name {
+      transform: translateY(-120%) translateX(-50%) scaleY(0.8);
+      -webkit-transform: translateY(-120%) translateX(-50%) scaleY(0.8);
+    }
+
+    .svg_icon:hover {
+      background-color: $lava;
+    }
+  }
+
+  @include bp-mobile {
+    min-height: 200px;
+    min-width: 200px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+}
+
+.photo_container {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.photo {
+  @extend %transition02;
+
+  display: block;
+  width: 100%;
+
+  transform: scale(1.05);
+
+  &:hover {
+    transform: scale(1);
+  }
+}
+
+.link {
+  position: absolute;
+  z-index: 3;
+  top: -20px;
+  right: -20px;
+
+  @include bp-tablet {
+    right: -16px;
+  }
+}
+
+.more_icon {
+  @extend %transition01;
+}
+
+.link_icon {
+  @include square(40px);
+  @extend %transition03;
+
+  &:hover {
+    transform: scale(1.1)
+  }
+}
+
+.links_container {
+  @include square(100%);
+  @extend %transition03;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(143, 143, 143, 0) 40%,
+    rgba(0, 0, 0, 0.4990589985994398) 80%,
+    rgba(0, 0, 0, 0.7007396708683473) 100%
+  );
+  opacity: 0;
+
+  @include bp-tablet {
+    opacity: 1;
+  }
+}
+
+.link_icons {
+  @extend %flexCenter;
+  @extend %transition01;
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  pointer-events: none;
+
+  width: 100%;
+  height: 60px;
+  transform: translateX(-50%) translateY(150%);
+
+  @include bp-tablet {
+    transform: translateX(-50%) translateY(-10%);
+  }
+}
+
+.name {
+  @include font-archivo-900;
+  @extend %transition01;
+
+  font-size: 25px;
+  color: $salt;
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+
+  transform: translateX(-50%) scaleY(0.8);
+  -webkit-transform: translateX(-50%) scaleY(0.8);
+
+  width: max-content;
+  pointer-events: none;
+  z-index: 1;
+
+  @include bp-tablet {
+    transform: translateX(-50%) translateY(-100%);
+  }
+}
+
+.svg_icon {
+  @extend %transition01;
+  @extend %flexBetween;
+  @include square(70px);
+
+  background-color: #d4d3d3;
+  padding: 20px;
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  &::before {
+    content: url(../../assets/icons/arrow.svg);
+    @extend %flexCenter;
+    @extend %transition01;
+    @include square(28px);
+
+    transform: translate(1px, 1px);
+
+    @include bp-tablet {
+      filter: brightness(5);
+      margin-right: 10px;
+      transform: rotate(90deg) scale(0.7);
+    }
+  }
+
+  @include bp-tablet {
+    width: 125px;
+    background: $carbon;
+    padding: 15px;
+
+    &::after {
+      @include font-orditron-700;
+      font-size: 16px;
+      color: $salt;
+      content: 'MORE';
+      transform-origin: right;
+      animation: swipeLeft 0.3s;
+    }
+  }
+}

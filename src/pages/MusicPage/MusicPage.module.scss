@@ -1,0 +1,81 @@
+@import '@styles/variables.scss';
+@import '@styles/mixins.scss';
+@import '@styles/extends.scss';
+
+.container {
+  @extend %container;
+  justify-content: start;
+  width: 100%;
+
+  @include bp-tablet {
+    justify-content: center;
+  }
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+}
+
+.animation {
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+  background: #191919;
+  z-index: 1;
+  
+  border-radius: 5px;
+
+  @include bp-tablet {
+    // width: 150%;
+    align-self: center;
+  }
+}
+
+.animation_container {
+  position: relative;
+}
+
+.player {
+  color: $lava;
+  border: 1px solid #191919;
+  margin-top: -5px;
+  background-color: #191919;
+  // width: 150%;
+  // position: relative;
+  z-index: 1;
+  border-radius: 5px;
+
+  @include bp-tablet {
+    align-self: center;
+    // width: 150%;
+  }
+}
+
+.title {
+  @extend %title;
+  margin-bottom: 25px;
+
+  @include bp-tablet {
+    text-align: center;
+  }
+
+  @include bp-mobile {
+    text-align: start;
+  }
+}
+
+.spotify {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  transform: scale(1.8);
+
+  &:hover {
+    transform: scale(1.9);
+  }
+}
+
+.line {
+  @extend %line; 
+}

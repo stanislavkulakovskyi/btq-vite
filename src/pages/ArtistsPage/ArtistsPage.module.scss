@@ -1,0 +1,51 @@
+@import '@styles/mixins.scss';
+@import '@styles/extends.scss';
+@import '@styles/variables.scss';
+
+.container {
+  @extend %container;
+
+  background: rgba($color: $salt, $alpha: 0.7);
+  min-height: 90vh;
+}
+
+.page {
+  display: flex;
+  max-width: 100%;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 80px;
+  row-gap: 40px;
+  transition: all 0.3s;
+  max-width: 1200px;
+  align-self: center;
+  margin: 40px 0;
+  z-index: 1;
+
+  @include bp-tablet {
+    column-gap: 40px;
+    justify-content: center;
+  }
+}
+
+.title {
+  @extend %title;
+
+  @include bp-tablet {
+    align-self: center;
+  }
+
+  @include bp-mobile {
+    align-self: normal;
+  }
+}
+
+.bgIllustration {
+  @extend %bgIllustration;
+  z-index: 0;
+  animation: opacity 2s;
+}

@@ -1,0 +1,268 @@
+@import '@styles/extends.scss';
+@import '@styles/mixins.scss';
+@import '@styles/variables.scss';
+
+.container {
+  @extend %container;
+  height: 1000px;
+  justify-self: center;
+
+  background: rgba($color: $salt, $alpha: 0.7);
+
+  @include bp-tablet {
+    // height: 120%;
+  }
+
+  @include bp-mobile {
+    // height: calc(105% - 103px);
+    padding-bottom: 40px;
+  }
+}
+
+.slider_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  
+  // justify-content: center;
+  // align-items: center;
+  z-index: 1;
+  // overflow: hidden;
+  // margin-right: 100px;
+  margin: 0 -60px;
+  // margin-top: 25px;
+  // align-items: center;
+  
+  @include bp-tablet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // margin: 0 -40px;
+    // transform: translateY(0);
+  }
+
+  @include bp-mobile {
+    margin-top: 0;
+  }
+}
+
+.page {
+  display: flex;
+  max-width: 100%;
+  // height: 30vh;
+  flex-direction: column;
+  
+  // justify-content: center;
+  // margin-bottom: 60px;
+  position: relative;
+
+  @include bp-desktop {
+    margin-top: 6%;
+  }
+
+  @include bp-tablet {
+    align-items: center;
+  }
+
+  @include bp-mobile {
+    align-items: normal;
+  }
+}
+
+.title {
+  @extend %title;
+
+  @include bp-tablet {
+    margin-left: -40px;
+  }
+
+  @include bp-custom-down(950px) {
+    margin-left: 0;
+  }
+}
+
+.services_list {
+  @include font-orditron-500;
+  font-size: 22px;
+  color: $carbon;
+  height: 40px;
+  max-width: max-content;
+
+  @include bp-tablet {
+    font-size: 18px;
+    min-height: 40px;
+    margin-left: -40px;
+  }
+
+  @include bp-custom-down(950px) {
+    margin-left: 0;
+  }
+
+  @include bp-mobile {
+    height: 70px;
+  }
+}
+
+.service_item {
+  animation: scale 0.3s;
+
+  &:nth-child(2n) {
+    color: $lava;
+    @include font-orditron-700;
+  }
+}
+
+.description {
+  @include font-orditron-400;
+  font-size: 22px;
+  margin: 0 30px 0 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  width: 350px;
+
+  @include bp-desktop {
+    font-size: 24px;
+    min-width: 600px;
+    max-width: 600px;
+  }
+
+  @include bp-tablet {
+    width: 90%;
+    margin-bottom: 30px;
+  }
+
+  @include bp-mobile {
+    font-size: 22px;
+    margin: 0 0 36px 0;
+  }
+}
+
+.description_box {
+  max-width: 550px;
+  background-color: $salt;
+  padding: 40px 20px;
+  border-radius: 10px;
+  z-index: 5;
+  display: flex;
+  transition: all 0.3s;
+  justify-content: center;
+  align-items: center;
+  
+  // box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.205);
+
+  @include bp-desktop {
+    padding: 0;
+    align-self: center;
+    max-width: 850px;
+    // margin-top: 30px;
+    // border: 1px solid $carbon;
+    padding: 30px;
+    transform: translateY(-100px);
+    // margin-left: 160px;
+
+    &:hover {
+      max-width: 950px;
+
+      & .svg_icon {
+        width: 180px;
+        background: $carbon;
+      }
+    }
+  }
+
+  &:hover .svg_icon {
+    &:hover {
+      background-color: $lava;
+    }
+
+    &::before {
+      transition: all 0.3s;
+      filter: brightness(5);
+      margin-right: 16px;
+      transform: rotate(90deg) scale(0.6);
+    }
+
+    &::after {
+      @include font-orditron-500;
+      font-size: 18px;
+      color: $salt;
+      content: 'REQUEST';
+      transform-origin: right;
+
+      animation: swipeLeft 0.3s;
+    }
+  }
+
+  @include bp-tablet {
+    width: 90%;
+    flex-direction: column;
+    transform: translate(0, -50px);
+    position: relative;
+  }
+
+  @include bp-mobile {
+    background-color: $carbon;
+    color: $salt;
+    margin-top: 10px;
+    z-index: 8;
+    transform: translate(0, 0);
+  }
+}
+
+.svg_icon {
+  @extend %transition01;
+  @extend %flexBetween;
+  @include square(70px);
+  
+  justify-content: center;
+  background-color: #d4d3d3;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid $fog;
+
+  overflow: hidden;
+
+  &::before {
+    content: url(../../assets/icons/arrow.svg);
+    @extend %flexCenter;
+    @extend %transition01;
+    @include square(20px);
+
+    transform: translate(1px, 1px);
+
+    @include bp-tablet {
+      filter: brightness(5);
+      margin-right: 16px;
+      transform: rotate(90deg) scale(0.6) translate(0px, 0px);
+      transform-origin: center;
+    }
+  }
+
+  &:hover {
+    border: 1px solid transparent;
+  }
+
+  @include bp-tablet {
+    width: 190px;
+    background: $carbon;
+
+    &::after {
+      @include font-orditron-500;
+      font-size: 18px;
+      color: $salt;
+      content: 'REQUEST';
+      transform-origin: right;
+      animation: swipeLeft 0.3s;
+    }
+  }
+}
+
+.bgIllustration {
+  @extend %bgIllustration;
+  z-index: 0;
+  position: fixed;
+
+  animation: opacity 2s;
+}
