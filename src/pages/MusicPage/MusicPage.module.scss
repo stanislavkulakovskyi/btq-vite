@@ -6,7 +6,8 @@
   @extend %container;
   justify-content: start;
   width: 100%;
-
+  height: calc(100vh - 103px);
+  
   @include bp-tablet {
     justify-content: center;
   }
@@ -15,6 +16,7 @@
 .content {
   width: 100%;
   max-width: 800px;
+  height: 100%;
 }
 
 .animation {
@@ -41,10 +43,15 @@
   border: 1px solid #191919;
   margin-top: -5px;
   background-color: #191919;
+  height: 60%;
   // width: 150%;
-  // position: relative;
+  position: relative;
   z-index: 1;
   border-radius: 5px;
+
+  @include bp-custom-down(1480px) {
+    height: 50%;
+  }
 
   @include bp-tablet {
     align-self: center;

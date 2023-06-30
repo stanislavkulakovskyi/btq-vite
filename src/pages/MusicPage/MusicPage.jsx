@@ -4,7 +4,7 @@ import spotifyIcon from '../../assets/icons/spotify.svg';
 
 export const MusicPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="music">
       <div className={styles.content}>
         <h2 className={styles.title}>DISCOGRAPHY</h2>
 
@@ -26,7 +26,6 @@ export const MusicPage = () => {
         <iframe
           className={styles.player}
           width="100%"
-          height="450"
           frameBorder="no"
           title="soundcloud player"
           allow="autoplay"
@@ -66,7 +65,10 @@ export const MusicPage = () => {
             belletriq releases
           </a>
         </div>
+
+        <div>Designed by Kovdra <a></a></div>
       </div>
+
 
       <div className={styles.line}></div>
     </div>

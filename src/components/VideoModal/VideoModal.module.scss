@@ -9,8 +9,6 @@
   left: 0;
   overflow: hidden;
   z-index: 10;
-
-  
 }
 
 .backdrop {
@@ -20,11 +18,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 
   background: #0000007f;
-  backdrop-filter: blur(0px);
-
-  animation: opacityBlur 1s forwards;
 
   @include bp-mobile {
     // transform: translateY(-5%);
@@ -37,6 +33,7 @@
   position: relative;
   height: 50%;
   animation: scale 0.3s;
+  overflow: hidden;
 
   @include bp-mobile {
     height: 40%;

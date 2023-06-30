@@ -59,6 +59,7 @@ export const Slider = ({ openModal }) => {
         autoplay={{ delay: 2000, disableOnInteraction: false }}
         className={styles.swiper}
         loop={true}
+        speed={2000}
       >
         {thumbs.map((slide) => (
           <SwiperSlide
@@ -72,8 +73,6 @@ export const Slider = ({ openModal }) => {
               alt="slide"
               className={styles.slide}
             />
-
-            <p className={styles.roles}>[ {slide.roles} ]</p>
 
             {(isHovered || isTablet) && (
               <button

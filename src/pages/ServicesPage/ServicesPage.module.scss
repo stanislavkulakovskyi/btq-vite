@@ -4,17 +4,18 @@
 
 .container {
   @extend %container;
+  
+  background: $salt;
+  // background: #000;
 
-  background: rgba($color: $salt, $alpha: 0.7);
+  // @include bp-tablet {
+  //   height: 100%;
+  // }
 
-  @include bp-tablet {
-    height: 100%;
-  }
-
-  @include bp-mobile {
-    height: calc(105% - 103px);
-    padding-bottom: 40px;
-  }
+  // @include bp-mobile {
+  //   height: calc(105% - 103px);
+  //   padding-bottom: 40px;
+  // }
 }
 
 .slider_container {
@@ -43,12 +44,12 @@
   display: flex;
   max-width: 100%;
   flex-direction: column;
-
+  
   position: relative;
 
-  // @include bp-desktop {
-  //   margin-top: 6%;
-  // }
+  @include bp-desktop {
+    height: 82%;
+  }
 
   @include bp-tablet {
     align-items: center;
@@ -71,49 +72,18 @@
   }
 }
 
-.services_list {
-  @include font-orditron-500;
-  font-size: 22px;
-  color: $carbon;
-  height: 40px;
-  max-width: max-content;
-
-  @include bp-tablet {
-    font-size: 18px;
-    min-height: 40px;
-    margin-left: -40px;
-  }
-
-  @include bp-custom-down(950px) {
-    margin-left: 0;
-  }
-
-  @include bp-mobile {
-    height: 70px;
-  }
-}
-
-.service_item {
-  animation: scale 0.3s;
-
-  &:nth-child(2n) {
-    color: $lava;
-    @include font-orditron-700;
-  }
-}
-
 .description {
   @include font-orditron-400;
   font-size: 22px;
   margin: 0 30px 0 0;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
+  // overflow-wrap: break-word;
+  // word-wrap: break-word;
   width: 350px;
 
   @include bp-desktop {
     font-size: 24px;
-    min-width: 600px;
-    max-width: 600px;
+    min-width: 500px;
+    max-width: 500px;
   }
 
   @include bp-tablet {
@@ -128,7 +98,7 @@
 }
 
 .description_box {
-  max-width: 550px;
+  // max-width: 550px;
   background-color: $salt;
   padding: 40px 20px;
   border-radius: 10px;
@@ -139,13 +109,11 @@
   align-items: center;
   height: max-content;
   
-  // box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.205);
+  box-shadow: $shadow;
 
   @include bp-desktop {
-    padding: 0;
     align-self: center;
-    max-width: 850px;
-    padding: 30px;
+    padding: 50px 60px;
     transform: translateY(-100px);
 
     &:hover {
@@ -154,6 +122,7 @@
       & .svg_icon {
         width: 180px;
         background: $carbon;
+        box-shadow: $shadow;
       }
     }
   }
@@ -182,13 +151,16 @@
   }
 
   @include bp-tablet {
-    width: 90%;
+    // width: 80%;
+    margin: 0 60px;
+    max-width: 600px;
     flex-direction: column;
     transform: translate(0, -50px);
   }
 
   @include bp-mobile {
     background-color: $carbon;
+    
     color: $salt;
     margin-top: 10px;
     z-index: 8;
@@ -202,10 +174,11 @@
   @include square(70px);
   
   justify-content: center;
-  background-color: #d4d3d3;
+  background-color: $salt;
   padding: 20px;
   border-radius: 4px;
-  border: 1px solid $fog;
+  // border: 1px solid $fog;
+  box-shadow: $shadow;
 
   overflow: hidden;
 
@@ -227,11 +200,14 @@
 
   &:hover {
     border: 1px solid transparent;
+    box-shadow: $shadow;
   }
 
   @include bp-tablet {
     width: 190px;
     background: $carbon;
+    border: 1px solid $fog;
+    box-shadow: none;
 
     &::after {
       @include font-orditron-500;

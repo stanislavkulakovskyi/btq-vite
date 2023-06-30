@@ -1,13 +1,13 @@
 import styles from './ArtistsPage.module.scss';
 import { ArtistCard } from '../../components/ArtistCard';
-// import bgText from '../../assets/images/bg_illustration.webp';
+import bgText from '../../assets/images/bg_illustration.webp';
 
 import artists from '../../api/artists';
 
 export const ArtistsPage = () => {
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} id="artists">
         <div className={styles.page}>
           <h2 className={styles.title}>BTQ ARTISTS</h2>
           <div className={styles.list}>
@@ -27,7 +27,7 @@ export const ArtistsPage = () => {
           </div>
         </div>
         
-        {/* <img src={bgText} alt="belletriq" className={styles.bgIllustration} /> */}
+        <img src={bgText} alt="belletriq" className={styles.bgIllustration} />
       </div>
     </>
   );

@@ -1,0 +1,10 @@
+.plus {
+  position: fixed;
+  width: 12px;
+  height: 12px;
+  z-index: 3;
+
+  // @include bp-mobile {
+  //     display: none;
+  // }
+}

@@ -2,7 +2,7 @@ import styles from './AboutPage.module.scss';
 
 export const AboutPage = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="about">
       <div className={styles.content}>
         <h2 className={styles.title}>belletriq</h2>
         <p className={styles.description}>

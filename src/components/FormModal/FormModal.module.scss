@@ -10,15 +10,11 @@
   top: 0;
   left: 0;
   background: #00000056;
-
-  backdrop-filter: blur(30px);
-
-  // animation: opacityBlur 1s forwards;
 }
 
 .form_box {
   position: absolute;
-  top: 0;
+  top: 200vh;
   left: 0;
 
   width: 100%;

@@ -6,14 +6,13 @@ body {
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
   max-width: 100%;
-  overflow-x: hidden;
+  // overflow: hidden;
 }
 
 ::-webkit-scrollbar {
-  // position: absolute;
-  width: 3px;
+  display: none;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -26,6 +25,8 @@ body {
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-scroll-behavior: smooth;
 }
 
 code {

@@ -18,8 +18,8 @@
     }
 
     &:hover .name {
-      transform: translateY(-100%) translateX(-50%) scaleY(0.8);
-      -webkit-transform: translateY(-100%) translateX(-50%) scaleY(0.8);
+      transform: translateY(-140%) translateX(-50%) scaleY(0.8);
+      -webkit-transform: translateY(-140%) translateX(-50%) scaleY(0.8);
     }
 
     &:hover .link_icons {
@@ -69,8 +69,8 @@
     }
 
     .name {
-      transform: translateY(-120%) translateX(-50%) scaleY(0.8);
-      -webkit-transform: translateY(-120%) translateX(-50%) scaleY(0.8);
+      transform: translateY(-150%) translateX(-50%) scaleY(0.8);
+      -webkit-transform: translateY(-150%) translateX(-50%) scaleY(0.8);
     }
 
     .svg_icon:hover {
@@ -146,11 +146,6 @@
     rgba(0, 0, 0, 0.4990589985994398) 80%,
     rgba(0, 0, 0, 0.7007396708683473) 100%
   );
-  opacity: 0;
-
-  @include bp-tablet {
-    opacity: 1;
-  }
 }
 
 .link_icons {
@@ -163,11 +158,11 @@
   pointer-events: none;
 
   width: 100%;
-  height: 60px;
+  height: 80px;
   transform: translateX(-50%) translateY(150%);
 
   @include bp-tablet {
-    transform: translateX(-50%) translateY(-10%);
+    transform: translateX(-50%) translateY(0%);
   }
 }
 
@@ -200,9 +195,11 @@
   @extend %flexBetween;
   @include square(70px);
 
-  background-color: #d4d3d3;
+  background-color: $salt;
   padding: 20px;
   border-radius: 4px;
+
+  box-shadow: $shadow;
 
   overflow: hidden;
 

@@ -4,15 +4,33 @@
 
 .container {
   @extend %container;
+  min-height: 100vh;
 
-  background: rgba($color: $salt, $alpha: 0.7);
-  min-height: 90vh;
+  animation: bg 1s forwards;
+  
+  @include bp-tablet {
+    height: max-content;
+  }
+}
+
+@keyframes bg {
+  0% {
+    background: rgba($color: $salt, $alpha: 0);
+  }
+
+  100% {
+    background: rgba($color: $salt, $alpha: 1);
+  }
 }
 
 .page {
   display: flex;
   max-width: 100%;
   flex-direction: column;
+
+  // @include bp-custom-down(1480px) {
+  //   padding-top: 300px;
+  // }
 }
 
 .list {

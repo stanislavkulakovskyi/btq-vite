@@ -1,16 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
-import { NavLink, useLocation } from "react-router-dom";
 import classNames from "classnames";
-
-import { getIsRouteActive } from "../../utils/helpers/navigation";
 
 import burger from "../../assets/icons/burger_corner.svg";
 
 import styles from "./TopMenu.module.scss";
 
-export const TopMenu = ({ links }) => {
-  const { pathname, hash } = useLocation();
+export const TopMenu = () => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
   const menuRef = useRef(null);
 
@@ -35,33 +31,6 @@ export const TopMenu = ({ links }) => {
     };
   }, []);
 
-  const renderNavigation = () => {
-    return links.slice(0, -1).map((route) => {
-      const { title, path } = route;
-      const isActive = getIsRouteActive(pathname, hash, path);
-
-      return (
-        <NavLink
-          key={path}
-          to={path}
-          className={classNames(styles.link, {
-            [styles.link__active]: isActive,
-          })}
-          onClick={toggleBurger}
-        >
-          {title}
-        </NavLink>
-      );
-    });
-  };
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  }, [pathname]);
-
   return (
     <div>
       <div
@@ -77,7 +46,27 @@ export const TopMenu = ({ links }) => {
             <img src={burger} alt="burger" />
           </div>
 
-          <nav className={styles.nav}>{renderNavigation()}</nav>
+          <nav className={styles.nav}>
+            <a
+              className={styles.link}
+              href="#about"
+            >
+              about
+            </a>
+            <a
+              className={styles.link}
+              href="#artists"
+            >
+              artists
+            </a>
+            <a
+              className={styles.link}
+              href="#services"
+            >
+              services
+            </a>
+            
+          </nav>
 
           <div
             className={classNames(styles.burger, styles.burger__bottom)}
@@ -87,17 +76,13 @@ export const TopMenu = ({ links }) => {
           </div>
         </div>
 
-        <NavLink
-          key={"/music"}
-          to={"/music"}
-          className={classNames(styles.link, styles.link_music, {
-            [styles.link__active]: pathname === "/music"
-          })}
-          onClick={() => setIsBurgerOpened(false)}
-          
+        
+        <a
+          className={`${styles.link} ${styles.link_music}`}
+          href="#music"
         >
           music
-        </NavLink>
+        </a>
       </div>
     </div>
   );
