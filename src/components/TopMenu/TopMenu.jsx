@@ -8,6 +8,7 @@ import styles from "./TopMenu.module.scss";
 
 export const TopMenu = () => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
+  const [activeLink, setActiveLink] = useState('about');
   const menuRef = useRef(null);
 
   useEffect(() => {
@@ -48,20 +49,23 @@ export const TopMenu = () => {
 
           <nav className={styles.nav}>
             <a
-              className={styles.link}
+              className={activeLink === 'about' ? styles.link_active : styles.link}
               href="#about"
+              onClick={() => setActiveLink('about')}
             >
               about
             </a>
             <a
-              className={styles.link}
+              className={activeLink === 'artists' ? styles.link_active : styles.link}
               href="#artists"
+              onClick={() => setActiveLink('artists')}
             >
               artists
             </a>
             <a
-              className={styles.link}
+              className={activeLink === 'services' ? styles.link_active : styles.link}
               href="#services"
+              onClick={() => setActiveLink('services')}
             >
               services
             </a>
@@ -78,8 +82,11 @@ export const TopMenu = () => {
 
         
         <a
-          className={`${styles.link} ${styles.link_music}`}
+          className={classNames(styles.link, styles.link_music, {
+            [styles.link_active]: activeLink === 'music',
+          })}
           href="#music"
+          onClick={() => setActiveLink('music')}
         >
           music
         </a>

@@ -28,7 +28,8 @@
 
   @include bp-mobile-small {
     height: 80px;
-    padding: 32px 20px;
+    padding: 32px 0;
+    justify-content: center;
   }
 
   @include bp-custom-down(600px) {
@@ -160,7 +161,7 @@
     font-size: 16px;
   }
 
-  &__active {
+  &_active {
     color: $salt;
     @include font-orditron-700;
   }

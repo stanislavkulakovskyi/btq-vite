@@ -20,10 +20,11 @@ export const MainLayout = () => {
 
   return (
     <main className={styles.container}>
+      <TopMenu />
+      
       <section className={styles.content} onScroll={handleScroll}>
         <SideMenu />
 
-        <TopMenu />
 
         <div className={styles.content_container}>
           <div className={styles.page}>

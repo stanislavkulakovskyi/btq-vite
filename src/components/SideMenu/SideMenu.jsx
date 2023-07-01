@@ -37,11 +37,13 @@
 
 
 import classNames from 'classnames';
+import { useState } from 'react';
 
 import burger from '../../assets/icons/burger_corner.svg';
 import styles from './SideMenu.module.scss';
 
 export const SideMenu = () => {
+  const [activeLink, setActiveLink] = useState('about');
 
   return (
     <div>
@@ -53,27 +55,33 @@ export const SideMenu = () => {
           </div>
 
           <nav className={styles.nav}>
-            <a
-              className={styles.link}
+          <a
+              className={activeLink === 'about' ? styles.link_active : styles.link}
               href="#about"
+              onClick={() => setActiveLink('about')}
             >
               about
             </a>
             <a
-              className={styles.link}
+              className={activeLink === 'artists' ? styles.link_active : styles.link}
               href="#artists"
+              onClick={() => setActiveLink('artists')}
             >
               artists
             </a>
             <a
-              className={styles.link}
+              className={activeLink === 'services' ? styles.link_active : styles.link}
               href="#services"
+              onClick={() => setActiveLink('services')}
             >
               services
             </a>
             <a
-              className={styles.link}
+              className={classNames(styles.link, {
+                [styles.link_active]: activeLink === 'music',
+              })}
               href="#music"
+              onClick={() => setActiveLink('music')}
             >
               music
             </a>

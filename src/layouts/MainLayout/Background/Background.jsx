@@ -10,8 +10,6 @@ export const Background = () => {
 
   return (
     <div className={styles.container}>
-      
-
       <img src={bg} alt="background" className={styles.animation} />
 
       <div className={styles.blur} />

@@ -21,8 +21,11 @@
   }
 
   @include bp-tablet {
-    // margin-top: 103px;
-    // padding-top: -103px;
+    margin-top: 103px;
+  }
+
+  @include bp-mobile-small {
+    margin-top: 80px;
   }
 
   @include bp-mobile {
@@ -43,6 +46,18 @@
 .page {
   width: 100%;
   height: max-content;
+
+  @include bp-tablet {
+    &:first-child {
+      margin-top: -103px;
+    }
+  }
+
+  @include bp-mobile-small {
+    &:first-child {
+      margin-top: -80px;
+    }
+  }
 
   @include bp-desktop {
     scroll-snap-align: start;

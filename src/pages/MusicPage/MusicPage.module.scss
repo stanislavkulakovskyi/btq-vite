@@ -48,7 +48,6 @@
   margin-top: -5px;
   background-color: #191919;
   height: 60%;
-  // width: 150%;
   position: relative;
   z-index: 1;
   border-radius: 5px;
@@ -59,7 +58,7 @@
 
   @include bp-tablet {
     align-self: center;
-    height: 60%;
+    height: 50%;
   }
 
   @include bp-mobile {

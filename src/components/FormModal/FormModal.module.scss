@@ -25,6 +25,10 @@
   align-items: center;
   z-index: 20;
 
+  @include bp-tablet {
+    margin-top: 50px;
+  }
+
   @include bp-mobile {
     margin-top: 40px;
   }

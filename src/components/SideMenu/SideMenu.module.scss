@@ -36,7 +36,8 @@
       }
 
       .link {
-        transform: scale(1);
+        // transform: scale(1);
+        opacity: 1;
       }
     }
   }
@@ -106,10 +107,9 @@
   @include font-orditron-400;
   color: $carbon;
   transition: all 0.3s;
-  transform: scale(0);
+  // transform: scale(0);
+  opacity: 0;
   transform-origin: left;
-
-  // animation: swipe 1s;
 
   &_active {
     color: $salt;

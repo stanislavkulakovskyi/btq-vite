@@ -68,6 +68,10 @@
   @include bp-custom-down(950px) {
     margin-left: 0;
   }
+
+  @include bp-mobile {
+    margin-bottom: 20px;
+  }
 }
 
 .description {
@@ -125,6 +129,10 @@
         box-shadow: $shadow;
       }
     }
+  }
+
+  @include bp-mobile-small {
+    transform: translateY(-300px);
   }
 
   &:hover .svg_icon {
