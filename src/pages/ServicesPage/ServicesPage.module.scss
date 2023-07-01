@@ -6,11 +6,15 @@
   @extend %container;
   
   background: $salt;
-  // background: #000;
+  // background: #ff9191;
 
-  // @include bp-tablet {
-  //   height: 100%;
-  // }
+  @include bp-tablet {
+    min-height: min-content;
+  }
+
+  @include bp-mobile {
+    height: 100%;
+  }
 
   // @include bp-mobile {
   //   height: calc(105% - 103px);
@@ -95,6 +99,11 @@
     font-size: 22px;
     margin: 0 0 36px 0;
   }
+
+  @include bp-mobile-small {
+    font-size: 18px;
+    line-height: 1.5;
+  }
 }
 
 .description_box {
@@ -147,6 +156,10 @@
       transform-origin: right;
 
       animation: swipeLeft 0.3s;
+
+      @include bp-mobile-small {
+        font-size: 16px;
+      }
     }
   }
 
@@ -216,6 +229,10 @@
       content: 'REQUEST';
       transform-origin: right;
       animation: swipeLeft 0.3s;
+
+      @include bp-mobile-small {
+        font-size: 16px;
+      }
     }
   }
 }

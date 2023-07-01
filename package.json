@@ -2,7 +2,7 @@
   "name": "btq-vite",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://stanislavkulakovskyi.github.io/btq-vite",
+  "homepage": "https://stanislavkulakovskyi.github.io/btq-vite/",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -35,11 +35,16 @@
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
+    "autoprefixer": "^10.4.14",
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
-    "vite": "^4.3.9",
-    "gh-pages": "^5.0.0"
-  }
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.24",
+    "vite": "^4.3.9"
+  },
+  "browserslist": [
+    "since 2010"
+]
 }

@@ -47,15 +47,16 @@
     align-self: center;
     justify-self: center;
     margin: auto;
+    // height: max-content;
     min-height: calc(100vh + 103px);
   }
 
-  // @include bp-tablet {
-  //   padding-top: 150px;
-  // }
-
   @include bp-mobile {
     height: calc(100% - 103px);
+  }
+
+  @include bp-mobile-small {
+    padding: 20px;
   }
 }
 
@@ -69,6 +70,10 @@
 
   @include bp-mobile {
     font-size: 2.5rem;
+  }
+
+  @include bp-mobile-small {
+    font-size: 1.8rem;
   }
 }
 

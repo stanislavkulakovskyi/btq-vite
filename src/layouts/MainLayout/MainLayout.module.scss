@@ -21,8 +21,8 @@
   }
 
   @include bp-tablet {
-    margin-top: 0;
-    padding-top: -103px;
+    // margin-top: 103px;
+    // padding-top: -103px;
   }
 
   @include bp-mobile {

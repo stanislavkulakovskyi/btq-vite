@@ -48,6 +48,10 @@
     column-gap: 40px;
     justify-content: center;
   }
+
+  @include bp-mobile-small {
+    margin-top: 20px;
+  }
 }
 
 .title {

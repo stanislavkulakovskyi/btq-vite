@@ -26,11 +26,20 @@
     margin-top: 0;
   }
 
+  @include bp-mobile-small {
+    height: 80px;
+    padding: 32px 20px;
+  }
+
   @include bp-custom-down(600px) {
     align-items: flex-start;
 
     &__open {
       height: 340px;
+
+      @include bp-mobile-small {
+        height: 320px;
+      }
   
       & .nav {
         height: 220px;
@@ -63,6 +72,11 @@
   width: 70%;
   max-width: 500px;
   cursor: pointer;
+
+  @include bp-mobile-small {
+    min-height: 18px;
+    max-height: 18px;
+  }
 }
 
 .nav {
@@ -116,6 +130,22 @@
       transform: rotate(180deg);
     }
   }
+
+  @include bp-mobile-small {
+    height: 18px;
+    width: 18px;
+
+    &__bottom {
+      height: 18px;
+      width: 18px;
+      transform: translateY(-19px);
+    }
+
+    &__top {
+      width: 18px;
+      height: 18px;
+    }
+  }
 }
 
 .link {
@@ -125,6 +155,10 @@
   transition: all 0.3s;
   z-index: 9;
   width: max-content;
+
+  @include bp-mobile-small {
+    font-size: 16px;
+  }
 
   &__active {
     color: $salt;
