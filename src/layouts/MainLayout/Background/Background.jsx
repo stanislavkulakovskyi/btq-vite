@@ -7,12 +7,12 @@ import bgDummy from '../../../assets/lottie/bgDummy.jpg';
 import styles from "./Background.module.scss";
 
 export const Background = () => {
-
   return (
     <div className={styles.container}>
+      {/* <img src={bgDummy} alt="background" className={styles.animation} /> */}
       <img src={bg} alt="background" className={styles.animation} />
 
-      <div className={styles.blur} />
+      {/* <div className={styles.blur} /> */}
 
       <img
         src={bgText}

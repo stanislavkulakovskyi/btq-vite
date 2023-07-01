@@ -15,17 +15,8 @@
     width: 100vw;
     height: 100vh;
     object-fit: cover;
-}
-
-.blur {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    width: 100vw;
-    height: 100vh;
-    backdrop-filter: blur(80px);
-    -webkit-backdrop-filter: blur(80px);
+    filter: blur(80px);
+    -webkit-filter: blur(80px);
 }
 
 .bgIllustration {
