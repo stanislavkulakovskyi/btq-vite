@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 // import emailjs from '@emailjs/browser';
 
 import styles from './FormModal.module.scss';
@@ -12,7 +12,22 @@ export const FormModal = ({ onClose }) => {
   const [emailError, setEmailError] = useState('');
   const [messageError, setMessageError] = useState('');
   const [isSucces, setIsSuccess] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const form = useRef();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 640;
 
   const validateEmail = () => {
     if (!email) {
@@ -114,7 +129,7 @@ export const FormModal = ({ onClose }) => {
               name="message"
               id="message"
               cols="30"
-              rows="10"
+              rows={isMobile ? 3 : 10}
               className={`${styles.message} ${
                 messageError && styles.error_input
               }`}

@@ -6,7 +6,6 @@
   @extend %container;
   
   background: $salt;
-  // background: #ff9191;
 
   @include bp-tablet {
     min-height: min-content;
@@ -15,11 +14,6 @@
   @include bp-mobile {
     height: 100%;
   }
-
-  // @include bp-mobile {
-  //   height: calc(105% - 103px);
-  //   padding-bottom: 40px;
-  // }
 }
 
 .slider_container {
@@ -80,8 +74,6 @@
   @include font-orditron-400;
   font-size: 22px;
   margin: 0 30px 0 0;
-  // overflow-wrap: break-word;
-  // word-wrap: break-word;
   width: 350px;
 
   @include bp-desktop {
@@ -107,7 +99,6 @@
 }
 
 .description_box {
-  // max-width: 550px;
   background-color: $salt;
   padding: 40px 20px;
   border-radius: 10px;
@@ -164,7 +155,6 @@
   }
 
   @include bp-tablet {
-    // width: 80%;
     margin: 0 60px;
     max-width: 600px;
     flex-direction: column;

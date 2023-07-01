@@ -13,12 +13,6 @@ export const ServicesPage = () => {
   
   const handleFormOpen = () => {
     setIsFormOpened(true);
-
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
   };
 
   const handleFormClose = () => {
@@ -88,20 +82,15 @@ export const ServicesPage = () => {
             </button>
           </div>
         </div>
-      </div>
 
-      {/* <img
-        src={bgText}
-        alt="belletriq"
-        className={styles.bgIllustration}
-        loading='lazy'
-      /> */}
+        {isModalOpen && (       
+            <VideoModal url={selectedVideoUrl} closeModal={closeModal} />
+        )}
 
-      {isModalOpen && (
-        <VideoModal url={selectedVideoUrl} closeModal={closeModal} />
-      )}
-
-      {isFormOpened && <FormModal onClose={handleFormClose} />}
+        {isFormOpened && (
+            <FormModal onClose={handleFormClose} />
+        )}
+      </div>      
     </div>
   );
 };

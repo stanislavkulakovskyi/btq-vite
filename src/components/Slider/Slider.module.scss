@@ -7,7 +7,7 @@
   height: 100%;
   object-fit: contain;
 
-  @include bp-mobile {
+  @include bp-tablet {
     object-fit: cover;
   }
 }
@@ -41,11 +41,11 @@
   max-height: 600px;
 
   @include bp-custom-down(1480px) {
-    height: 500px;
+    max-height: 500px;
   }
 
   @include bp-tablet {
-    height: max-content;
+    max-height: 550px;
   }
 
   @include bp-mobile {
