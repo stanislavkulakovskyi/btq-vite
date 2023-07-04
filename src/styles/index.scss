@@ -10,6 +10,11 @@ body {
   // overflow: hidden;
 }
 
+::-moz-progress-bar {
+  display: none;
+  width: 0px;
+}
+
 ::-webkit-scrollbar {
   display: none;
   width: 0px;

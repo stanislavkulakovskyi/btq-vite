@@ -4,7 +4,6 @@ import spotifyIcon from '../../assets/icons/spotify.svg';
 
 export const MusicPage = () => {
   return (
-    <>
     <div className={styles.container} id="music">
       <div className={styles.content}>
         <h2 className={styles.title}>DISCOGRAPHY</h2>
@@ -70,9 +69,7 @@ export const MusicPage = () => {
         <div>Designed by Kovdra <a></a></div>
       </div>
 
-
+      <div className={styles.line}></div>
     </div>
-    <div className={styles.line}></div>
-    </>
   );
 };

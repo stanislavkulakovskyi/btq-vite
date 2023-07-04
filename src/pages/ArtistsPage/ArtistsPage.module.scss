@@ -29,6 +29,9 @@
   max-width: 100%;
   flex-direction: column;
 
+  position: relative;
+  z-index: 40;
+
   // @include bp-custom-down(1480px) {
   //   padding-top: 300px;
   // }

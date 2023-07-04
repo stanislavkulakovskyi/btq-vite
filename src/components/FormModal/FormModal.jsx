@@ -129,7 +129,7 @@ export const FormModal = ({ onClose }) => {
               name="message"
               id="message"
               cols="30"
-              rows={isMobile ? 3 : 10}
+              rows={isMobile ? 5 : 10}
               className={`${styles.message} ${
                 messageError && styles.error_input
               }`}

@@ -6,10 +6,14 @@ import burger from "../../assets/icons/burger_corner.svg";
 
 import styles from "./TopMenu.module.scss";
 
-export const TopMenu = () => {
+export const TopMenu = ({ activePage }) => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
   const [activeLink, setActiveLink] = useState('about');
   const menuRef = useRef(null);
+
+  useEffect(() => {
+    setActiveLink(activePage);
+  }, [activePage])
 
   useEffect(() => {
     setIsBurgerOpened(false);

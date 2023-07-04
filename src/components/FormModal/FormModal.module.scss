@@ -97,6 +97,8 @@
 
   @include bp-mobile-small {
     margin-bottom: 5px;
+    font-size: 12px;
+    padding: 10px;
   }
 
   &:focus {
@@ -123,6 +125,8 @@
 
   @include bp-mobile-small {
     margin-bottom: 10px;
+    font-size: 12px;
+    padding: 10px;
   }
 
   &:focus {
@@ -154,8 +158,10 @@
     background-color: $lava;
   }
 
-  @include bp-mobile {
+  @include bp-mobile-small {
+    padding: 10px;
     @include font-orditron-400;
+    font-size: 14px;
   }
 }
 
@@ -166,6 +172,11 @@
   margin-right: 15px;
   filter: brightness(2);
   transform: rotate(90deg);
+
+  @include bp-mobile {
+    margin-right: 8px;
+    transform: scale(0.7) rotate(90deg);
+  }
 }
 
 .close_btn {

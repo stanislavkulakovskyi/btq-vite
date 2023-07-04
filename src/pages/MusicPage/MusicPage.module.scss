@@ -100,5 +100,18 @@
 }
 
 .line {
-  @extend %line; 
+  // @extend %line;
+  width: 2px;
+  height: 700px;
+  background: #000;
+  position: absolute;
+  
+  margin-left: -60px;
+
+
+  z-index: 1000;
+
+  @include bp-tablet {
+    display: none;
+  }
 }

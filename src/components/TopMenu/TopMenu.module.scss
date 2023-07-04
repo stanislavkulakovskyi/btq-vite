@@ -11,13 +11,14 @@
   top: 0;
   left: 0;
   background: #f5f1f030;
-  backdrop-filter: blur(40px);
   padding: 40px;
   height: 103px;
   z-index: 1000;
   width: 100%;
   box-shadow: 0px 0px 3px black;
   overflow: hidden;
+
+  backdrop-filter: blur(40px);
   -webkit-backdrop-filter: blur(40px);
 
   transition: all 0.2s;
@@ -66,7 +67,7 @@
 
 .navContainer {
   position: relative;
-  z-index: 6;
+  z-index: 60;
   min-height: 22px;
   max-height: 22px;
   transition: all 0.2s;
@@ -163,6 +164,7 @@
 
   &_active {
     color: $salt;
+    font-size: 18px;
     @include font-orditron-700;
   }
 

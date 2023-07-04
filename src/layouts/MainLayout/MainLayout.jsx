@@ -8,8 +8,11 @@ import { ServicesPage } from '../../pages/ServicesPage';
 import { MusicPage } from '../../pages/MusicPage';
 import { useState } from 'react';
 import { PlusIcons } from '../../components/PlusIcons/PlusIcons';
+import { Scrollama, Step } from 'react-scrollama';
 
 export const MainLayout = () => {
+  const [currentStepIndex, setCurrentStepIndex] = useState(null);
+  const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
 
   const handleScroll = (event) => {
@@ -18,30 +21,46 @@ export const MainLayout = () => {
     setLine3Position(newPosition);
   };
 
+  const pages = ['about', 'artists', 'services', 'music'];
+
+  const onStepEnter = ({ data }) => {
+    setCurrentStepIndex(data);
+    setActivePage(pages[data]);
+  };
+
   return (
     <main className={styles.container}>
-      <TopMenu />
+      <TopMenu activePage={activePage} />
       
       <section className={styles.content} onScroll={handleScroll}>
-        <SideMenu />
-
+        <SideMenu activePage={activePage} />
 
         <div className={styles.content_container}>
-          <div className={styles.page}>
-            <AboutPage />
-          </div>
+          <Scrollama offset={0.5} onStepEnter={onStepEnter}>
+            <Step data={0}>
+              <div className={styles.page}>
+                <AboutPage />
+              </div>
+            </Step>
 
-          <div className={styles.page}>
-            <ArtistsPage/>
-          </div>
+            <Step data={1}>
+              <div className={styles.page}>
+                <ArtistsPage/>
+              </div>
+            </Step>
 
-          <div className={styles.page}>
-            <ServicesPage/>
-          </div>
+            <Step data={2}>
+              <div className={styles.page}>
+                <ServicesPage/>
+              </div>
+            </Step>
 
-          <div className={styles.page}>
-            <MusicPage/>
-          </div>
+            <Step data={3}>
+              <div className={styles.page}>
+                <MusicPage/>
+              </div>
+            </Step>
+          </Scrollama>
         </div>
 
         <div className={styles.line1}></div>
@@ -49,8 +68,8 @@ export const MainLayout = () => {
         <div className={styles.line3} style={{ top: `${line3Position + 90}px` }}></div>
 
         <PlusIcons />
-
       </section>
+
       <Background />
     </main>
   );
