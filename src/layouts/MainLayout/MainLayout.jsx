@@ -6,7 +6,7 @@ import { AboutPage } from '../../pages/AboutPage';
 import { ArtistsPage } from '../../pages/ArtistsPage';
 import { ServicesPage } from '../../pages/ServicesPage';
 import { MusicPage } from '../../pages/MusicPage';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PlusIcons } from '../../components/PlusIcons/PlusIcons';
 import { Scrollama, Step } from 'react-scrollama';
 
@@ -15,8 +15,26 @@ export const MainLayout = () => {
   const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const isMobile = windowWidth <= 640;
+
+  let divider = isMobile ? 37 : 24;
+
   const handleScroll = (event) => {
-    const scrollHeight = (event.target.scrollTop - (event.target.scrollTop * 10) / 24) || event.target.scrollTop;
+    const scrollHeight = (event.target.scrollTop - (event.target.scrollTop * 10) / divider) || event.target.scrollTop;
     const newPosition = (scrollHeight / (event.target.scrollHeight - event.target.clientHeight)) * event.target.clientHeight;
     setLine3Position(newPosition);
   };

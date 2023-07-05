@@ -6,21 +6,11 @@
   @extend %container;
   min-height: 100vh;
 
-  animation: bg 1s forwards;
+  background: $salt;
   
   @include bp-tablet {
     height: max-content;
     // margin-bottom: 10px;
-  }
-}
-
-@keyframes bg {
-  0% {
-    background: rgba($color: $salt, $alpha: 0);
-  }
-
-  100% {
-    background: rgba($color: $salt, $alpha: 1);
   }
 }
 

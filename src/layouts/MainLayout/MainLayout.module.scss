@@ -8,6 +8,7 @@
   height: 100vh;
   display: flex;
   overflow: hidden;
+  transform:translateZ(0)
 }
   
 .content {
@@ -94,7 +95,7 @@
   z-index: 0;
 
   @include bp-mobile {
-    top: 40vh;
+    top: 39vh;
     height: 120vh;
     right: 3%;
   }

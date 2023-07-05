@@ -1,5 +1,5 @@
 import bgText from '../../../assets/images/bg_illustration.webp';
-import bg from '../../../assets/lottie/bg.gif';
+import bg from '../../../assets/lottie/bglow4.gif';
 import styles from "./Background.module.scss";
 
 export const Background = () => {
