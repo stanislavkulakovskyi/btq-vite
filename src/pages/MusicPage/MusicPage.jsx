@@ -14,6 +14,7 @@ export const MusicPage = () => {
             src={playerAnimation}
             alt="player animation"
             className={styles.animation}
+            // loading="lazy"
           />
           <a
             className={styles.spotify}
@@ -28,6 +29,7 @@ export const MusicPage = () => {
           className={styles.player}
           width="100%"
           frameBorder="no"
+          loading="lazy"
           title="soundcloud player"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1461259138&color=%23f0612c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false"
