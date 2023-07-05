@@ -6,7 +6,7 @@
   @extend %container;
   min-height: 100vh;
 
-  background: $salt;
+  // background: $salt;
   
   @include bp-tablet {
     height: max-content;

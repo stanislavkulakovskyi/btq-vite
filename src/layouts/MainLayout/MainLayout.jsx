@@ -46,6 +46,8 @@ export const MainLayout = () => {
     setActivePage(pages[data]);
   };
 
+  const isBgWhite = currentStepIndex === 1 || currentStepIndex === 2;
+
   return (
     <main className={styles.container}>
       <TopMenu activePage={activePage} />
@@ -62,13 +64,13 @@ export const MainLayout = () => {
             </Step>
 
             <Step data={1}>
-              <div className={styles.page}>
+              <div className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }} >
                 <ArtistsPage/>
               </div>
             </Step>
 
             <Step data={2}>
-              <div className={styles.page}>
+              <div className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }}>
                 <ServicesPage/>
               </div>
             </Step>

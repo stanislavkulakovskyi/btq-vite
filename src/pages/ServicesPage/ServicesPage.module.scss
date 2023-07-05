@@ -5,7 +5,7 @@
 .container {
   @extend %container;
   
-  background: $salt;
+  // background: $salt;
 
   @include bp-tablet {
     min-height: min-content;
