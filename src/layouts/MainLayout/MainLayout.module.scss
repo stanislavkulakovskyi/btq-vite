@@ -47,6 +47,12 @@
   width: 100%;
   height: max-content;
 
+  @include bp-tablet {
+    &:first-child {
+      margin-top: -103px;
+    }
+  }
+
   @include bp-mobile-small {
     &:first-child {
       margin-top: -80px;
@@ -90,7 +96,7 @@
   @include bp-mobile {
     top: 40vh;
     height: 120vh;
-    right: 4%;
+    right: 3%;
   }
 }
 
@@ -104,7 +110,7 @@
   z-index: 0;
 
   @include bp-mobile {
-    right: 4%;
+    right: 3%;
   }
 }
 

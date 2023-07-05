@@ -1,5 +1,6 @@
 import styles from './MusicPage.module.scss';
 import playerAnimation from '../../assets/images/Player vidget.gif';
+import arrow from '../../assets/icons/arrow-lava.svg';
 import spotifyIcon from '../../assets/icons/spotify.svg';
 
 export const MusicPage = () => {
@@ -66,7 +67,7 @@ export const MusicPage = () => {
           </a>
         </div>
 
-        <div>Designed by Kovdra <a></a></div>
+        <div className={styles.kovdra}>Designed by Kovdra<a rel='noreferrer' target='_blank' href='https://kovdra-bureau.com/'><img src={arrow} alt="arrow" /></a></div>
       </div>
 
       <div className={styles.line}></div>
