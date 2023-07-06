@@ -19,6 +19,7 @@
   @include bp-desktop {
     padding-left: 300px;
     scroll-snap-type: y mandatory;
+    transform: translate3d(0, 0, 0);
   }
 
   @include bp-tablet {
