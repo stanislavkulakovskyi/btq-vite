@@ -69,7 +69,14 @@ export const MusicPage = () => {
           </a>
         </div>
 
-        <div className={styles.kovdra}>Designed by Kovdra<a rel='noreferrer' target='_blank' href='https://kovdra-bureau.com/'><img src={arrow} alt="arrow" /></a></div>
+        <div className={styles.kovdra}>
+          <div>Designed by 
+            <a rel='noreferrer' target='_blank' href="https://kovdra-bureau.com/">Kovdra</a>
+          </div>
+            <a rel='noreferrer' target='_blank' href='https://kovdra-bureau.com/'>
+              <img src={arrow} alt="arrow" />
+            </a>
+          </div>
       </div>
 
       <div className={styles.line}></div>
