@@ -3,6 +3,7 @@ import bg from '../../../assets/lottie/bglow4.gif';
 import styles from "./Background.module.scss";
 
 export const Background = () => {
+
   return (
     <div className={styles.container}>
       <img src={bg} alt="background" className={styles.animation} />
