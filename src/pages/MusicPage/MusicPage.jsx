@@ -71,7 +71,7 @@ export const MusicPage = () => {
 
         <div className={styles.kovdra}>
           <div>Designed by 
-            <a rel='noreferrer' target='_blank' href="https://kovdra-bureau.com/">Kovdra</a>
+            <a rel='noreferrer' target='_blank' href="https://kovdra-bureau.com/"> Kovdra</a>
           </div>
             <a rel='noreferrer' target='_blank' href='https://kovdra-bureau.com/'>
               <img src={arrow} alt="arrow" />
