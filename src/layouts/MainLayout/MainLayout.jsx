@@ -84,9 +84,9 @@ export const MainLayout = () => {
           </Scrollama>
         </div>
 
-        <div className={styles.line1}></div>
+        {/* <div className={styles.line1}></div>
         <div className={styles.line2}></div>
-        <div className={styles.line3} style={{ top: `${line3Position + lineTopMargin}px` }}></div>
+        <div className={styles.line3} style={{ top: `${line3Position + lineTopMargin}px` }}></div> */}
 
         <PlusIcons />
       </section>
