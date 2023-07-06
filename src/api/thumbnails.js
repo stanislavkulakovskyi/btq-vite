@@ -14,6 +14,7 @@ import thumb13 from '../assets/images/vid_thumbnails/13.webp';
 import thumb14 from '../assets/images/vid_thumbnails/14.webp';
 import thumb15 from '../assets/images/vid_thumbnails/15.webp';
 import thumb16 from '../assets/images/vid_thumbnails/16.webp';
+import thumb17 from '../assets/images/vid_thumbnails/17.webp';
 
 const thumbs = [
   {id: 1, image: thumb1, videoUrl: 'https://www.youtube.com/embed/6b1CfRII7wA?autoplay=1', roles: 'music + sfx', name: 'aerotim'},
@@ -46,7 +47,9 @@ const thumbs = [
 
   {id: 15, image: thumb15, videoUrl: 'https://www.youtube.com/embed/B66TABG7GQg?autoplay=1', roles: 'music + sfx', name: 'poltrona'},
 
-  {id: 16, image: thumb16, videoUrl: 'https://www.youtube.com/embed/oywZzXorGHs?autoplay=1', roles: 'sfx', name: 'have-a-rest'}
+  {id: 16, image: thumb16, videoUrl: 'https://www.youtube.com/embed/oywZzXorGHs?autoplay=1', roles: 'sfx', name: 'have-a-rest'},
+
+  {id: 17, image: thumb17, videoUrl: 'https://www.youtube.com/embed/ur10zDq356Y?autoplay=1', roles: 'sfx', name: 'røde'}
 ];
 
 export default thumbs;

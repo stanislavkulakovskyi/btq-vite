@@ -14,7 +14,6 @@ export const MusicPage = () => {
             src={playerAnimation}
             alt="player animation"
             className={styles.animation}
-            // loading="lazy"
           />
           <a
             className={styles.spotify}
