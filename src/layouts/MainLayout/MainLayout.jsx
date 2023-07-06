@@ -31,7 +31,8 @@ export const MainLayout = () => {
 
   const isMobile = windowWidth <= 640;
 
-  let divider = isMobile ? 37 : 24;
+  const divider = isMobile ? 37 : 24;
+  const lineTopMargin = isMobile ? 80 : 100;
 
   const handleScroll = (event) => {
     const scrollHeight = (event.target.scrollTop - (event.target.scrollTop * 10) / divider) || event.target.scrollTop;
@@ -85,7 +86,7 @@ export const MainLayout = () => {
 
         <div className={styles.line1}></div>
         <div className={styles.line2}></div>
-        <div className={styles.line3} style={{ top: `${line3Position + 90}px` }}></div>
+        <div className={styles.line3} style={{ top: `${line3Position + lineTopMargin}px` }}></div>
 
         <PlusIcons />
       </section>
