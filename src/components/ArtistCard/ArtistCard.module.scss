@@ -3,11 +3,8 @@
 @import '@styles/extends.scss';
 
 .card {
-  min-height: 300px;
-  min-width: 300px;
-  max-width: 300px;
-  max-height: 300px;
-  width: 100%;
+  width: min(300px);
+  height: min(300px);
   border-radius: 10px;
 
   position: relative;
@@ -78,11 +75,9 @@
     }
   }
 
-  @include bp-mobile {
-    min-height: 200px;
-    min-width: 200px;
-    max-width: 300px;
-    max-height: 300px;
+  @include bp-mobile-small {
+    width: min(280px);
+    height: min(280px);
   }
 }
 

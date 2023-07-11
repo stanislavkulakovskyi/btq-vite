@@ -5,14 +5,20 @@ import ayokidPhoto from '../assets/images/artists/ayokid.webp';
 import palmoxPhoto from '../assets/images/artists/palmox.webp';
 import pashaOpenPhoto from '../assets/images/artists/pashaopen.webp';
 
-const artists = [
+import spotifyIcon from '../assets/icons/spotify.svg';
+import soundcloudIcon from '../assets/icons/soundcloud.svg';
+import instagramIcon from '../assets/icons/instagram.svg';
+
+export const artists = [
   {
     name: 'Cutmylips',
     photo: cmlPhoto,
     linktree: 'https://linktr.ee/cutmylips',
-    spotify: 'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2?si=STeEIuxCSfyxFzi-U2DKTw',
-    soundcloud: 'https://soundcloud.com/cutmylips',
-    instagram: 'https://www.instagram.com/cutmylips',
+    links: [
+      'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2?si=STeEIuxCSfyxFzi-U2DKTw',
+      'https://soundcloud.com/cutmylips',
+      'https://www.instagram.com/cutmylips'
+    ],
     id: '1',
   },
 
@@ -20,9 +26,11 @@ const artists = [
     name: 'Inodi',
     photo: inodiPhto,
     linktree: 'https://linktr.ee/inodi',
-    spotify: 'https://open.spotify.com/artist/25WiVmd08PUQwOmXt4XnmU?si=UPDlwbzlRQiRhMtNhBA46A',
-    soundcloud: 'https://soundcloud.com/xinodix',
-    instagram: 'https://www.instagram.com/inodimusic',
+    links: [
+      'https://open.spotify.com/artist/25WiVmd08PUQwOmXt4XnmU?si=UPDlwbzlRQiRhMtNhBA46A',
+      'https://soundcloud.com/xinodix',
+      'https://www.instagram.com/inodimusic'
+    ],
     id: '2',
   },
 
@@ -30,9 +38,11 @@ const artists = [
     name: 'C01d357',
     photo: coldestPhoto,
     linktree: 'https://linktr.ee/c01d357',
-    spotify: 'https://open.spotify.com/artist/1Re0dte8PsS5430AjSI8q5?si=IzqU5GaYTsOSUvjQsH75Lg',
-    soundcloud: 'https://soundcloud.com/ogdmytro',
-    instagram: 'https://www.instagram.com/c01d357',
+    links: [
+      'https://open.spotify.com/artist/1Re0dte8PsS5430AjSI8q5?si=IzqU5GaYTsOSUvjQsH75Lg',
+      'https://soundcloud.com/c01d357',
+      'https://www.instagram.com/c01d357'
+    ],
     id: '3',
   },
 
@@ -40,9 +50,11 @@ const artists = [
     name: 'Ayokid',
     photo: ayokidPhoto,
     linktree: 'https://linktr.ee/ayokiddo',
-    spotify: 'https://open.spotify.com/artist/12oLh8BYfEdKFw4Cmr5seC?si=_M6zBJEFTTGEksBeCiL_Lw',
-    soundcloud: 'https://soundcloud.com/ay0kid',
-    instagram: 'https://www.instagram.com/ayokid.jpg',
+    links: [
+      'https://open.spotify.com/artist/12oLh8BYfEdKFw4Cmr5seC?si=_M6zBJEFTTGEksBeCiL_Lw',
+      'https://soundcloud.com/ay0kid',
+      'https://www.instagram.com/ayokid.jpg',
+    ],
     id: '4',
   },
 
@@ -50,9 +62,11 @@ const artists = [
     name: 'Palmo X',
     photo: palmoxPhoto,
     linktree: 'https://linktr.ee/palmo_x',
-    spotify: 'https://open.spotify.com/artist/7ac9So1N7nkbiYRL45leTO',
-    soundcloud: 'https://soundcloud.com/palmo_x',
-    instagram: 'https://www.instagram.com/palmo_x',
+    links: [
+      'https://open.spotify.com/artist/7ac9So1N7nkbiYRL45leTO',
+      'https://soundcloud.com/palmo_x',
+      'https://www.instagram.com/palmo_x',
+    ],
     id: '5',
   },
 
@@ -60,9 +74,13 @@ const artists = [
     name: 'Pasha Open',
     photo: pashaOpenPhoto,
     linktree: 'https://www.instagram.com/ghtt_wsted/',
-    instagram: 'https://www.instagram.com/pashaopen',
+    links: [
+      'https://www.instagram.com/pashaopen',
+    ],
     id: '6',
   },
 ]
 
-export default artists;
+export const icons =[
+  spotifyIcon, soundcloudIcon, instagramIcon
+]

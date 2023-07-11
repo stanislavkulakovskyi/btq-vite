@@ -6,14 +6,12 @@
   @extend %container;
   justify-content: start;
   width: 100%;
-  // height: calc(100vh - 103px);
   
   @include bp-tablet {
     justify-content: center;
   }
 
   @include bp-mobile-small {
-    // margin-bottom: 60px;
     padding-bottom: 100px;
   }
 }
@@ -31,11 +29,9 @@
   object-fit: contain;
   background: #191919;
   z-index: 1;
-  
   border-radius: 5px;
 
   @include bp-tablet {
-    // width: 150%;
     align-self: center;
   }
 }
@@ -102,15 +98,11 @@
 }
 
 .line {
-  // @extend %line;
   width: 2px;
   height: 700px;
   background: #000;
   position: absolute;
-  
   margin-left: -60px;
-
-
   z-index: 1000;
 
   @include bp-tablet {

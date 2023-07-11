@@ -1,8 +1,8 @@
-import styles from './ArtistsPage.module.scss';
 import { ArtistCard } from '../../components/ArtistCard';
+import styles from './ArtistsPage.module.scss';
 import bgText from '../../assets/images/bg_illustration.webp';
 
-import artists from '../../api/artists';
+import { artists } from '../../api/artists';
 
 export const ArtistsPage = () => {
   return (
@@ -16,10 +16,8 @@ export const ArtistsPage = () => {
                 <ArtistCard
                   name={artist.name}
                   photo={artist.photo}
-                  link={artist.linktree}
-                  spotify={artist.spotify}
-                  soundcloud={artist.soundcloud}
-                  instagram={artist.instagram}
+                  linktree={artist.linktree}
+                  links={artist.links}
                   key={artist.id}
                 />
               );

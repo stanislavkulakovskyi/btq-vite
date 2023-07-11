@@ -17,11 +17,7 @@
   justify-self: center;
   max-width: 100vw;
   position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  // max-height: 400px;
+  @extend %flexCenter;
 
   @include bp-mobile {
     clip-path: none;
@@ -34,10 +30,8 @@
 }
 
 .swiper {
+  @extend %flexCenter;
   background: #000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   max-height: 600px;
 
   @include bp-custom-down(1480px) {
@@ -61,9 +55,7 @@
   width: 8%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @extend %flexCenter;
   color: #fff;
   cursor: pointer;
   z-index: 5;
@@ -116,8 +108,7 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   @extend %flexCenter;
-  width: 100px;
-  height: 100px;
+  @include square(100px);
   background-color: rgba(0, 0, 0, 0.6);
   border: none;
   border-radius: 50%;
@@ -131,39 +122,6 @@
 }
 
 .playButton img {
-  width: 36px;
-  height: 36px;
+  @include square(36px);
   transform: translateX(10%);
-}
-
-.blur {
-  width: 100%;
-  height: 100%;
-  background: #ff4a4a00;
-  backdrop-filter: blur(30px);
-  // z-index: 20;
-  position: absolute;
-}
-
-.roles {
-  position: absolute;
-  color: $salt;
-  @include font-orditron-400;
-  font-size: 1.6rem;
-  left: 50%;
-  top: 71%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-
-  background: #00000055;
-  padding: 10px;
-
-  z-index: 50;
-
-  animation: opacity 1s;
-
-  @include bp-mobile {
-    font-size: 1.3rem;
-    top: 85%;
-  }
 }

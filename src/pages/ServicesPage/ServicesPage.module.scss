@@ -4,8 +4,6 @@
 
 .container {
   @extend %container;
-  
-  // background: $salt;
 
   @include bp-tablet {
     min-height: min-content;
@@ -20,13 +18,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-
   z-index: 1;
-
   margin: 0 -60px;
   
   @include bp-tablet {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -42,7 +37,6 @@
   display: flex;
   max-width: 100%;
   flex-direction: column;
-  
   position: relative;
 
   @include bp-desktop {
@@ -107,10 +101,8 @@
   padding: 40px 20px;
   border-radius: 10px;
   z-index: 5;
-  display: flex;
   transition: all 0.3s;
-  justify-content: center;
-  align-items: center;
+  @extend %flexCenter;
   height: max-content;
   
   box-shadow: $shadow;
@@ -171,7 +163,6 @@
 
   @include bp-mobile {
     background-color: $carbon;
-    
     color: $salt;
     margin-top: 10px;
     z-index: 8;
@@ -188,9 +179,7 @@
   background-color: $salt;
   padding: 20px;
   border-radius: 4px;
-  // border: 1px solid $fog;
   box-shadow: $shadow;
-
   overflow: hidden;
 
   &::before {

@@ -5,6 +5,7 @@ export const AboutPage = () => {
     <div className={styles.container} id="about">
       <div className={styles.content}>
         <h2 className={styles.title}>belletriq</h2>
+        
         <p className={styles.description}>
           We are the Ukrainian creative community which unites likeminded people
           and promotes cultural development in it’s own way. Mostly focused on

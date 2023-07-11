@@ -22,10 +22,7 @@
     &:hover {
       .navContainer,
       .nav {
-        // min-height: 0;
-        // max-height: 100%;
         height: 380px;
-        
       }
 
       .nav {
@@ -35,7 +32,6 @@
       }
 
       .link {
-        // transform: scale(1);
         opacity: 1;
       }
     }
@@ -65,14 +61,12 @@
   height: 0;
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
-  // transition: all 1s;
 }
 
 .nav {
   width: 100%;
   height: 0;
   overflow: hidden;
-  // transition: all 0.3s;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,7 +100,6 @@
   @include font-orditron-400;
   color: $carbon;
   transition: all 0.3s;
-  // transform: scale(0);
   opacity: 0;
   transform-origin: left;
 
