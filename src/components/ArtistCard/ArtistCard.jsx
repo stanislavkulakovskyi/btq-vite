@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from './ArtistCard.module.scss';
 import { icons } from '../../api/artists';
 
@@ -20,17 +21,16 @@ export const ArtistCard = ({ name, photo, linktree, links }) => {
       
       <div className={styles.links_container}>
         <div className={styles.link_icons}>
-          {links.map((link, i) => {
+          {Object.keys(links).map(link => {
             return (
-              <a key={i} href={link} target="_blank" rel="noreferrer">
+              <a key={link} href={links[link]} target="_blank" rel="noreferrer">
                 <img
                   className={styles.link_icon}
-                  src={icons[i]}
+                  src={icons[link]}
                   alt="link"
                 />
               </a>
-            )
-          })}
+            )})}
         </div>
       </div>
     </div>

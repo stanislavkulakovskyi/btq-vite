@@ -7,11 +7,11 @@ import { artists } from '../../api/artists';
 export const ArtistsPage = () => {
   return (
     <>
-      <div className={styles.container} id="artists">
+      <section className={styles.container} id="artists">
         <div className={styles.page}>
           <h2 className={styles.title}>BTQ ARTISTS</h2>
           <div className={styles.list}>
-            {artists.map((artist) => {
+            {artists.map(artist => {
               return (
                 <ArtistCard
                   name={artist.name}
@@ -26,7 +26,7 @@ export const ArtistsPage = () => {
         </div>
         
         <img src={bgText} alt="belletriq" className={styles.bgIllustration} />
-      </div>
+      </section>
     </>
   );
 };

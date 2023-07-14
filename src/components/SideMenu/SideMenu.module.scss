@@ -85,32 +85,32 @@
   left: 0;
   box-sizing: border-box;
 
-  &__top {
+  &Top {
     transform: rotate(180deg);
     top: 0;
   }
 
-  &__bottom {
+  &Bottom {
     bottom: 0;
   }
 }
 
 .link {
-  font-size: 18px;
   @include font-orditron-400;
+  font-size: 18px;
   color: $carbon;
   transition: all 0.3s;
   opacity: 0;
   transform-origin: left;
 
   &_active {
+    @include font-orditron-700;
     color: $salt;
     font-size: 18px;
-    @include font-orditron-700;
   }
 
   &:hover {
-    color: $salt;
     @include font-orditron-700;
+    color: $salt;
   }
 }

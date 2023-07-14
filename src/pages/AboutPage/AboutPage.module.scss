@@ -5,10 +5,6 @@
 .container {
   @extend %container;
 
-  scroll-behavior: smooth;
-  scroll-snap-type: y mandatory;
-  scroll-snap-align: top;
-
   @include bp-custom-up(640px) {
     padding-left: 140px;
     justify-content: flex-start;

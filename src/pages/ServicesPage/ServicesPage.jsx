@@ -44,7 +44,7 @@ export const ServicesPage = () => {
   const isMobile = windowWidth <= 640;
 
   return (
-    <div className={styles.container} id="services">
+    <section className={styles.container} id="services">
       <div className={styles.page}>
         <h2 className={styles.title}>SERVICES</h2>
 
@@ -91,6 +91,6 @@ export const ServicesPage = () => {
             <FormModal onClose={handleFormClose} />
         )}
       </div>      
-    </div>
+    </section>
   );
 };

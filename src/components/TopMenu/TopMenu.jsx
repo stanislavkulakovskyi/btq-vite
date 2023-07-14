@@ -5,6 +5,7 @@ import classNames from "classnames";
 import burger from "../../assets/icons/burger_corner.svg";
 
 import styles from "./TopMenu.module.scss";
+import links from "../../api/links";
 
 export const TopMenu = ({ activePage }) => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
@@ -52,27 +53,16 @@ export const TopMenu = ({ activePage }) => {
           </div>
 
           <nav className={styles.nav}>
-            <a
-              className={activeLink === 'about' ? styles.link_active : styles.link}
-              href="#about"
-              onClick={() => setActiveLink('about')}
-            >
-              about
-            </a>
-            <a
-              className={activeLink === 'artists' ? styles.link_active : styles.link}
-              href="#artists"
-              onClick={() => setActiveLink('artists')}
-            >
-              artists
-            </a>
-            <a
-              className={activeLink === 'services' ? styles.link_active : styles.link}
-              href="#services"
-              onClick={() => setActiveLink('services')}
-            >
-              services
-            </a>
+          {links.slice(0, -1).map(link => (
+                <a
+                  key={link.title}
+                  className={activeLink === link.title ? styles.link_active : styles.link}
+                  href={link.hash}
+                  onClick={() => setActiveLink(link.title)}
+                >
+                  {link.title}
+                </a>
+            ))}
             
           </nav>
 
@@ -85,15 +75,19 @@ export const TopMenu = ({ activePage }) => {
         </div>
 
         
-        <a
-          className={classNames(styles.link, styles.link_music, {
-            [styles.link_active]: activeLink === 'music',
-          })}
-          href="#music"
-          onClick={() => setActiveLink('music')}
-        >
-          music
-        </a>
+        {links.slice(-1).map(link => (
+          <a
+            key={link.title}
+            className={classNames(styles.link, styles.link_music, {
+              [styles.link_active]: activeLink === link.title,
+           })}
+            href={link.hash}
+            onClick={() => setActiveLink(link.title)}
+          >
+            {link.title}
+          </a>
+        ))}
+        
       </div>
     </div>
   );

@@ -2,9 +2,9 @@ import styles from './AboutPage.module.scss';
 
 export const AboutPage = () => {
   return (
-    <div className={styles.container} id="about">
+    <section className={styles.container} id="about">
       <div className={styles.content}>
-        <h2 className={styles.title}>belletriq</h2>
+        <h1 className={styles.title}>belletriq</h1>
         
         <p className={styles.description}>
           We are the Ukrainian creative community which unites likeminded people
@@ -14,6 +14,6 @@ export const AboutPage = () => {
       </div>
       
       <div className={styles.line}></div>
-    </div>
+    </section>
   );
 };

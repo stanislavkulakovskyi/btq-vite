@@ -195,23 +195,23 @@
 }
 
 .error_input {
-  transition: all 0.3s;
-  border: 1px solid rgb(255, 0, 64);
+  @extend %transition02;
+  border: 1px solid $error;
 }
 
 .error_label {
-  transition: all 0.3s;
-  color: rgb(255, 0, 64);
+  @extend %transition02;
+  color: $error;
 }
 
 .success_message {
+  @extend %flexCenter;
+  @include font-orditron-500;
   border-radius: 5px;
   border: 1px solid $topaz;
-  @extend %flexCenter;
   text-align: center;
   animation: swipe 0.3s forwards;
   font-size: 1.4rem;
-  @include font-orditron-500;
   padding: 25px;
   width: 400px;
   position: absolute;
