@@ -49,9 +49,10 @@
   position: relative;
   z-index: 1;
   border-radius: 5px;
+  transform: translateY(-5px);
 
   @include bp-custom-down(1480px) {
-    height: 50%;
+    height: 52%;
   }
 
   @include bp-tablet {
@@ -112,7 +113,7 @@
 
 .kovdra {
   @include font-orditron-400;
-  margin: 20px 0;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

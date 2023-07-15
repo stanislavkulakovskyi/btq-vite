@@ -15,16 +15,24 @@ export const MusicPage = () => {
             alt="player animation"
             className={styles.animation}
           />
-          <a
+          {/* <a
             className={styles.spotify}
             href="https://open.spotify.com/playlist/2HpG3oafC84QrGQ01O47Aq?si=27bcce1af720482d"
             target="_blank"
             rel="noreferrer"
           >
             <img src={spotifyIcon} alt="spotify" />
-          </a>
+          </a> */}
         </div>
         <iframe
+          className={styles.player}
+          style={{border: 'none', background: 'ffffff'}}
+          src="https://open.spotify.com/embed/playlist/2HpG3oafC84QrGQ01O47Aq?utm_source=generator&theme=0" width="100%" 
+          // height="100%"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy"
+        ></iframe>
+        {/* <iframe
           className={styles.player}
           width="100%"
           frameBorder="no"
@@ -66,7 +74,7 @@ export const MusicPage = () => {
           >
             belletriq releases
           </a>
-        </div>
+        </div> */}
 
         <div className={styles.kovdra}>
           <div>Designed by 

@@ -71,7 +71,7 @@ export const ServicesPage = () => {
             </svg>
           </div>
 
-          <div className={styles.description_box}>
+          <article className={styles.description_box}>
             <p className={styles.description}>
               Belletriq creates and delivers high quality audio solutions such as music production, mixing, mastering, scoring, SFX and also we provide licensing &
               sync services.
@@ -80,7 +80,7 @@ export const ServicesPage = () => {
             <button className={styles.link} onClick={handleFormOpen}>
               <div className={styles.svg_icon}></div>
             </button>
-          </div>
+          </article>
         </div>
 
         {isModalOpen && (       

@@ -14,7 +14,6 @@ export const MainLayout = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
   const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
-
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -29,6 +28,7 @@ export const MainLayout = () => {
     };
   }, []);
 
+  const isTablet = windowWidth <= 1366;
   const isMobile = windowWidth <= 640;
 
   const divider = isMobile ? 37 : 24;
@@ -51,35 +51,35 @@ export const MainLayout = () => {
 
   return (
     <main className={styles.container}>
-      <TopMenu activePage={activePage} />
+      {isTablet && <TopMenu activePage={activePage} />}
       
       <section className={styles.content} onScroll={handleScroll}>
-        <SideMenu activePage={activePage} />
+        {!isTablet && <SideMenu activePage={activePage} />}
 
         <div className={styles.content_container}>
           <Scrollama offset={0.5} onStepEnter={onStepEnter}>
             <Step data={0}>
-              <div className={styles.page}>
+              <main className={styles.page}>
                 <AboutPage />
-              </div>
+              </main>
             </Step>
 
             <Step data={1}>
-              <div className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }} >
+              <main className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }} >
                 <ArtistsPage/>
-              </div>
+              </main>
             </Step>
 
             <Step data={2}>
-              <div className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }}>
+              <main className={styles.page} style={{ background: isBgWhite ? '#f5f1f0' : '#ffffff00' }}>
                 <ServicesPage/>
-              </div>
+              </main>
             </Step>
 
             <Step data={3}>
-              <div className={styles.page}>
+              <main className={styles.page}>
                 <MusicPage/>
-              </div>
+              </main>
             </Step>
           </Scrollama>
         </div>

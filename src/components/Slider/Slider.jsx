@@ -30,7 +30,7 @@ export const Slider = ({ openModal }) => {
     };
   }, [handleResize]);
 
-  const isTablet = useMemo(() => windowWidth <= 1366, [windowWidth]);
+  const isTablet = windowWidth <= 1366;
 
   useEffect(() => {
     const swiper = swiperRef.current.swiper;

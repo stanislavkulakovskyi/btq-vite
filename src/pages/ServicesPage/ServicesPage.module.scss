@@ -6,7 +6,7 @@
   @extend %container;
 
   @include bp-tablet {
-    min-height: min-content;
+    // min-height: min-content;
   }
 
   @include bp-mobile {
@@ -40,7 +40,7 @@
   position: relative;
 
   @include bp-desktop {
-    height: 82%;
+    height: 100%;
   }
 
   @include bp-tablet {
@@ -49,6 +49,10 @@
 
   @include bp-mobile {
     align-items: normal;
+  }
+
+  @include bp-custom-up(1600px) {
+    height: 82%;
   }
 }
 
@@ -109,7 +113,7 @@
 
   @include bp-desktop {
     align-self: center;
-    padding: 50px 60px;
+    padding: 40px 50px;
     transform: translateY(-100px);
 
     &:hover {
@@ -125,6 +129,10 @@
 
   @include bp-mobile-small {
     transform: translateY(-300px);
+  }
+
+  @include bp-custom-up(1600px) {
+    padding: 50px 60px;
   }
 
   &:hover .svg_icon {
