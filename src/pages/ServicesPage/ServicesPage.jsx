@@ -77,7 +77,7 @@ export const ServicesPage = () => {
               sync services.
             </p>
 
-            <button className={styles.link} onClick={handleFormOpen}>
+            <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
               <div className={styles.svg_icon}></div>
             </button>
           </article>

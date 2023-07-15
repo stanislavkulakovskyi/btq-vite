@@ -15,7 +15,7 @@ export const ArtistCard = ({ name, photo, linktree, links }) => {
 
       <h3 className={styles.name}>{name}</h3>
 
-      <a className={styles.link} href={linktree} target="_blank" rel="noreferrer">
+      <a className={styles.link} href={linktree} target="_blank" rel="noreferrer" aria-label={`${name}'s linktree`}>
         <div className={styles.svg_icon}></div>
       </a>
       
@@ -23,7 +23,7 @@ export const ArtistCard = ({ name, photo, linktree, links }) => {
         <div className={styles.link_icons}>
           {Object.keys(links).map(link => {
             return (
-              <a key={link} href={links[link]} target="_blank" rel="noreferrer">
+              <a key={link} href={links[link]} target="_blank" rel="noreferrer" aria-label={`${name}'s ${link}`}>
                 <img
                   className={styles.link_icon}
                   src={icons[link]}

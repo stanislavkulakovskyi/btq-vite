@@ -15,72 +15,31 @@ export const MusicPage = () => {
             alt="player animation"
             className={styles.animation}
           />
-          {/* <a
-            className={styles.spotify}
-            href="https://open.spotify.com/playlist/2HpG3oafC84QrGQ01O47Aq?si=27bcce1af720482d"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img src={spotifyIcon} alt="spotify" />
-          </a> */}
         </div>
         <iframe
           className={styles.player}
           style={{border: 'none', background: 'ffffff'}}
           src="https://open.spotify.com/embed/playlist/2HpG3oafC84QrGQ01O47Aq?utm_source=generator&theme=0" width="100%" 
-          // height="100%"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
           loading="lazy"
+          title="spotify player"
         ></iframe>
-        {/* <iframe
-          className={styles.player}
-          width="100%"
-          frameBorder="no"
-          loading="lazy"
-          title="soundcloud player"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1461259138&color=%23f0612c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false"
-        ></iframe>
-        <div
-          style={{
-            fontSize: '12px',
-            color: '#cccccc',
-            lineBreak: 'anywhere',
-            wordBreak: 'normal',
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-            textOverflow: 'ellipsis',
-            fontFamily:
-              'Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif',
-            fontWeight: 700,
-          }}
-        >
-          <a
-            href="https://soundcloud.com/belletriq"
-            title="belletriq"
-            target="_blank"
-            style={{ color: '#16171a', textDecoration: 'none' }}
-            rel="noreferrer"
-          >
-            belletriq
-          </a>{' '}
-          ·{' '}
-          <a
-            href="https://soundcloud.com/belletriq/sets/belletriq-releases"
-            title="belletriq releases"
-            target="_blank"
-            style={{ color: '#16171a', textDecoration: 'none' }}
-            rel="noreferrer"
-          >
-            belletriq releases
-          </a>
-        </div> */}
 
         <div className={styles.kovdra}>
           <div>Designed by 
-            <a rel='noreferrer' target='_blank' href="https://kovdra-bureau.com/"> Kovdra</a>
+            <a 
+              rel='noreferrer' 
+              target='_blank' 
+              href="https://kovdra-bureau.com/" 
+              aria-label='Kovdra website'
+            > Kovdra</a>
           </div>
-            <a rel='noreferrer' target='_blank' href='https://kovdra-bureau.com/'>
+            <a 
+              rel='noreferrer' 
+              target='_blank' 
+              href='https://kovdra-bureau.com/' 
+              aria-label='Kovdra website'
+            >
               <img src={arrow} alt="arrow" />
             </a>
           </div>
