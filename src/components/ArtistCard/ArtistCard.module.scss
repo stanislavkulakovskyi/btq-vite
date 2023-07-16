@@ -119,7 +119,7 @@
   @extend %transition03;
 
   &:hover {
-    transform: scale(1.1)
+    filter: brightness(2);
   }
 }
 

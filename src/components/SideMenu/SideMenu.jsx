@@ -1,15 +1,27 @@
 import classNames from 'classnames';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 import burger from '../../assets/icons/burger_corner.svg';
 import styles from './SideMenu.module.scss';
 import links from '../../api/links';
+import { FormModal } from '../FormModal';
+import { icons } from '../../api/artists';
 
 // eslint-disable-next-line react/prop-types
-export const SideMenu = ({ activePage }) => {
+export const SideMenu = ({ activePage}) => {
   const [activeLink, setActiveLink] = useState('about');
+  const [isFormOpened, setIsFormOpened] = useState(false);
+  
+  const handleFormOpen = () => {
+    setIsFormOpened(true);
+  };
 
-  useEffect(() => {
+  const handleFormClose = () => {
+    setIsFormOpened(false);
+  }
+  
+
+  useLayoutEffect(() => {
     setActiveLink(activePage);
   }, [activePage])
 
@@ -39,8 +51,12 @@ export const SideMenu = ({ activePage }) => {
             <img src={burger} alt="burger" />
           </div>
         </div>
-        <p className={styles.btqText}>btq music</p>
+        <button onClick={handleFormOpen} className={styles.btqText}>contact us</button>
+        
       </div>
+      {isFormOpened && (
+          <FormModal onClose={handleFormClose} />
+      )}
     </div>
   );
 };

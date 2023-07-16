@@ -6,6 +6,7 @@ import burger from "../../assets/icons/burger_corner.svg";
 
 import styles from "./TopMenu.module.scss";
 import links from "../../api/links";
+import { icons } from "../../api/artists";
 
 export const TopMenu = ({ activePage }) => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
@@ -52,19 +53,18 @@ export const TopMenu = ({ activePage }) => {
             <img src={burger} alt="burger" />
           </div>
 
-          <nav className={styles.nav}>
-          {links.slice(0, -1).map(link => (
-                <a
-                  key={link.title}
-                  className={activeLink === link.title ? styles.link_active : styles.link}
-                  href={link.hash}
-                  onClick={() => setActiveLink(link.title)}
-                >
-                  {link.title}
-                </a>
-            ))}
-            
-          </nav>
+            <nav className={styles.nav}>
+            {links.slice(0, -1).map(link => (
+                  <a
+                    key={link.title}
+                    className={activeLink === link.title ? styles.link_active : styles.link}
+                    href={link.hash}
+                    onClick={() => setActiveLink(link.title)}
+                  >
+                    {link.title}
+                  </a>
+              ))}
+            </nav>
 
           <div
             className={classNames(styles.burger, styles.burger__bottom)}
@@ -87,6 +87,8 @@ export const TopMenu = ({ activePage }) => {
             {link.title}
           </a>
         ))}
+
+        
         
       </div>
     </div>

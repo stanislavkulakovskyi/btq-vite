@@ -2,7 +2,7 @@ import styles from './ServicesPage.module.scss';
 import { Slider } from '../../components/Slider';
 import { VideoModal } from '../../components/VideoModal';
 import { FormModal } from '../../components/FormModal';
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 // import bgText from '../../assets/images/bg_illustration.webp';
 
 export const ServicesPage = () => {
@@ -19,7 +19,7 @@ export const ServicesPage = () => {
     setIsFormOpened(false);
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };

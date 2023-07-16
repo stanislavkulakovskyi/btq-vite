@@ -16,6 +16,10 @@
     justify-content: space-between;
     background: #8b8b8b00;
     z-index: 50;
+
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
   }
 
   @include bp-desktop {
@@ -43,8 +47,14 @@
 }
 
 .btqText {
+  text-align: start;
   @include font-fraunces-300;
   font-size: 22px;
+
+  &:hover {
+    @extend %transition02;
+    color: $salt;
+  }
 
   @include bp-tablet {
     display: none;

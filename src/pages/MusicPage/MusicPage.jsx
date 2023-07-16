@@ -18,9 +18,9 @@ export const MusicPage = () => {
         </div>
         <iframe
           className={styles.player}
-          style={{border: 'none', background: 'ffffff'}}
+          style={{border: 'none', borderRadius: '5px'}}
           src="https://open.spotify.com/embed/playlist/2HpG3oafC84QrGQ01O47Aq?utm_source=generator&theme=0" width="100%" 
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          allow="encrypted-media" 
           loading="lazy"
           title="spotify player"
         ></iframe>

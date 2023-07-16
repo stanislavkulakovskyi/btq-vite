@@ -25,7 +25,7 @@ export const ArtistsPage = () => {
           </div>
         </div>
         
-        <img src={bgText} alt="belletriq" className={styles.bgIllustration} />
+        {/* <img src={bgText} alt="belletriq" className={styles.bgIllustration} /> */}
       </section>
     </>
   );

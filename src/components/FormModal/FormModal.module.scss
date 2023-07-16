@@ -6,7 +6,7 @@
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 10;
   top: 0;
   left: 0;
 
@@ -20,7 +20,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  z-index: 11;
 
   @include bp-tablet {
     margin-top: 50px;
@@ -38,7 +38,7 @@
   flex-direction: column;
   padding: 60px 40px 40px 40px;
   border-radius: 10px;
-  z-index: 30;
+  z-index: 12;
   background-color: $carbon;
   color: $quarz;
   font-size: 20px;

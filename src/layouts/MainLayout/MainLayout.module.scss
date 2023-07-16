@@ -8,18 +8,20 @@
   height: 100vh;
   display: flex;
   overflow: hidden;
-  // transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
   
 .content {
   position: relative;
   z-index: 2;
   overflow-y: auto;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 
   @include bp-desktop {
     padding-left: 300px;
     scroll-snap-type: y mandatory;
-    // transform: translate3d(0, 0, 0);
   }
 
   @include bp-tablet {
@@ -42,12 +44,14 @@
   flex-direction: column;
   overflow: visible;
   scroll-behavior: smooth;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .page {
   width: 100%;
   height: max-content;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.6s ease-in-out;
 
   @include bp-tablet {
     &:first-child {
@@ -111,7 +115,7 @@
   width: 2px;
   background: $lava;
   position: fixed;
-  top: 0;
+  top: 20%;
   right: 5%;
   z-index: 0;
 
@@ -120,7 +124,39 @@
   }
 }
 
-.bgIllustration {
-  @extend %bgIllustration;
-  z-index: 1;
+.icons {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  right: 0;
+  color: $error;
+  background-color: $backdrop;
+  border-radius: 5px 0 0 5px;
+  padding: 10px 5px;
+  transform: translateY(-50%);
+  backdrop-filter: blur(10px);
+  z-index: 5;
+  transform-origin: right top;
+
+  @include bp-tablet {
+    padding: 5px 3px;
+  }
+
+  @include bp-mobile {
+    transform: scale(0.9);
+    padding: 5px 0 0 0;
+    display: none;
+  }
+
+  @include bp-mobile-small {
+  }
+}
+
+.link {
+  @extend %transition01;
+
+  &:hover {
+    filter: brightness(2);
+  }
 }

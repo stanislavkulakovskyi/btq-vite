@@ -42,7 +42,7 @@
 
 .player {
   color: $lava;
-  border: 1px solid #191919;
+  // border: 1px solid #191919;
   margin-top: -5px;
   background-color: #191919;
   height: 60%;
@@ -62,6 +62,10 @@
 
   @include bp-mobile {
     height: 60%;
+  }
+
+  @include bp-mobile-small {
+    height: 65%;
   }
 }
 

@@ -88,6 +88,7 @@
   align-items: flex-start;
   flex-direction: row;
   padding: 0 60px;
+  position: relative;
 
   @include bp-custom-down(600px) {
     flex-direction: column;
@@ -182,4 +183,11 @@
   &_music {
     z-index: 1;
   }
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  // position: absolute;
+  filter: brightness(0.4);
 }

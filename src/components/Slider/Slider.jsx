@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
-import { useRef, useEffect, useState, useCallback, useMemo } from 'react';
+import { useRef, useEffect, useState, useCallback, useMemo, useLayoutEffect } from 'react';
 import 'swiper/scss';
 
 import styles from './Slider.module.scss';
@@ -22,7 +22,7 @@ export const Slider = ({ openModal }) => {
     setWindowWidth(window.innerWidth);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     window.addEventListener('resize', handleResize);
 
     return () => {
