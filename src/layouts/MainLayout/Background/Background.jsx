@@ -16,7 +16,7 @@ export const Background = ({ activePage }) => {
     <>
       <div className={styles.container}>
         {/* <img src={bg} alt="background" className={styles.animation} /> */}
-        <video autoPlay loop muted poster={poster} className={styles.animation}>
+        <video autoPlay loop muted className={styles.animation}>
           <source src={isSmall ? bgVideo : isMedium ? bgVideo2k : bgVideo4k} type='video/mp4' />
         </video>
       </div>
