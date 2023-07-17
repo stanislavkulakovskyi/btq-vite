@@ -6,7 +6,6 @@ import styles from "./Background.module.scss";
 import bgVideo from '../../../assets/lottie/bgAnimation1080.mp4';
 import bgVideo4k from '../../../assets/lottie/bgAnimation4k.mp4';
 import bgVideo2k from '../../../assets/lottie/bgAnimation2k.mp4';
-import { useCallback } from 'react';
 
 export const Background = ({ activePage }) => {
   const isBgWhite = activePage === 'artists' || activePage === 'services';
@@ -17,8 +16,8 @@ export const Background = ({ activePage }) => {
     <>
       <div className={styles.container}>
         {/* <img src={bg} alt="background" className={styles.animation} /> */}
-        <video loading="lazy" autoPlay loop muted poster={poster} className={styles.animation}>
-            <source loading="lazy" src={isSmall ? bgVideo : isMedium ? bgVideo2k : bgVideo4k} type='video/mp4' />
+        <video autoPlay loop muted poster={poster} className={styles.animation}>
+          <source src={isSmall ? bgVideo : isMedium ? bgVideo2k : bgVideo4k} type='video/mp4' />
         </video>
       </div>
 
