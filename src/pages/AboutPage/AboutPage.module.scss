@@ -42,11 +42,12 @@
 
   @include bp-tablet {
     font-size: 9rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   @include bp-mobile {
     font-size: 6rem;
+    transform: translateY(-40px);
   }
 
   @include bp-mobile-small {
@@ -64,6 +65,7 @@
 
   @include bp-mobile {
     font-size: 18px;
+    transform: translateY(-40px);
   }
 }
 

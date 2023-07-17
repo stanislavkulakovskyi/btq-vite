@@ -47,10 +47,12 @@
     align-self: center;
     justify-self: center;
     margin: auto;
-    min-height: calc(100vh + 103px);
+    height: max-content;
+    // min-height: calc(100vh + 103px);
   }
 
   @include bp-mobile {
+    // min-height: none;
     height: calc(100% - 103px);
   }
 

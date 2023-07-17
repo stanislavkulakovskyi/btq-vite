@@ -8,13 +8,17 @@
   width: 100%;
   
   @include bp-tablet {
+    height: max-content;
     justify-content: center;
   }
 
-  @include bp-mobile-small {
-    // padding-bottom: 100px;
-    height: 150vh;
-  }
+  // @include bp-mobile {
+  //   height: 150vh;
+  // }
+
+  // @include bp-mobile-small {
+  //   height: 150vh;
+  // }
 }
 
 .content {
@@ -46,27 +50,27 @@
   // border: 1px solid #191919;
   margin-top: -5px;
   background-color: #191919;
-  height: 60%;
+  height: 700px;
   position: relative;
   z-index: 1;
   border-radius: 5px;
   transform: translateY(-5px);
 
   @include bp-custom-down(1480px) {
-    height: 52%;
+    // height: 52%;
   }
 
   @include bp-tablet {
     align-self: center;
-    height: 50%;
+    // height: 50%;
   }
 
   @include bp-mobile {
-    height: 60%;
+    // height: 60%;
   }
 
   @include bp-mobile-small {
-    height: 65%;
+    // height: 65%;
   }
 }
 
@@ -118,7 +122,7 @@
 
 .kovdra {
   @include font-orditron-400;
-  margin: 10px 0;
+  margin: 10px 0 60px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;

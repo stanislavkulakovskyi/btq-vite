@@ -6,7 +6,7 @@
   @extend %container;
 
   @include bp-tablet {
-    // min-height: min-content;
+    min-height: min-content;
   }
 
   @include bp-mobile {
