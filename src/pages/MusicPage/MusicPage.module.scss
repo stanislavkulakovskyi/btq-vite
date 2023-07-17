@@ -50,19 +50,19 @@
   // border: 1px solid #191919;
   margin-top: -5px;
   background-color: #191919;
-  height: 700px;
+  height: 600px;
   position: relative;
   z-index: 1;
   border-radius: 5px;
   transform: translateY(-5px);
 
   @include bp-custom-down(1480px) {
-    // height: 52%;
+    height: 500px;
   }
 
   @include bp-tablet {
     align-self: center;
-    // height: 50%;
+    height: 600px;
   }
 
   @include bp-mobile {

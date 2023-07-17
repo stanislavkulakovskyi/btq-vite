@@ -3,11 +3,12 @@
 @import '@styles/mixins.scss';
 
 .slide {
-  width: 100%;
+  width: 80%;
   height: 100%;
   object-fit: contain;
 
   @include bp-tablet {
+    width: 100%;
     object-fit: cover;
   }
 }
@@ -18,6 +19,7 @@
   max-width: 100vw;
   position: relative;
   @extend %flexCenter;
+  text-align: center;
 
   @include bp-mobile {
     clip-path: none;

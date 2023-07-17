@@ -158,6 +158,10 @@
   z-index: 9;
   width: max-content;
 
+  @include bp-mobile {
+    width: 100%;
+  }
+
   @include bp-mobile-small {
     font-size: 16px;
   }
@@ -166,6 +170,7 @@
     color: $salt;
     font-size: 18px;
     @include font-orditron-700;
+    width: max-content;
   }
 
   &:hover {
@@ -173,14 +178,9 @@
     @include font-orditron-700;
   }
 
-  &:not(.link_music) {
-
-    @include bp-mobile {
-      width: 100%;
-    }
-  }
 
   &_music {
+    width: max-content;
     z-index: 1;
   }
 }

@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import bgText from '../../../assets/images/bg_illustration.webp';
-// import bg from '../../../assets/lottie/bglow5.gif';
 import poster from '../../../assets/lottie/fallback.webp';
 import styles from "./Background.module.scss";
 import bgVideo from '../../../assets/lottie/bgAnimation1080.mp4';
@@ -15,13 +14,12 @@ export const Background = ({ activePage }) => {
   return (
     <>
       <div className={styles.container}>
-        {/* <img src={bg} alt="background" className={styles.animation} /> */}
         <video autoPlay loop muted playsInline poster={poster} className={styles.animation}>
           <source src={isSmall ? bgVideo : isMedium ? bgVideo2k : bgVideo4k} type='video/mp4' />
         </video>
       </div>
 
-      <div className={styles.backdrop} style={{ backgroundColor: isBgWhite ? '#f5f1f0' : 'transparent' }}></div>
+      <div className={styles.backdrop} style={{ backgroundColor: isBgWhite ? '#f5f1f0' : 'transparent',  }}></div>
 
       <img
         src={bgText}
