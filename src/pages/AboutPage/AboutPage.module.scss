@@ -70,8 +70,3 @@
 .line {
   @extend %line; 
 }
-
-.bgIllustration {
-  @extend %bgIllustration;
-  z-index: 0;
-}
