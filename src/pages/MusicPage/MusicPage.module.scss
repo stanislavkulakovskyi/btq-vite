@@ -6,10 +6,15 @@
   @extend %container;
   justify-content: start;
   width: 100%;
+
+  @include bp-custom-down(1480px) {
+    width: 70%;
+  }
   
   @include bp-tablet {
     height: max-content;
     justify-content: center;
+    width: 100%;
   }
 
   // @include bp-mobile {
@@ -36,6 +41,10 @@
   z-index: 1;
   border-radius: 5px;
 
+  @include bp-custom-down(1480px) {
+    max-height: 200px;
+  }
+
   @include bp-tablet {
     align-self: center;
   }
@@ -56,8 +65,12 @@
   border-radius: 5px;
   transform: translateY(-5px);
 
+  @include bp-custom-down(1900px) {
+    height: 450px;
+  }
+
   @include bp-custom-down(1480px) {
-    height: 500px;
+    height: 360px;
   }
 
   @include bp-tablet {

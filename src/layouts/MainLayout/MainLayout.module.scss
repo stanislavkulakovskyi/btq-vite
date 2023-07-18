@@ -53,17 +53,17 @@
   height: max-content;
   transition: all 0.6s ease-in-out;
 
-  // @include bp-tablet {
-  //   &:first-child {
-  //     margin-top: -103px;
-  //   }
-  // }
+  @include bp-tablet {
+    &:first-child {
+      margin-top: 103px;
+    }
+  }
 
-  // @include bp-mobile-small {
-  //   &:first-child {
-  //     margin-top: -80px;
-  //   }
-  // }
+  @include bp-mobile-small {
+    &:first-child {
+      margin-top: 80px;
+    }
+  }
 
   @include bp-desktop {
     scroll-snap-align: start;
