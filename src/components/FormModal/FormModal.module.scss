@@ -150,6 +150,7 @@
 
   &:hover {
     background-color: $lava;
+    border: 1px solid $lava;
   }
 
   @include bp-mobile-small {

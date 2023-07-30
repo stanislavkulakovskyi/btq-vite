@@ -28,7 +28,7 @@ export const SideMenu = ({ activePage}) => {
   return (
     <div>
       <div className={styles.container}>
-        <p className={styles.btqText}>belletriq</p>
+        <p className={styles.btqText} style={{ pointerEvents: 'none'}}>belletriq</p>
         <div className={styles.navContainer}>
           <div className={classNames(styles.burger, styles.burgerTop)}>
             <img src={burger} alt="burger" />
@@ -51,7 +51,7 @@ export const SideMenu = ({ activePage}) => {
             <img src={burger} alt="burger" />
           </div>
         </div>
-        <button onClick={handleFormOpen} className={styles.btqText}>contact us</button>
+        <button onClick={handleFormOpen} className={styles.btqText}>contact</button>
         
       </div>
       {isFormOpened && (

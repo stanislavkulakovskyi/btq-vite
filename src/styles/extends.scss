@@ -25,7 +25,7 @@
 }
 
 %container {
-  padding: 60px;
+  padding: 60px 60px 60px 200px;
   display: flex;
   align-items: center;
   height: 100%;
@@ -63,7 +63,7 @@
 
 %title {
   @include font-archivo-900;
-  font-size: 4rem;
+  font-size: 50px;
 
   transform-origin: top;
   -webkit-transform: scaleY(0.8);

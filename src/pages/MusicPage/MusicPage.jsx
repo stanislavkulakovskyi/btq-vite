@@ -34,14 +34,14 @@ export const MusicPage = () => {
               aria-label='Kovdra website'
             > Kovdra</a>
           </div>
-            <a 
+            {/* <a 
               rel='noreferrer' 
-              target='_blank' 
-              href='https://kovdra-bureau.com/' 
+              // target='_blank'
+              href='#about' 
               aria-label='Kovdra website'
             >
               <img src={arrow} alt="arrow" />
-            </a>
+            </a> */}
           </div>
       </div>
 

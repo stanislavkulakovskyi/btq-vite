@@ -1,0 +1,58 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+@import '../../styles/extends.scss';
+
+.link {
+  // position: absolute;
+  z-index: 3;
+  top: -20px;
+  right: -20px;
+
+  @include bp-tablet {
+    right: -16px;
+  }
+}
+
+.svg_icon {
+  @extend %transition01;
+  @extend %flexBetween;
+  @include square(70px);
+
+  background-color: $salt;
+  padding: 20px;
+  border-radius: 4px;
+
+  box-shadow: $shadow;
+
+  overflow: hidden;
+
+  &::before {
+    content: url(../../assets/icons/arrow.svg);
+    @extend %flexCenter;
+    @extend %transition01;
+    @include square(28px);
+
+    transform: translate(1px, 1px);
+
+    @include bp-tablet {
+      filter: brightness(5);
+      margin-right: 10px;
+      transform: rotate(90deg) scale(0.7);
+    }
+  }
+
+  @include bp-tablet {
+    width: 125px;
+    background: $carbon;
+    padding: 15px;
+
+    &::after {
+      @include font-orditron-700;
+      font-size: 16px;
+      color: $salt;
+      content: 'MORE';
+      transform-origin: right;
+      animation: swipeLeft 0.3s;
+    }
+  }
+}

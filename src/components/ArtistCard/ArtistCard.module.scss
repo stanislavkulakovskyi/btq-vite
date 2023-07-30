@@ -3,8 +3,8 @@
 @import '@styles/extends.scss';
 
 .card {
-  width: min(300px);
-  height: min(300px);
+  width: min(280px);
+  height: min(280px);
   border-radius: 10px;
 
   position: relative;
@@ -35,17 +35,18 @@
   
       &:hover {
         background-color: $lava;
+        @include font-orditron-700;
       }
   
       &::before {
         transition: all 0.3s;
         filter: brightness(5);
         margin-right: 20px;
-        transform: rotate(90deg);
+        transform: rotate(90deg) scale(0.8);
       }
   
       &::after {
-        @include font-orditron-700;
+        @include font-orditron-400;
         font-size: 18px;
         color: $salt;
         content: 'MORE';
@@ -189,7 +190,8 @@
 
 .svg_icon {
   @extend %transition01;
-  @extend %flexBetween;
+  // @extend %flexBetween;
+  @extend %flexCenter;
   @include square(70px);
 
   background-color: $salt;
@@ -204,9 +206,9 @@
     content: url(../../assets/icons/arrow.svg);
     @extend %flexCenter;
     @extend %transition01;
-    @include square(28px);
+    // @include square(24px);
 
-    transform: translate(1px, 1px);
+    // transform: translate(6px, 0px);
 
     @include bp-tablet {
       filter: brightness(5);
@@ -221,8 +223,8 @@
     padding: 15px;
 
     &::after {
-      @include font-orditron-700;
-      font-size: 16px;
+      @include font-orditron-400;
+      font-size: 18px;
       color: $salt;
       content: 'MORE';
       transform-origin: right;

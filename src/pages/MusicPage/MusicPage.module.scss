@@ -6,6 +6,10 @@
   @extend %container;
   justify-content: start;
   width: 100%;
+  
+  @include bp-desktop {
+    max-height: 100vh;
+  }
 
   @include bp-custom-down(1480px) {
     width: 70%;
@@ -125,18 +129,30 @@
   height: 700px;
   background: #000;
   position: absolute;
-  margin-left: -60px;
+  margin-left: -200px;
   z-index: 1000;
 
   @include bp-tablet {
     display: none;
   }
+  // @extend %line;
 }
 
 .kovdra {
   @include font-orditron-400;
-  margin: 10px 0 60px 0;
+  margin: 25px 0 60px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  
+
+  & a {
+    @extend %transition01;
+
+    &:hover {
+      color: $lava;
+    }
+  }
+
+  
 }

@@ -86,13 +86,13 @@ export const Slider = ({ openModal }) => {
         ))}
       </Swiper>
 
-      <button className={styles.btn_prev}>
+      {/* <button className={styles.btn_prev}>
         <img src={arrow} alt="previous" className={styles.prev_button} />
       </button>
 
       <button className={styles.btn_next}>
         <img src={arrow} alt="next" className={styles.next_button} />
-      </button>
+      </button> */}
     </div>
   );
 };
