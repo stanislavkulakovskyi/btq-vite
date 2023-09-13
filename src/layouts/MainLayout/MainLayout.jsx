@@ -1,42 +1,31 @@
+import { useState } from 'react';
+import styles from './MainLayout.module.scss';
+
+import { AboutPage } from '../../pages/AboutPage';
+import { ArtistsPage } from '../../pages/ArtistsPage';
+import { MusicPage } from '../../pages/MusicPage';
+import { ServicesPage } from '../../pages/ServicesPage';
+
 import { Background } from './Background';
 import { SideMenu } from '../../components/SideMenu';
 import { TopMenu } from '../../components/TopMenu';
-import styles from './MainLayout.module.scss';
-import { AboutPage } from '../../pages/AboutPage';
-import { ArtistsPage } from '../../pages/ArtistsPage';
-import { ServicesPage } from '../../pages/ServicesPage';
-import { MusicPage } from '../../pages/MusicPage';
-import { useState, useEffect } from 'react';
+
 import { PlusIcons } from '../../components/PlusIcons/PlusIcons';
 import { Scrollama, Step } from 'react-scrollama';
-import { icons } from '../../api/artists';
-import bgText from '../../assets/images/bg_illustration.webp';
+
 
 export const MainLayout = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
   const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isFormOpened, setIsFormOpened] = useState(false);
   
   const handleFormOpen = () => {
     setIsFormOpened(true);
   };
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const isTablet = windowWidth <= 1366;
-  const isMobile = windowWidth <= 640;
+  const isTablet = window.innerWidth <= 1366;
+  const isMobile = window.innerWidth <= 640;
 
   const divider = isMobile ? 37 : 24;
   const lineTopMargin = isMobile ? 80 : 100;
@@ -48,13 +37,11 @@ export const MainLayout = () => {
   };
 
   const pages = ['about', 'artists', 'services', 'music'];
-
+  
   const onStepEnter = ({ data }) => {
     setCurrentStepIndex(data);
     setActivePage(pages[data]);
   };
-
-  const isBgWhite = currentStepIndex === 1 || currentStepIndex === 2;
 
   return (
     <main className={styles.container}>
@@ -98,34 +85,6 @@ export const MainLayout = () => {
       </section>
 
         <PlusIcons />
-        {/* <div className={styles.icons}>
-          <a 
-            className={styles.link} 
-            href="https://open.spotify.com/user/31yhdhgiyhpiqwh4uh2a3jfnswdu?si=01f712c6d8764ed6"
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={icons.spotify} alt="belletriq spotify" />
-          </a>
-
-          <a 
-            className={styles.link} 
-            href="https://soundcloud.com/belletriq"
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={icons.soundcloud} alt="belletriq soundcloud" />
-          </a>
-
-          <a 
-            className={styles.link} 
-            href="https://www.instagram.com/belletriq/"
-            target='_blank'
-            rel='noreferrer'
-          >
-            <img src={icons.instagram} alt="belletriq instagram" />
-          </a>
-        </div> */}
       <Background activePage={activePage} />
     </main>
   );

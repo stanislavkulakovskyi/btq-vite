@@ -137,6 +137,10 @@
     }
   }
 
+  @include bp-mobile {
+    width: 100%;
+  }
+
   @include bp-mobile-small {
     transform: translateY(-300px);
   }
