@@ -1,86 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100;9..144,200;9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,100;9..144,200;9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,800;9..144,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@900&display=swap");
 
 // FONTS
 @mixin font-orditron-400 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 400;
 }
 
 @mixin font-orditron-500 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 500;
 }
 
 @mixin font-orditron-600 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 600;
 }
 
 @mixin font-orditron-700 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 700;
 }
 
 @mixin font-orditron-800 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 800;
 }
 
 @mixin font-orditron-900 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   font-weight: 900;
 }
 
 @mixin font-fraunces-100 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 100;
 }
 
 @mixin font-fraunces-200 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 200;
 }
 
 @mixin font-fraunces-300 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 300;
 }
 
 @mixin font-fraunces-400 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 400;
   font-optical-sizing: auto;
 }
 
 @mixin font-fraunces-500 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 500;
 }
 
 @mixin font-fraunces-600 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 600;
 }
 
 @mixin font-fraunces-700 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 700;
 }
 
 @mixin font-fraunces-800 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 800;
 }
 
 @mixin font-fraunces-900 {
-  font-family: 'Fraunces', serif;
+  font-family: "Fraunces", serif;
   font-weight: 900;
 }
 
 @mixin font-archivo-900 {
-  font-family: 'Archivo', sans-serif;
+  font-family: "Archivo", sans-serif;
   font-weight: 900;
 }
 
@@ -89,14 +89,14 @@
   height: $size;
 }
 
-@mixin bp-mobile {
-  @media screen and (max-width: 640px) {
+@mixin bp-mobile-small {
+  @media screen and (max-width: 400px) {
     @content;
   }
 }
 
-@mixin bp-mobile-small {
-  @media screen and (max-width: 400px) {
+@mixin bp-mobile {
+  @media screen and (max-width: 640px) {
     @content;
   }
 }
