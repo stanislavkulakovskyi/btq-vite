@@ -1,6 +1,6 @@
-@import '../../styles/variables.scss';
-@import '../../styles/mixins.scss';
-@import '../../styles/extends.scss';
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+@import "../../styles/extends.scss";
 
 .container_mobile {
   display: flex;
@@ -23,41 +23,32 @@
 
   transition: all 0.2s;
 
-  @include bp-tablet {
-    // margin-top: 0;
-  }
-
   @include bp-mobile-small {
     height: 80px;
-    padding: 32px 0;
+    padding: 32px;
     justify-content: center;
   }
 
-  @include bp-custom-down(600px) {
+  @include bp-custom-down(950px) {
     align-items: flex-start;
 
     &__open {
-      height: 340px;
+      height: 430px;
 
-      @include bp-mobile-small {
-        height: 320px;
-      }
-  
       & .nav {
-        height: 220px;
+        height: 300px;
         opacity: 1;
       }
-  
+
       & .burger {
         position: relative;
         height: 100%;
-  
+
         &__bottom {
           transform: translateY(0px);
         }
       }
     }
-
   }
 
   @include bp-desktop {
@@ -71,8 +62,8 @@
   min-height: 22px;
   max-height: 22px;
   transition: all 0.2s;
-  width: 70%;
-  max-width: 500px;
+  width: 75%;
+  max-width: 700px;
   cursor: pointer;
 
   @include bp-mobile-small {
@@ -90,10 +81,11 @@
   padding: 0 60px;
   position: relative;
 
-  @include bp-custom-down(600px) {
+  @include bp-custom-down(950px) {
     flex-direction: column;
     overflow: hidden;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 24px;
     height: 0px;
     padding: 0;
     opacity: 0;
@@ -116,7 +108,7 @@
     bottom: 0;
   }
 
-  @include bp-custom-down(600px) {
+  @include bp-custom-down(950px) {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -127,7 +119,7 @@
     &__bottom {
       transform: translateY(-22px);
     }
-    
+
     &__top {
       transform: rotate(180deg);
     }
@@ -177,7 +169,6 @@
     color: $salt;
     @include font-orditron-700;
   }
-
 
   &_music {
     width: max-content;

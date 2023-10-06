@@ -38,6 +38,7 @@ export const TopMenu = ({ activePage }) => {
     };
   }, []);
 
+
   return (
     <div>
       <div
@@ -53,18 +54,19 @@ export const TopMenu = ({ activePage }) => {
             <img src={burger} alt="burger" />
           </div>
 
-            <nav className={styles.nav}>
+          <nav className={styles.nav}>
             {links.slice(0, -1).map(link => (
-                  <a
-                    key={link.title}
-                    className={activeLink === link.title ? styles.link_active : styles.link}
-                    href={link.hash}
-                    onClick={() => setActiveLink(link.title)}
-                  >
-                    {link.title}
-                  </a>
-              ))}
-            </nav>
+              <a
+                key={link.title}
+                className={activeLink === link.title ? styles.link_active : styles.link}
+                href={link.hash || link.path}
+                onClick={() => setActiveLink(link.title)}
+                {...(link.path && { target: "_blank" })}
+              >
+                {link.title}
+              </a>
+            ))}
+          </nav>
 
           <div
             className={classNames(styles.burger, styles.burger__bottom)}
@@ -74,22 +76,23 @@ export const TopMenu = ({ activePage }) => {
           </div>
         </div>
 
-        
+
         {links.slice(-1).map(link => (
           <a
             key={link.title}
             className={classNames(styles.link, styles.link_music, {
               [styles.link_active]: activeLink === link.title,
-           })}
-            href={link.hash}
+            })}
+            href={link.hash || link.path}
             onClick={() => setActiveLink(link.title)}
+            {...(link.path && { target: "_blank" })}
           >
             {link.title}
           </a>
         ))}
 
-        
-        
+
+
       </div>
     </div>
   );
