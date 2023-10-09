@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import burger from '../../assets/icons/burger_corner.svg';
 import styles from './SideMenu.module.scss';
@@ -21,8 +21,7 @@ export const SideMenu = ({ activePage }) => {
     setIsFormOpened(false);
   }
 
-
-  useLayoutEffect(() => {
+  useEffect(() => {
     setActiveLink(activePage);
   }, [activePage])
 
@@ -36,7 +35,7 @@ export const SideMenu = ({ activePage }) => {
           </div>
 
           <nav className={styles.nav}>
-            {links.map(link => (
+            {links.slice(0, -3).map(link => (
               <a
                 key={link.title}
                 className={activeLink === link.title ? styles.link_active : styles.link}
@@ -48,7 +47,17 @@ export const SideMenu = ({ activePage }) => {
               </a>
             )
             )}
+
+            <div className={styles.socials}>
+              {links.slice(4).map(link => (
+                <a key={link.title} href={link.path} target='_blank' rel='noreferrer'>
+                  <img className={styles.link_icon} src={link.icon} alt="" />
+                </a>
+              ))}
+            </div>
           </nav>
+
+          
 
           <div className={classNames(styles.burger, styles.burgerBottom)}>
             <img src={burger} alt="burger" />

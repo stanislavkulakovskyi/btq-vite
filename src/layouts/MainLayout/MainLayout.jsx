@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './MainLayout.module.scss';
 
 import { AboutPage } from '../../pages/AboutPage';
@@ -19,10 +19,20 @@ export const MainLayout = () => {
   const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
   const [isFormOpened, setIsFormOpened] = useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   
   const handleFormOpen = () => {
     setIsFormOpened(true);
   };
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [screenWidth])
+
 
   const isTablet = window.innerWidth <= 1366;
   const isMobile = window.innerWidth <= 640;

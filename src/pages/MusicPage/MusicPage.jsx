@@ -30,19 +30,11 @@ export const MusicPage = () => {
             <a 
               rel='noreferrer' 
               target='_blank' 
-              href="https://kovdra-bureau.com/" 
+              href="https://www.behance.net/xenianema" 
               aria-label='Kovdra website'
-            > Kovdra</a>
+            > Xenia Nema</a>
           </div>
-            {/* <a 
-              rel='noreferrer' 
-              // target='_blank'
-              href='#about' 
-              aria-label='Kovdra website'
-            >
-              <img src={arrow} alt="arrow" />
-            </a> */}
-          </div>
+        </div>
       </div>
 
       <div className={styles.line}></div>

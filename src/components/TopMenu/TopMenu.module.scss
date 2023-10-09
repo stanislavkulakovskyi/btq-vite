@@ -33,10 +33,14 @@
     align-items: flex-start;
 
     &__open {
-      height: 430px;
+      height: 380px;
 
       & .nav {
-        height: 300px;
+        height: 260px;
+        opacity: 1;
+      }
+
+      & .logo {
         opacity: 1;
       }
 
@@ -53,6 +57,17 @@
 
   @include bp-desktop {
     display: none;
+  }
+}
+
+.socials {
+  width: 120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include bp-mobile {
+    margin-top: 20px;
   }
 }
 
