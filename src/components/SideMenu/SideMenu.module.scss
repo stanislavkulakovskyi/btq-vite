@@ -9,12 +9,10 @@
     left: 0;
     width: 300px;
     height: 100vh;
-    box-sizing: border-box;
     padding: 60px 40px 60px 80px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #8b8b8b00;
     z-index: 50;
   }
 
@@ -22,7 +20,7 @@
     &:hover {
       .navContainer,
       .nav {
-        height: 450px;
+        height: 400px;
       }
 
       .nav {
@@ -43,7 +41,23 @@
 }
 
 .logo {
-  width: 25%;
+  // width: 25%;
+  transform: scale(0.25);
+  transform-origin: top left;
+  box-sizing: content-box;
+}
+
+.socials {
+  width: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.link_icon {
+  &:hover {
+    filter: invert(1);
+  }
 }
 
 .btqText {
@@ -69,6 +83,7 @@
   justify-content: center;
   min-height: 22px;
   height: 0;
+  transform: translateY(-80px);
   transition: all 0.3s;
   -webkit-transition: all 0.3s;
 }

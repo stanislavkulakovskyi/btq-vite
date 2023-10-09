@@ -6,7 +6,6 @@ import burger from "../../assets/icons/burger_corner.svg";
 
 import styles from "./TopMenu.module.scss";
 import links from "../../api/links";
-import { icons } from "../../api/artists";
 
 export const TopMenu = ({ activePage }) => {
   const [isBurgerOpened, setIsBurgerOpened] = useState(false);
@@ -38,7 +37,6 @@ export const TopMenu = ({ activePage }) => {
     };
   }, []);
 
-
   return (
     <div>
       <div
@@ -55,7 +53,7 @@ export const TopMenu = ({ activePage }) => {
           </div>
 
           <nav className={styles.nav}>
-            {links.slice(0, -1).map(link => (
+            {links.slice(0, -4).map(link => (
               <a
                 key={link.title}
                 className={activeLink === link.title ? styles.link_active : styles.link}
@@ -66,6 +64,14 @@ export const TopMenu = ({ activePage }) => {
                 {link.title}
               </a>
             ))}
+
+            <div className={styles.socials}>
+              {links.slice(4).map(link => (
+                <a key={link.title} href={link.path} target='_blank' rel='noreferrer'>
+                  <img className={styles.link_icon} src={link.icon} alt="" />
+                </a>
+              ))}
+            </div>
           </nav>
 
           <div
@@ -76,24 +82,18 @@ export const TopMenu = ({ activePage }) => {
           </div>
         </div>
 
-
-        {links.slice(-1).map(link => (
-          <a
-            key={link.title}
-            className={classNames(styles.link, styles.link_music, {
-              [styles.link_active]: activeLink === link.title,
-            })}
-            href={link.hash || link.path}
-            onClick={() => setActiveLink(link.title)}
-            {...(link.path && { target: "_blank" })}
-          >
-            {link.title}
-          </a>
-        ))}
-
-
-
-      </div>
+        <a
+          key={links[3].title}
+          className={classNames(styles.link, styles.link_music, {
+            [styles.link_active]: activeLink === links[3].title,
+          })}
+          href={links[3].hash || links[3].path}
+          onClick={() => setActiveLink(links[3].title)}
+          {...(links[3].path && { target: "_blank" })}
+        >
+          {links[3].title}
+        </a>
+      </div>      
     </div>
   );
 };

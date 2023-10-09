@@ -22,7 +22,7 @@
     }
 
     @include bp-mobile-small {
-        font-size: 4rem;
+        font-size: 5rem;
     }
 }
 
@@ -37,6 +37,7 @@
 .face {
     position: absolute;
     backface-visibility: hidden;
+    // background-color: $error;
 
     &_top {
         @include bp-desktop {
