@@ -19,6 +19,6 @@ jobs:
           channelId: live
           projectId: belletriq-eaedc
         env:
-          VITE_CONTACT_SERVICE_KEY: ${{secrets.VITE_CONTACT_SERVICE_KEY}}
-          VITE_CONTACT_TEMPLATE_KEY: ${{secrets.VITE_CONTACT_TEMPLATE_KEY}}
-          VITE_CONTACT_SECRET_KEY: ${{secrets.VITE_CONTACT_SECRET_KEY}}
+          VITE_CONTACT_SERVICE_KEY: ${{ secrets.VITE_CONTACT_SERVICE_KEY }}
+          VITE_CONTACT_TEMPLATE_KEY: ${{ secrets.VITE_CONTACT_TEMPLATE_KEY }}
+          VITE_CONTACT_SECRET_KEY: ${{ secrets.VITE_CONTACT_SECRET_KEY }}

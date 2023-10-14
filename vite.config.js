@@ -1,11 +1,9 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode })=> {
-  const env = loadEnv(mode, process.cwd());
-
+export default defineConfig(()=> {
   return {
     resolve: {
       alias: {
@@ -19,13 +17,6 @@ export default defineConfig(({ mode })=> {
         '@utils': path.resolve(__dirname, './src/utils'),
         '@fonts': path.resolve(__dirname, './src/fonts'),
         '@hooks': path.resolve(__dirname, './src/hooks'),
-      },
-    },
-    define: {
-      "process.env": {
-        VITE_CONTACT_SERVICE_KEY: env.VITE_CONTACT_SERVICE_KEY,
-        VITE_CONTACT_TEMPLATE_KEY: env.VITE_CONTACT_TEMPLATE_KEY,
-        VITE_CONTACT_SECRET_KEY: env.VITE_CONTACT_SECRET_KEY,
       },
     },
     plugins: [react()],
