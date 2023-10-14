@@ -12,18 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
-      - name: Set environment variables
-        run: |
-          echo "VITE_CONTACT_SERVICE_KEY=${{secrets.VITE_CONTACT_SERVICE_KEY}}" >> $GITHUB_ENV
-          echo "VITE_CONTACT_TEMPLATE_KEY=${{secrets.VITE_CONTACT_TEMPLATE_KEY}}" >> $GITHUB_ENV
-          echo "VITE_CONTACT_SECRET_KEY=${{secrets.VITE_CONTACT_SECRET_KEY}}" >> $GITHUB_ENV
-        env:
-          VITE_CONTACT_SERVICE_KEY: ${{secrets.VITE_CONTACT_SERVICE_KEY}}
-          VITE_CONTACT_TEMPLATE_KEY: ${{secrets.VITE_CONTACT_TEMPLATE_KEY}}
-          VITE_CONTACT_SECRET_KEY: ${{secrets.VITE_CONTACT_SECRET_KEY}}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BELLETRIQ_EAEDC }}'
           channelId: live
           projectId: belletriq-eaedc
+        env:
+          VITE_CONTACT_SERVICE_KEY: ${{secrets.VITE_CONTACT_SERVICE_KEY}}
+          VITE_CONTACT_TEMPLATE_KEY: ${{secrets.VITE_CONTACT_TEMPLATE_KEY}}
+          VITE_CONTACT_SECRET_KEY: ${{secrets.VITE_CONTACT_SECRET_KEY}}
