@@ -68,7 +68,12 @@ export const FormModal = ({ onClose }) => {
     setIsLoading(true);
 
     try {
-      await emailjs.sendForm('service_eje8f6a', 'template_epc5myn', form.current, 'igUREw9V0b_JLHZgH');
+      await emailjs.sendForm(
+        import.meta.env.VITE_CONTACT_SERVICE_KEY,
+        import.meta.env.VITE_CONTACT_TEMPLATE_KEY,
+        form.current,
+        import.meta.env.VITE_CONTACT_SECRET_KEY
+      );
 
       setIsSuccess(true);
       setEmail('');

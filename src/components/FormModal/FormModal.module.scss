@@ -117,6 +117,7 @@
   color: $salt;
   margin-bottom: 40px;
   font-family: inherit;
+  resize: vertical;
 
   @include bp-mobile-small {
     margin-bottom: 10px;
