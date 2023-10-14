@@ -14,13 +14,13 @@ jobs:
       - run: npm ci && npm run build
       - name: Set environment variables
         run: |
-          echo "CONTACT_SERVICE_KEY=${{secrets.VITE_CONTACT_SERVICE_KEY}}" >> $GITHUB_ENV
-          echo "CONTACT_TEMPLATE_KEY=${{secrets.VITE_CONTACT_TEMPLATE_KEY}}" >> $GITHUB_ENV
-          echo "CONTACT_SECRET_KEY=${{secrets.VITE_CONTACT_SECRET_KEY}}" >> $GITHUB_ENV
+          echo "VITE_CONTACT_SERVICE_KEY=${{secrets.VITE_CONTACT_SERVICE_KEY}}" >> $GITHUB_ENV
+          echo "VITE_CONTACT_TEMPLATE_KEY=${{secrets.VITE_CONTACT_TEMPLATE_KEY}}" >> $GITHUB_ENV
+          echo "VITE_CONTACT_SECRET_KEY=${{secrets.VITE_CONTACT_SECRET_KEY}}" >> $GITHUB_ENV
         env:
-          CONTACT_SERVICE_KEY: ${{secrets.VITE_CONTACT_SERVICE_KEY}}
-          CONTACT_TEMPLATE_KEY: ${{secrets.VITE_CONTACT_TEMPLATE_KEY}}
-          CONTACT_SECRET_KEY: ${{secrets.VITE_CONTACT_SECRET_KEY}}
+          VITE_CONTACT_SERVICE_KEY: ${{secrets.VITE_CONTACT_SERVICE_KEY}}
+          VITE_CONTACT_TEMPLATE_KEY: ${{secrets.VITE_CONTACT_TEMPLATE_KEY}}
+          VITE_CONTACT_SECRET_KEY: ${{secrets.VITE_CONTACT_SECRET_KEY}}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
