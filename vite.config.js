@@ -22,11 +22,9 @@ export default defineConfig(({ mode })=> {
       },
     },
     define: {
-      'process.env': {
-        VITE_CONTACT_SERVICE_KEY: JSON.stringify(process.env.VITE_CONTACT_SERVICE_KEY),
-        VITE_CONTACT_TEMPLATE_KEY: JSON.stringify(process.env.VITE_CONTACT_TEMPLATE_KEY),
-        VITE_CONTACT_SECRET_KEY: JSON.stringify(process.env.VITE_CONTACT_SECRET_KEY),
-      },
+      'import.meta.env.VITE_FIREBASE_API_KEY': JSON.stringify(process.env.VITE_FIREBASE_API_KEY),
+      'import.meta.env.VITE_FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.VITE_FIREBASE_AUTH_DOMAIN),
+      'import.meta.env.VITE_FIREBASE_PROJECT_ID': JSON.stringify(process.env.VITE_FIREBASE_PROJECT_ID),
     },
     plugins: [react()],
   }
