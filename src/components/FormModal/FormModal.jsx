@@ -69,10 +69,10 @@ export const FormModal = ({ onClose }) => {
 
     try {
       await emailjs.sendForm(
-        import.meta.env.VITE_CONTACT_SERVICE_KEY,
-        import.meta.env.VITE_CONTACT_TEMPLATE_KEY,
+        process.env.VITE_CONTACT_SERVICE_KEY,
+        process.env.VITE_CONTACT_TEMPLATE_KEY,
         form.current,
-        import.meta.env.VITE_CONTACT_SECRET_KEY
+        process.env.VITE_CONTACT_SECRET_KEY
       );
 
       setIsSuccess(true);
