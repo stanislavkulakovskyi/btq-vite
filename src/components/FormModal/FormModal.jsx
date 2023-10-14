@@ -61,7 +61,7 @@ export const FormModal = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(import.meta.env);
+    console.log({ import: import.meta.env, process: process.env });
 
     // if (!validateEmail() || !validateMessage()) {
     //   return;
