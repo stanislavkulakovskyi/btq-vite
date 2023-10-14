@@ -61,32 +61,34 @@ export const FormModal = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateEmail() || !validateMessage()) {
-      return;
-    }
+    console.log(import.meta.env);
 
-    setIsLoading(true);
+    // if (!validateEmail() || !validateMessage()) {
+    //   return;
+    // }
 
-    try {
-      await emailjs.sendForm(
-        import.meta.env.VITE_CONTACT_SERVICE_KEY,
-        import.meta.env.VITE_CONTACT_TEMPLATE_KEY,
-        form.current,
-        import.meta.env.VITE_CONTACT_SECRET_KEY
-      );
+    // setIsLoading(true);
 
-      setIsSuccess(true);
-      setEmail('');
-      setMessage('');
-    } catch (error) {
-      console.error(`handleSubmit error: ${error}`);
-    } finally {
-      setIsLoading(false);
+    // try {
+    //   await emailjs.sendForm(
+    //     import.meta.env.VITE_CONTACT_SERVICE_KEY,
+    //     import.meta.env.VITE_CONTACT_TEMPLATE_KEY,
+    //     form.current,
+    //     import.meta.env.VITE_CONTACT_SECRET_KEY
+    //   );
 
-      setTimeout(() => {
-        onClose();
-      }, 4000);
-    }
+    //   setIsSuccess(true);
+    //   setEmail('');
+    //   setMessage('');
+    // } catch (error) {
+    //   console.error(`handleSubmit error: ${error}`);
+    // } finally {
+    //   setIsLoading(false);
+
+    //   setTimeout(() => {
+    //     onClose();
+    //   }, 4000);
+    // }
   };
 
   return (
