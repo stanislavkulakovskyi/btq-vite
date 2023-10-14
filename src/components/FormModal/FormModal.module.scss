@@ -1,6 +1,6 @@
-@import '@styles/mixins.scss';
-@import '@styles/variables.scss';
-@import '@styles/extends.scss';
+@import "@styles/mixins.scss";
+@import "@styles/variables.scss";
+@import "@styles/extends.scss";
 
 .form_backdrop {
   position: fixed;
@@ -117,6 +117,7 @@
   color: $salt;
   margin-bottom: 40px;
   font-family: inherit;
+  resize: vertical;
 
   @include bp-mobile-small {
     margin-bottom: 10px;
@@ -148,9 +149,13 @@
   color: $salt;
   transition: all 0.3s;
 
-  &:hover {
+  &:hover:not(.btn_disabled) {
     background-color: $lava;
     border: 1px solid $lava;
+  }
+
+  &_disabled {
+    cursor: not-allowed;
   }
 
   @include bp-mobile-small {
