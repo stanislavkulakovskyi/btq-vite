@@ -12,6 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
+
+      # Add debugging steps
+      - name: Debug VITE_CONTACT_SERVICE_KEY
+        run: echo "VITE_CONTACT_SERVICE_KEY is $VITE_CONTACT_SERVICE_KEY"
+      
+      - name: Debug VITE_CONTACT_TEMPLATE_KEY
+        run: echo "VITE_CONTACT_TEMPLATE_KEY is $VITE_CONTACT_TEMPLATE_KEY"
+
+      - name: Debug VITE_CONTACT_SECRET_KEY
+        run: echo "VITE_CONTACT_SECRET_KEY is $VITE_CONTACT_SECRET_KEY"
+      # End of debugging steps
+
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
