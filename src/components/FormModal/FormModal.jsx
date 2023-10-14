@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState, useRef, useEffect } from 'react';
-// import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser';
 
 import styles from './FormModal.module.scss';
 import close from '../../assets/icons/close.svg';
 import arrow from '../../assets/icons/arrow.svg';
+import classNames from 'classnames';
 
 export const FormModal = ({ onClose }) => {
   const [email, setEmail] = useState('');
@@ -13,6 +14,7 @@ export const FormModal = ({ onClose }) => {
   const [messageError, setMessageError] = useState('');
   const [isSucces, setIsSuccess] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isLoading, setIsLoading] = useState(false);
   const form = useRef();
 
   useEffect(() => {
@@ -63,23 +65,22 @@ export const FormModal = ({ onClose }) => {
       return;
     }
 
-    setIsSuccess(true);
-    setEmail('');
-    setMessage('');
-
-    setTimeout(() => {
-      onClose();
-    }, 4000);
+    setIsLoading(true);
 
     try {
       await emailjs.sendForm('service_eje8f6a', 'template_epc5myn', form.current, 'igUREw9V0b_JLHZgH');
 
-      // Лист успішно надісланий
-      // Виконайте необхідні дії, наприклад, відобразіть повідомлення про успіх
+      setIsSuccess(true);
+      setEmail('');
+      setMessage('');
     } catch (error) {
+      console.error(`handleSubmit error: ${error}`);
+    } finally {
+      setIsLoading(false);
 
-      // Виникла помилка при надсиланні листа
-      // Виконайте необхідні дії, наприклад, відобразіть повідомлення про помилку
+      setTimeout(() => {
+        onClose();
+      }, 4000);
     }
   };
 
@@ -119,9 +120,8 @@ export const FormModal = ({ onClose }) => {
             />
             <label
               htmlFor="message"
-              className={`${styles.label} ${
-                messageError && styles.error_label
-              }`}
+              className={`${styles.label} ${messageError && styles.error_label
+                }`}
             >
               {!messageError ? 'your message:' : messageError}
             </label>
@@ -130,9 +130,8 @@ export const FormModal = ({ onClose }) => {
               id="message"
               cols="30"
               rows={isMobile ? 5 : 10}
-              className={`${styles.message} ${
-                messageError && styles.error_input
-              }`}
+              className={`${styles.message} ${messageError && styles.error_input
+                }`}
               value={message}
               onChange={(e) => {
                 setMessage(e.target.value)
@@ -140,7 +139,11 @@ export const FormModal = ({ onClose }) => {
               }}
               placeholder="message..."
             ></textarea>
-            <button className={styles.btn} type="submit">
+            <button
+              className={classNames(styles.btn, { [styles.btn_disabled]: isLoading })}
+              type="submit"
+              disabled={isLoading}
+            >
               <img className={styles.arrow} src={arrow} alt="arrow" />
               SEND
             </button>
