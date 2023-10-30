@@ -4,7 +4,6 @@ import thumb3 from '../assets/images/vid_thumbnails/3.webp';
 import thumb4 from '../assets/images/vid_thumbnails/4.webp';
 import thumb5 from '../assets/images/vid_thumbnails/5.webp';
 import thumb6 from '../assets/images/vid_thumbnails/6.webp';
-import thumb7 from '../assets/images/vid_thumbnails/7.webp';
 import thumb8 from '../assets/images/vid_thumbnails/8.webp';
 import thumb9 from '../assets/images/vid_thumbnails/9.webp';
 import thumb10 from '../assets/images/vid_thumbnails/10.webp';
@@ -28,8 +27,6 @@ const thumbs = [
   {id: 5, image: thumb5, videoUrl: 'https://www.youtube.com/embed/JoRU3FNi15U?autoplay=1', roles: 'music + sfx', name: 'moyo'},
 
   {id: 6, image: thumb6, videoUrl: 'https://www.youtube.com/embed/sjEjwjyUErY?autoplay=1', roles: 'sfx', name: 'napapijri'},
-
-  {id: 7, image: thumb7, videoUrl: 'https://www.youtube.com/embed/X600b-SzG80?autoplay=1', roles: 'music + sfx', name: 'puma-dorn'},
 
   {id: 8, image: thumb8, videoUrl: 'https://www.youtube.com/embed/otWFdo5Bz_Y?autoplay=1', roles: 'music + sfx', name: 'puma-tt'},
 
