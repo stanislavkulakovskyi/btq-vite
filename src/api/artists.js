@@ -79,6 +79,18 @@ export const artists = [
     },
     id: '6',
   },
+
+  {
+    name: 'Anq',
+    photo: anqPhoto,
+    linktree: 'https://linktr.ee/anqmusic',
+    links: {
+      spotify: 'https://open.spotify.com/artist/3vFl45KqOBforgw8kEldJ3?si=raKITvOJTWuILtrVJi3PWA',
+      soundcloud: 'https://soundcloud.com/anqmusic',
+      instagram: 'https://www.instagram.com/anqstrikes',
+    },
+    id: '7',
+  },
 ]
 
 export const icons = {
