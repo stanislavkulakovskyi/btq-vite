@@ -4,6 +4,7 @@ import coldestPhoto from '../assets/images/artists/coldest.webp';
 import ayokidPhoto from '../assets/images/artists/ayokid.webp';
 import palmoxPhoto from '../assets/images/artists/palmox.webp';
 import pashaOpenPhoto from '../assets/images/artists/pashaopen.webp';
+import anqPhoto from '../assets/images/artists/anq.webp';
 
 import spotify from '../assets/icons/spotify.svg';
 import soundcloud from '../assets/icons/soundcloud.svg';
