@@ -73,7 +73,8 @@ export const ServicesPage = () => {
 
           <article className={styles.description_box}>
             <p className={styles.description}>
-              Belletriq delivers high-quality, end-to-end audio solutions, including music production, mixing, mastering, scoring and SFX. We also offer licensing and sync services, ensuring seamless sound integration into any creative project.
+              We deliver high-quality, end-to-end audio solutions, including music production, mixing, mastering, scoring and SFX. 
+              We also offer licensing and sync services, ensuring seamless sound integration into any creative project.
             </p>
 
             <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
