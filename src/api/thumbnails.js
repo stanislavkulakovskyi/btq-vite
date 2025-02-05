@@ -16,7 +16,7 @@ import thumb16 from '../assets/images/vid_thumbnails/16.webp';
 import thumb17 from '../assets/images/vid_thumbnails/17.webp';
 
 const thumbs = [
-  {id: 1, image: thumb1, videoUrl: 'https://www.youtube.com/embed/6b1CfRII7wA?autoplay=1', roles: 'music + sfx', name: 'aerotim'},
+  {id: 1, image: thumb1, videoUrl: 'https://www.youtube.com/embed/pCHk10Zg4mo?autoplay=1', roles: 'music + sfx', name: 'portfolio'},
 
   {id: 2, image: thumb2, videoUrl: 'https://www.youtube.com/embed/gJjLlR-2CNI?autoplay=1', roles: 'music + sfx', name: 'asak'},
 
