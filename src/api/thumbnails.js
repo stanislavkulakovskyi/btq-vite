@@ -40,7 +40,7 @@ const thumbs = [
 
   {id: 13, image: thumb13, videoUrl: 'https://www.youtube.com/embed/PLSOiOCyUjM?autoplay=1', roles: 'sfx', name: 'specialized-2'},
 
-  {id: 14, image: thumb14, videoUrl: 'https://www.youtube.com/embed/3kjgG_YHF90?autoplay=1', roles: 'music + sfx', name: 'studdymo'},
+  {id: 14, image: thumb14, videoUrl: 'https://www.youtube.com/embed/AArtLgDuu-0?autoplay=1', roles: 'music + sfx', name: 'escofet'},
 
   {id: 15, image: thumb15, videoUrl: 'https://www.youtube.com/embed/B66TABG7GQg?autoplay=1', roles: 'music + sfx', name: 'poltrona'},
 
