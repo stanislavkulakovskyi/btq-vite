@@ -20,7 +20,7 @@ const thumbs = [
 
   {id: 2, image: thumb2, videoUrl: 'https://www.youtube.com/embed/gJjLlR-2CNI?autoplay=1', roles: 'music + sfx', name: 'asak'},
 
-  {id: 3, image: thumb3, videoUrl: 'https://www.youtube.com/embed/wvJo2_537F8?autoplay=1', roles: 'music + sfx', name: 'bmw'},
+  {id: 3, image: thumb3, videoUrl: 'https://www.youtube.com/embed/dX6xTR3iAnw?si=abEOjWJdpypJJY3t?autoplay=1', roles: 'sfx', name: 'bmw'},
 
   {id: 4, image: thumb4, videoUrl: 'https://www.youtube.com/embed/krkxCvpT7E0?autoplay=1', roles: 'sfx', name: 'ccg'},
 
