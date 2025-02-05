@@ -20,7 +20,7 @@ const thumbs = [
 
   {id: 2, image: thumb2, videoUrl: 'https://www.youtube.com/embed/gJjLlR-2CNI?autoplay=1', roles: 'music + sfx', name: 'asak'},
 
-  {id: 3, image: thumb3, videoUrl: 'https://www.youtube.com/embed/dX6xTR3iAnw?si=abEOjWJdpypJJY3t?autoplay=1', roles: 'sfx', name: 'bmw'},
+  {id: 3, image: thumb3, videoUrl: 'https://www.youtube.com/embed/dX6xTR3iAnw?autoplay=1', roles: 'sfx', name: 'bmw'},
 
   {id: 4, image: thumb4, videoUrl: 'https://www.youtube.com/embed/krkxCvpT7E0?autoplay=1', roles: 'sfx', name: 'ccg'},
 
@@ -32,7 +32,7 @@ const thumbs = [
 
   {id: 9, image: thumb9, videoUrl: 'https://www.youtube.com/embed/2TsVwLv1Dm4?autoplay=1', roles: 'sfx', name: 'shafa'},
 
-  {id: 10, image: thumb10, videoUrl: 'https://www.youtube.com/embed/46mndakk_8s?autoplay=1', roles: 'sfx', name: 'smartass'},
+  {id: 10, image: thumb10, videoUrl: 'https://www.youtube.com/embed/Uezw3DDPD30?autoplay=1', roles: 'sfx', name: 'lifting-force'},
 
   {id: 11, image: thumb11, videoUrl: 'https://www.youtube.com/embed/hQCC3NPPXjk?autoplay=1', roles: 'music', name: 'snohetta'},
 
