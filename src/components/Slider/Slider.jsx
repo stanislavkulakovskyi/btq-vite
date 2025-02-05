@@ -56,10 +56,10 @@ export const Slider = ({ openModal }) => {
           prevEl: `.${styles.btn_prev}`,
           nextEl: `.${styles.btn_next}`,
         }}
-        autoplay={{ delay: 2000, disableOnInteraction: false }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
         className={styles.swiper}
         loop={true}
-        speed={2000}
+        speed={5000}
       >
         {thumbs.map((slide) => (
           <SwiperSlide
