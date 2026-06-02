@@ -13,7 +13,7 @@ export default defineConfig(({ mode })=> {
         '@styles': path.resolve(__dirname, './src/styles'),
         '@components': path.resolve(__dirname, './src/components'),
         '@assets': path.resolve(__dirname, './src/assets'),
-        '@api': path.resolve(__dirname, '../src/api'),
+        '@api': path.resolve(__dirname, './src/api'),
         '@pages': path.resolve(__dirname, './src/pages'),
         '@layouts': path.resolve(__dirname, './src/layouts'),
         '@utils': path.resolve(__dirname, './src/utils'),
