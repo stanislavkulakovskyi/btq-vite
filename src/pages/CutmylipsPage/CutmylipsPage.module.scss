@@ -1,0 +1,56 @@
+@import "@styles/mixins.scss";
+@import "@styles/variables.scss";
+@import "@styles/extends.scss";
+
+@font-face {
+  font-family: 'Helvetica Bold Oblique';
+  src: local('Helvetica Bold Oblique'), local('Helvetica-BoldOblique');
+}
+
+@font-face {
+  font-family: 'Special Gothic Expanded';
+  src: local('Special Gothic Expanded');
+}
+
+@font-face {
+  font-family: 'Asta Sans';
+  src: local('Asta Sans');
+}
+
+.page {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background: #0a0a0a;
+  color: #fff;
+  font-family: 'Asta Sans', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.65;
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.section {
+  padding: 80px 0;
+  border-top: 1px solid #1e1e1e;
+}
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
+}
