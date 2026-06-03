@@ -103,7 +103,7 @@ export const MEDIA_GROUPS = [
       label: 'Spotify',
       links: [
         {
-          text: 'open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2',
+          text: 'open.spotify.com/artist',
           href: 'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2?si=-9c68CphQAqsVuYy9-K9AA',
         },
       ],
@@ -112,7 +112,7 @@ export const MEDIA_GROUPS = [
       label: 'Apple Music',
       links: [
         {
-          text: 'music.apple.com/us/artist/cutmylips/1057980442',
+          text: 'music.apple.com/us/artist/cutmylips',
           href: 'https://music.apple.com/us/artist/cutmylips/1057980442',
         },
       ],
