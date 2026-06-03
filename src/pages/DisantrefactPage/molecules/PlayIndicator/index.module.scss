@@ -1,0 +1,67 @@
+@import "@styles/mixins.scss";
+@import "@styles/variables.scss";
+@import "@styles/extends.scss";
+@import "./keyframes.scss";
+
+.indicator {
+    position: fixed;
+    bottom: 3.5vh;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Special Gothic Extended One', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.25);
+    text-transform: uppercase;
+    pointer-events: none;
+    z-index: 8;
+    transition: color 0.4s, opacity 0.4s;
+}
+
+.bars {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 12px;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.bars_playing {
+    opacity: 1;
+}
+
+.bar {
+    width: 2px;
+    background: rgba(242, 165, 190, 0.7);
+    border-radius: 1px;
+    animation: none;
+
+    &:nth-child(1).bar_playing {
+        animation: bar1 0.8s ease-in-out infinite;
+    }
+
+    &:nth-child(2).bar_playing {
+        animation: bar2 0.9s ease-in-out infinite 0.1s;
+    }
+
+    &:nth-child(3).bar_playing {
+        animation: bar3 0.7s ease-in-out infinite 0.2s;
+    }
+
+    &:nth-child(4).bar_playing {
+        animation: bar4 1s ease-in-out infinite 0.05s;
+    }
+}
+
+.label {
+    color: rgba(255, 255, 255, 0.25);
+    transition: color 0.4s;
+}
+
+.label_playing {
+    color: rgba(242, 165, 190, 0.7);
+}

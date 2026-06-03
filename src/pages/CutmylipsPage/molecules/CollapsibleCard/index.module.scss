@@ -1,0 +1,77 @@
+@import "@styles/mixins.scss";
+@import "@styles/variables.scss";
+@import "@styles/extends.scss";
+
+.card {
+  background: linear-gradient(180deg, #141414 0%, #0e0e0e 100%);
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.cardTitle {
+  font-family: 'Special Gothic Expanded', 'Helvetica Bold Oblique', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  margin-bottom: 20px;
+}
+
+.textShort {
+  font-size: 1.05rem;
+  color: #ddd;
+  line-height: 1.8;
+}
+
+.textLong {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.85;
+
+  &.open {
+    max-height: 3000px;
+    padding-top: 20px;
+  }
+
+  p {
+    margin-bottom: 18px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.toggle {
+  margin-top: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 11px 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-family: 'Helvetica Bold Oblique', Arial, sans-serif;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.22s;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s;
+
+  .toggle.open & {
+    transform: rotate(180deg);
+  }
+}
