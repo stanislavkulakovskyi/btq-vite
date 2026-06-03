@@ -26,12 +26,12 @@
   color: #fff;
   font-family: 'Asta Sans', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.65;
+}
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+:where(.page) * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .section {
