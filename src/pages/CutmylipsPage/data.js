@@ -97,12 +97,12 @@ export const MEDIA_GROUPS = [
       links: [{ text: 'instagram.com/cutmylips', href: 'https://www.instagram.com/cutmylips/' }],
     },
     {
-      label: 'TikTok',
-      links: [{ text: 'tiktok.com/@cutmylips', href: 'https://www.tiktok.com/@cutmylips' }],
+      label: 'BandCamp',
+      links: [{ text: 'cutmylips.bandcamp.com', href: 'https://cutmylips.bandcamp.com' }],
     },
     {
-      label: 'Bandcamp',
-      links: [{ text: 'cutmylips.bandcamp.com', href: 'https://cutmylips.bandcamp.com' }],
+      label: 'Youtube Music',
+      links: [{ text: 'music.youtube.com/@cutmylips', href: 'https://music.youtube.com/@cutmylips' }],
     },
   ],
   [
@@ -110,7 +110,7 @@ export const MEDIA_GROUPS = [
       label: 'Spotify',
       links: [
         {
-          text: 'open.spotify.com/artist',
+          text: 'open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2',
           href: 'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2?si=-9c68CphQAqsVuYy9-K9AA',
         },
       ],
