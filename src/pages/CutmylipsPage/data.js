@@ -1,5 +1,5 @@
 export const NAV_LINKS = [
-  { label: 'Стрімінг', href: '#stream' },
+  { label: 'Послухати', href: '#stream' },
   { label: 'Біо', href: '#bio' },
   { label: 'Прес-реліз', href: '#press' },
   { label: 'Посилання', href: '#media' },
@@ -71,7 +71,7 @@ export const PRESS = {
 ],
 };
 
-export const MEDIA_TITLE = 'Соцмережі та стрімінги';
+export const MEDIA_TITLE = 'Посилання';
 
 export const MEDIA_GROUPS = [
   [
@@ -138,7 +138,7 @@ export const CONTACTS = [
     ],
   },
   {
-    label: 'Телефон',
+    label: 'WhatsApp',
     links: [{ text: '+38 063 782 36 86', href: 'tel:+380637823686' }],
   },
 ];
