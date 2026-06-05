@@ -35,8 +35,8 @@ export const Seo = ({
       {!noindex && <meta name="twitter:title" content={resolvedOgTitle} />}
       {!noindex && <meta name="twitter:description" content={resolvedOgDescription} />}
       {!noindex && <meta name="twitter:image" content={ogImage} />}
-      {jsonLdBlocks.map((block) => (
-        <script key={block['@type']} type="application/ld+json">
+      {jsonLdBlocks.map((block, index) => (
+        <script key={index} type="application/ld+json">
           {JSON.stringify(block)}
         </script>
       ))}
