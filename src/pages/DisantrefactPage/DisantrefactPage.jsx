@@ -10,12 +10,18 @@ import { SocialRail } from './molecules/SocialRail';
 import { StreamRail } from './molecules/StreamRail';
 import styles from './DisantrefactPage.module.scss';
 
+import { Seo } from '../../components/Seo';
+import { SEO } from '../../api/seo';
+import { buildMusicAlbumLd } from '../../api/jsonLd';
+
 export const DisantrefactPage = () => {
   const ytPlayerRef = useRef(null);
   const { isPlaying, toggle } = useYouTubePlayer(YT_VIDEO_ID, ytPlayerRef);
 
   return (
     <section className={styles.container} id="disantrefact">
+      <Seo {...SEO.disantrefact} jsonLd={buildMusicAlbumLd()} />
+
       <div className={styles.bg} style={{ backgroundImage: `url(${bg})` }} />
 
       <MouseGlow />
