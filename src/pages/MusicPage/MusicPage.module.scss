@@ -93,7 +93,7 @@
 
 .title {
   @extend %title;
-  margin-bottom: 25px;
+  margin-bottom: 8px;
 
   @include bp-tablet {
     text-align: center;
@@ -106,6 +106,26 @@
   @include bp-mobile-small {
     margin-top: 15px;
     margin-bottom: 10px;
+  }
+}
+
+.subtitle {
+  @include font-orditron-400;
+  font-size: 16px;
+  margin-bottom: 22px;
+
+  @include bp-tablet {
+    text-align: center;
+  }
+
+  @include bp-mobile {
+    font-size: 14px;
+    margin-bottom: 18px;
+    text-align: start;
+  }
+
+  @include bp-mobile-small {
+    margin-bottom: 12px;
   }
 }
 
