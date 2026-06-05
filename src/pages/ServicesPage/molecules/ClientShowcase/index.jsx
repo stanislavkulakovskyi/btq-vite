@@ -7,8 +7,8 @@ export const ClientShowcase = ({ roster, cases, rosterHeading, casesHeading }) =
     <div className={styles.container}>
       <h3 className={styles.heading}>{rosterHeading}</h3>
       <ul className={styles.roster}>
-        {roster.map((name, index) => (
-          <li key={index} className={styles.rosterItem}>
+        {roster.map((name) => (
+          <li key={name} className={styles.rosterItem}>
             <span>{name}</span>
           </li>
         ))}

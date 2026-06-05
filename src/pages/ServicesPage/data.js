@@ -25,11 +25,3 @@ export const SERVICE_LINKS = [
   { label: 'Mastering', href: null },
   { label: 'Sonic branding', href: null },
 ];
-
-export const CONTACT = {
-  email: 'hello@belletriq.com',
-  instagram: 'https://www.instagram.com/belletriq/',
-  instagramLabel: '@belletriq',
-  phone: '+380637823686',
-  phoneLabel: '+380 63 782 36 86',
-};
