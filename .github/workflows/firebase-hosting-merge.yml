@@ -21,6 +21,7 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npm run test
 
       # Continue with the rest of your workflow
       - uses: FirebaseExtended/action-hosting-deploy@v0
