@@ -26,15 +26,15 @@ export const Seo = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
-      <meta property="og:title" content={resolvedOgTitle} />
-      <meta property="og:description" content={resolvedOgDescription} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonical} />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={resolvedOgTitle} />
-      <meta name="twitter:description" content={resolvedOgDescription} />
-      <meta name="twitter:image" content={ogImage} />
+      {!noindex && <meta property="og:title" content={resolvedOgTitle} />}
+      {!noindex && <meta property="og:description" content={resolvedOgDescription} />}
+      {!noindex && <meta property="og:image" content={ogImage} />}
+      {!noindex && <meta property="og:type" content={ogType} />}
+      {!noindex && <meta property="og:url" content={canonical} />}
+      {!noindex && <meta name="twitter:card" content="summary_large_image" />}
+      {!noindex && <meta name="twitter:title" content={resolvedOgTitle} />}
+      {!noindex && <meta name="twitter:description" content={resolvedOgDescription} />}
+      {!noindex && <meta name="twitter:image" content={ogImage} />}
       {jsonLdBlocks.map((block) => (
         <script key={block['@type']} type="application/ld+json">
           {JSON.stringify(block)}

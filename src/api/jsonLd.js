@@ -18,7 +18,6 @@ export const buildOrganizationLd = () => ({
   '@type': 'Organization',
   name: ORGANIZATION_NAME,
   url: SITE_URL,
-  logo: `${SITE_URL}/og-default.png`,
   sameAs: getSameAs(),
 });
 

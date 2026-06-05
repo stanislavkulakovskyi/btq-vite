@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react';
 
 const SSR_DEFAULT_WIDTH = 1920;
 
-const getViewportWidth = () =>
-  typeof window === 'undefined' ? SSR_DEFAULT_WIDTH : window.innerWidth;
-
 export const useViewportWidth = () => {
-  const [width, setWidth] = useState(getViewportWidth);
+  const [width, setWidth] = useState(SSR_DEFAULT_WIDTH);
 
   useEffect(() => {
     const onResize = () => setWidth(window.innerWidth);
