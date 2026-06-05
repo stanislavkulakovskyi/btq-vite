@@ -59,19 +59,22 @@ Open **http://localhost:5173** in your browser. The page reloads automatically w
 
 ```
 src/
-├─ App.jsx              ← all routes (URLs) live here
-├─ main.jsx             ← app entry point
-├─ pages/               ← one folder per page
-│  ├─ AboutPage/        ┐
-│  ├─ ArtistsPage/      ├─ sections of the home one-page scroll  ("/")
-│  ├─ ServicesPage/     │
-│  ├─ MusicPage/        ┘
-│  └─ DisantrefactPage/ ← a real standalone page  ("/disantrefact")
-├─ layouts/MainLayout/  ← the home page ("/") — stitches the scroll sections together
-├─ components/          ← reusable UI (menus, buttons, modals, slider…)
-├─ api/                 ← static data (artists, menu links, thumbnails)
-├─ assets/              ← images, icons, video
-└─ styles/              ← global SCSS (variables, mixins)
+├─ App.jsx                      ← all routes (URLs) live here
+├─ main.jsx                     ← app entry point
+├─ pages/                       ← one folder per page
+│  ├─ AboutPage/                ┐
+│  ├─ ArtistsPage/              ├─ sections of the home one-page scroll  ("/")
+│  ├─ ServicesPage/             │
+│  ├─ MusicPage/                ┘
+│  ├─ DisantrefactPage/         ← a real standalone page  ("/disantrefact")
+│  ├─ CutmylipsPage/            ← a real standalone page  ("/cutmylips")
+│  ├─ ServicesBespokeMusicPage/ ← a standalone service landing page  ("/services/bespoke-music")
+│  └─ ServicesSoundDesignPage/  ← a standalone service landing page  ("/services/sound-design")
+├─ layouts/MainLayout/          ← the home page ("/") — stitches the scroll sections together
+├─ components/                  ← reusable UI (menus, buttons, modals…)
+├─ api/                         ← static data (artists, menu links, SEO, JSON-LD)
+├─ assets/                      ← images, icons, video
+└─ styles/                      ← global SCSS (variables, mixins)
 ```
 
 ---
@@ -84,6 +87,9 @@ All URLs are declared in **`src/App.jsx`**:
 |-----|----------------|
 | `/` | `MainLayout` — the one-page scroll (About → Artists → Services → Music) |
 | `/disantrefact` | `DisantrefactPage` — a standalone page |
+| `/cutmylips` | `CutmylipsPage` — a standalone page |
+| `/services/bespoke-music` | `ServicesBespokeMusicPage` — a standalone service landing page |
+| `/services/sound-design` | `ServicesSoundDesignPage` — a standalone service landing page |
 | anything else | redirects back to `/` |
 
 > **Important:** *About / Artists / Services / Music are **not** separate URLs.* They are scroll sections inside the home page (`/`). A "new page" in React Router terms is a **new URL** of its own — like `/disantrefact`. That's exactly what the guide below walks you through.
