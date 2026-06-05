@@ -1,8 +1,5 @@
 export const YT_VIDEO_ID = 'Q2ihmC8a_RE';
 
-export const APPLE_TOKEN =
-  'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlM5UVlBN1NQNEYifQ.eyJpYXQiOjE3ODAzMTY4NDAsImV4cCI6MTc4MDkyMTY0MCwiaXNzIjoiRzUyUEhZR0Y5TCJ9.RJg9ia2QxqZr2JZGIixImKlgp47xlTpL-qqFeoAQg0bWDLZco171_AhRZ0hqzrwq2xttBWdXrT6pfBKdMDS7BQ';
-
 export const STREAM_LINKS = [
   {
     label: 'Spotify',
@@ -15,7 +12,6 @@ export const STREAM_LINKS = [
     icon: 'appleMusic',
     href: 'https://accounts.apple.com',
     isPresave: true,
-    prereleaseToken: APPLE_TOKEN,
   },
   {
     label: 'YouTube Music',

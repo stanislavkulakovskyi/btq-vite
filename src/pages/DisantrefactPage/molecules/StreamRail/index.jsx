@@ -18,7 +18,6 @@ export const StreamRail = () => {
             href={stream.href}
             target="_blank"
             rel="noopener noreferrer"
-            data-prerelease-token={stream.prereleaseToken}
           >
             <span className={styles.icon}>
               <Icon name={stream.icon} />
