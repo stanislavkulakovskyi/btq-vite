@@ -28,32 +28,74 @@
   justify-content: center;
 
   @include bp-desktop {
-    gap: 160px;
+    gap: 64px;
   }
 
   @include bp-tablet {
-    gap: 130px;
+    gap: 56px;
   }
 
   @include bp-mobile {
-    gap: 100px;
+    gap: 40px;
   }
 
   @include bp-mobile-small {
-    gap: 70px;
+    gap: 32px;
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include bp-mobile {
+    gap: 16px;
+  }
+}
+
+.title {
+  @include font-archivo-900;
+  max-width: 560px;
+  font-size: 48px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: $salt;
+
+  @include bp-tablet {
+    font-size: 40px;
+  }
+
+  @include bp-mobile {
+    font-size: 32px;
+  }
+
+  @include bp-mobile-small {
+    font-size: 28px;
+  }
+}
+
+.lead {
+  @include font-orditron-500;
+  max-width: 520px;
+  font-size: 20px;
+  line-height: 1.45;
+  color: $salt;
+
+  @include bp-mobile {
+    font-size: 18px;
   }
 }
 
 .description {
   @include font-orditron-400;
-  max-width: 450px;
-  font-size: 18px;
-  height: 100%;
-
-  pointer-events: none;
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $salt;
 
   @include bp-mobile {
-    font-size: 18px;
+    font-size: 15px;
   }
 }
 
