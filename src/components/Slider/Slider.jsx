@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Autoplay, Navigation } from 'swiper';
-import { useRef, useEffect, useState, useCallback, useMemo, useLayoutEffect } from 'react';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import 'swiper/scss';
 
 import styles from './Slider.module.scss';
@@ -10,25 +10,14 @@ import playButton from '../../assets/icons/play.svg';
 import arrow from '../../assets/icons/arrow-right.svg';
 
 import thumbs from '../../api/thumbnails';
+import { useViewportWidth } from '../../hooks/useViewportWidth';
 
 SwiperCore.use([Autoplay, Navigation]);
 
 export const Slider = ({ openModal }) => {
   const swiperRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const handleResize = useCallback(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useLayoutEffect(() => {
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [handleResize]);
+  const windowWidth = useViewportWidth();
 
   const isTablet = windowWidth <= 1366;
 

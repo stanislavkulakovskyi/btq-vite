@@ -1,7 +1,7 @@
 # belletriq (BTQ) — landing
 
 Landing site for **belletriq** — a Ukrainian creative community / music label.
-Single-page scroll experience (About → Artists → Services → Music) plus standalone pages routed with React Router.
+Single-page scroll experience (About → Artists → Services → Music) plus standalone pages routed with React Router. At build time each page is prerendered to its own ready-made HTML file (so search engines and link previews see real content, not an empty page).
 
 Live: Firebase Hosting (project `belletriq-eaedc`, default URL `https://belletriq-eaedc.web.app`).
 
@@ -14,10 +14,12 @@ Live: Firebase Hosting (project `belletriq-eaedc`, default URL `https://belletri
 | [React 18](https://react.dev) | UI |
 | [Vite 4](https://vitejs.dev) | dev server & build |
 | [React Router 6](https://reactrouter.com) | page routing (URLs) |
+| [vite-react-ssg](https://github.com/Daydreamer-riri/vite-react-ssg) | prerenders each page to a ready-made HTML file at build time |
 | [SCSS Modules](https://sass-lang.com) | styling (`*.module.scss`) |
 | [Swiper](https://swiperjs.com) | sliders |
 | [react-scrollama](https://github.com/jsonkao/react-scrollama) | scroll-driven home page |
 | [EmailJS](https://www.emailjs.com) | contact form |
+| [Vitest](https://vitest.dev) | tests (checks the prerendered pages) |
 | [Firebase Hosting](https://firebase.google.com/docs/hosting) | production hosting |
 
 ---
@@ -86,6 +88,8 @@ All URLs are declared in **`src/App.jsx`**:
 
 > **Important:** *About / Artists / Services / Music are **not** separate URLs.* They are scroll sections inside the home page (`/`). A "new page" in React Router terms is a **new URL** of its own — like `/disantrefact`. That's exactly what the guide below walks you through.
 
+> **Good to know:** when the site is built, each of these URLs is turned into its own ready-made HTML file (e.g. `dist/disantrefact/index.html`). That's what makes pages show up correctly in Google and in link previews. You don't have to do anything for this — it happens automatically on every build.
+
 ---
 
 ## 📄 How to add a new page (no coding experience needed)
@@ -151,53 +155,41 @@ export * from './MerchPage';
 
 ### Step 2. Connect the page to an address
 
-Open **`src/App.jsx`**. Right now it looks like this:
+Open **`src/App.jsx`**. Right now it looks like this — a list of pages, where each line ties an **address** (`path`) to a **page** (`element`):
 
 ```jsx
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MainLayout } from "./layouts/MainLayout/MainLayout";
-import { DisantrefactPage } from "./pages/DisantrefactPage";
+import { Navigate } from 'react-router-dom';
+import { MainLayout } from './layouts/MainLayout/MainLayout';
+import { DisantrefactPage } from './pages/DisantrefactPage';
+import { CutmylipsPage } from './pages/CutmylipsPage';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />} />
-        <Route path="/disantrefact" element={<DisantrefactPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+export const routes = [
+  { path: '/', element: <MainLayout /> },
+  { path: '/disantrefact', element: <DisantrefactPage /> },
+  { path: '/cutmylips', element: <CutmylipsPage /> },
+  { path: '*', element: <Navigate to="/" replace /> },
+];
 ```
 
 Add **two lines** (marked `// ←`):
 
 ```jsx
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { MainLayout } from "./layouts/MainLayout/MainLayout";
-import { DisantrefactPage } from "./pages/DisantrefactPage";
-import { MerchPage } from "./pages/MerchPage";              // ← 1. import the new page
+import { Navigate } from 'react-router-dom';
+import { MainLayout } from './layouts/MainLayout/MainLayout';
+import { DisantrefactPage } from './pages/DisantrefactPage';
+import { CutmylipsPage } from './pages/CutmylipsPage';
+import { MerchPage } from './pages/MerchPage';              // ← 1. import the new page
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainLayout />} />
-        <Route path="/disantrefact" element={<DisantrefactPage />} />
-        <Route path="/merch" element={<MerchPage />} />      // ← 2. give it the address /merch
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-
-export default App;
+export const routes = [
+  { path: '/', element: <MainLayout /> },
+  { path: '/disantrefact', element: <DisantrefactPage /> },
+  { path: '/cutmylips', element: <CutmylipsPage /> },
+  { path: '/merch', element: <MerchPage /> },               // ← 2. give it the address /merch
+  { path: '*', element: <Navigate to="/" replace /> },
+];
 ```
 
-> Put your new address line **next to the other `<Route>` lines, above the one with `path="*"`**. That last line with the star is a "catch-all": it sends every unknown address back to the home page, so keep it at the very bottom.
+> Put your new line **next to the other `{ path: …, element: … }` lines, above the one with `path: '*'`**. That last line with the star is a "catch-all": it sends every unknown address back to the home page, so keep it at the very bottom.
 >
 > ⚠️ The `// ←` comments are only here to show what changes — **do not put them in the real file**; copy the lines without them.
 
@@ -231,7 +223,7 @@ After a couple of minutes the page will be live at `https://belletriq-eaedc.web.
 
 You don't have to do it by hand — paste this prompt into ChatGPT or Claude:
 
-> "In my React + Vite project, pages live in `src/pages/`, each one is a folder with three files (`Name.jsx`, `Name.module.scss`, `index.js`), and routes are declared in `src/App.jsx` via `<Route path="…" element={…} />`. Following the same pattern, create a new page called **NAME** with the address **/ADDRESS**, and show me exactly what to add to `App.jsx`. An existing page to copy from is `DisantrefactPage` (`/disantrefact`)."
+> "In my React + Vite project (it uses vite-react-ssg), pages live in `src/pages/`, each one is a folder with three files (`Name.jsx`, `Name.module.scss`, `index.js`), and routes are entries in the exported `routes` array in `src/App.jsx`, each shaped `{ path: '…', element: <…/> }`. Following the same pattern, create a new page called **NAME** with the address **/ADDRESS**, and show me exactly what to add to `App.jsx`. An existing page to copy from is `DisantrefactPage` (`/disantrefact`)."
 
 ### Linking the page in the menu
 
@@ -245,7 +237,7 @@ Production deploys **automatically**: every push to `master` triggers the GitHub
 [`.github/workflows/firebase-hosting-merge.yml`](.github/workflows/firebase-hosting-merge.yml),
 which runs `npm ci`, `npm run build` and deploys `dist/` to Firebase Hosting (project `belletriq-eaedc`).
 
-Direct page URLs (e.g. `/disantrefact`) work in production because Firebase is configured to serve `index.html` for any path (see `firebase.json` rewrites).
+Direct page URLs (e.g. `/disantrefact`) work in production because the build prerenders every page to its own static file — `npm run build` writes `dist/disantrefact/index.html`, `dist/cutmylips/index.html`, and so on — and Firebase serves those files directly thanks to `cleanUrls` (see `firebase.json`). The `"**"` → `/index.html` rewrite stays only as a fallback for unknown paths (it sends them to the home page, which then redirects).
 
 > EmailJS keys are injected in CI from repository **secrets** (`VITE_CONTACT_*`) — they are not committed to the repo.
 
@@ -256,7 +248,8 @@ Direct page URLs (e.g. `/disantrefact`) work in production because Firebase is c
 | Command | What it does |
 |---------|--------------|
 | `npm run dev` | start the local dev server (http://localhost:5173) |
-| `npm run build` | build the production site into `dist/` |
+| `npm run build` | build the production site into `dist/`, prerendering each page to its own HTML file (via vite-react-ssg) |
+| `npm run test` | run the tests — they build the site and check the prerendered pages have the right title, description and link-preview tags (Vitest) |
 | `npm run preview` | preview the production build locally |
 | `npm run lint` | check the code style with ESLint |
 | `npm run deploy` | manual deploy to GitHub Pages (alternative to the automatic Firebase deploy) |

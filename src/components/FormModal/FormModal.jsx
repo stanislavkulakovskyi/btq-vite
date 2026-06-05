@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 
 import styles from './FormModal.module.scss';
 import close from '../../assets/icons/close.svg';
 import arrow from '../../assets/icons/arrow.svg';
 import classNames from 'classnames';
+import { useViewportWidth } from '../../hooks/useViewportWidth';
 
 export const FormModal = ({ onClose }) => {
   const [email, setEmail] = useState('');
@@ -13,21 +14,9 @@ export const FormModal = ({ onClose }) => {
   const [emailError, setEmailError] = useState('');
   const [messageError, setMessageError] = useState('');
   const [isSucces, setIsSuccess] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isLoading, setIsLoading] = useState(false);
   const form = useRef();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
+  const windowWidth = useViewportWidth();
 
   const isMobile = windowWidth <= 640;
 

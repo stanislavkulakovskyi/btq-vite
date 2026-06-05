@@ -9,9 +9,14 @@ import { Footer } from './molecules/Footer';
 
 import styles from './CutmylipsPage.module.scss';
 
+import { Seo } from '../../components/Seo';
+import { SEO } from '../../api/seo';
+
 export const CutmylipsPage = () => {
   return (
     <div className={styles.page}>
+      <Seo {...SEO.cutmylips} />
+
       <Nav />
 
       <section className={styles.section} id="stream">

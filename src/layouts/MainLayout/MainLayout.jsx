@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './MainLayout.module.scss';
 
 import { AboutPage } from '../../pages/AboutPage';
@@ -13,29 +13,25 @@ import { TopMenu } from '../../components/TopMenu';
 import { PlusIcons } from '../../components/PlusIcons/PlusIcons';
 import { Scrollama, Step } from 'react-scrollama';
 
+import { Seo } from '../../components/Seo';
+import { SEO } from '../../api/seo';
+import { buildOrganizationLd, buildProfessionalServiceLd } from '../../api/jsonLd';
+import { useViewportWidth } from '../../hooks/useViewportWidth';
+
 
 export const MainLayout = () => {
   const [currentStepIndex, setCurrentStepIndex] = useState(null);
   const [activePage, setActivePage] = useState('about');
   const [line3Position, setLine3Position] = useState(0);
   const [isFormOpened, setIsFormOpened] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  
+  const windowWidth = useViewportWidth();
+
   const handleFormOpen = () => {
     setIsFormOpened(true);
   };
 
-  useEffect(() => {
-    const handleResize = () => setScreenWidth(window.innerWidth);
-
-    window.addEventListener('resize', handleResize);
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, [screenWidth])
-
-
-  const isTablet = window.innerWidth <= 1366;
-  const isMobile = window.innerWidth <= 640;
+  const isTablet = windowWidth <= 1366;
+  const isMobile = windowWidth <= 640;
 
   const divider = isMobile ? 37 : 24;
   const lineTopMargin = isMobile ? 80 : 100;
@@ -55,6 +51,8 @@ export const MainLayout = () => {
 
   return (
     <main className={styles.container}>
+      <Seo {...SEO.home} jsonLd={[buildOrganizationLd(), buildProfessionalServiceLd()]} />
+
       {isTablet && <TopMenu activePage={activePage} />}
       
         {!isTablet && <SideMenu activePage={activePage} handleFormOpen={handleFormOpen} />}

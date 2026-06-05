@@ -2,15 +2,16 @@ import styles from './ServicesPage.module.scss';
 import { Slider } from '../../components/Slider';
 import { VideoModal } from '../../components/VideoModal';
 import { FormModal } from '../../components/FormModal';
-import { useState, useLayoutEffect } from 'react';
+import { useState } from 'react';
+import { useViewportWidth } from '../../hooks/useViewportWidth';
 // import bgText from '../../assets/images/bg_illustration.webp';
 
 export const ServicesPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedVideoUrl, setSelectedVideoUrl] = useState(null);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const windowWidth = useViewportWidth();
   const [isFormOpened, setIsFormOpened] = useState(false);
-  
+
   const handleFormOpen = () => {
     setIsFormOpened(true);
   };
@@ -18,18 +19,6 @@ export const ServicesPage = () => {
   const handleFormClose = () => {
     setIsFormOpened(false);
   }
-
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   const openModal = (videoUrl) => {
     setSelectedVideoUrl(videoUrl);
