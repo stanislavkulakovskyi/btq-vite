@@ -67,13 +67,18 @@ describe('dist/index.html (home)', () => {
     expect(home).toContain('"@type":"ProfessionalService"');
   });
 
-  it('is prerendered with real home copy, not an empty root', () => {
+  it('is prerendered with real content, not an empty root', () => {
     expect(home).not.toContain('<div id="root"></div>');
-    expect(home).toContain('Ukrainian creative community');
+    expect(home).toContain('id="about"');
+    expect(home).toContain('id="services"');
   });
 
   it('is indexable (no robots noindex)', () => {
     expect(home).not.toContain('noindex');
+  });
+
+  it('does not inline the heavy background video into prerendered HTML (HIGH-1)', () => {
+    expect(home).not.toMatch(/bgAnimation/);
   });
 });
 
