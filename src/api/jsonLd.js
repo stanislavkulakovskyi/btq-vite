@@ -1,5 +1,5 @@
 import links from './links';
-import { SITE_URL } from './seo';
+import { SITE_URL, DISANTREFACT_OG_IMAGE } from './seo';
 
 const SAME_AS_TITLES = ['instagram', 'linktree', 'youtube'];
 
@@ -8,10 +8,19 @@ const ALBUM_NAME = 'DISANTREFACT';
 const ALBUM_ARTIST = 'Cutmylips';
 const ALBUM_NUM_TRACKS = 25;
 
-const getSameAs = () =>
-  SAME_AS_TITLES.map((title) => links.find((link) => link.title === title)?.path).filter(
-    Boolean,
-  );
+const getSameAs = () => {
+  const resolved = SAME_AS_TITLES.map(
+    (title) => links.find((link) => link.title === title)?.path,
+  ).filter(Boolean);
+
+  if (import.meta.env?.DEV && resolved.length < SAME_AS_TITLES.length) {
+    console.warn(
+      `[jsonLd] sameAs resolved ${resolved.length}/${SAME_AS_TITLES.length} links — a title in api/links.js may have changed`,
+    );
+  }
+
+  return resolved;
+};
 
 export const buildOrganizationLd = () => ({
   '@context': 'https://schema.org',
@@ -40,5 +49,6 @@ export const buildMusicAlbumLd = () => ({
     name: ALBUM_ARTIST,
   },
   numTracks: ALBUM_NUM_TRACKS,
+  image: DISANTREFACT_OG_IMAGE,
   url: `${SITE_URL}/disantrefact`,
 });

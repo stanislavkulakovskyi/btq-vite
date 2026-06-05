@@ -34,6 +34,7 @@ export const SEO = {
     title: 'Cutmylips — DISANTREFACT press kit',
     description: 'Internal press kit.',
     canonical: `${SITE_URL}/cutmylips`,
+    lang: 'uk',
     noindex: true,
   },
 };

@@ -31,6 +31,8 @@ export const Seo = ({
       {!noindex && <meta property="og:image" content={ogImage} />}
       {!noindex && <meta property="og:type" content={ogType} />}
       {!noindex && <meta property="og:url" content={canonical} />}
+      {!noindex && <meta property="og:site_name" content="belletriq" />}
+      {!noindex && <meta property="og:locale" content="en_US" />}
       {!noindex && <meta name="twitter:card" content="summary_large_image" />}
       {!noindex && <meta name="twitter:title" content={resolvedOgTitle} />}
       {!noindex && <meta name="twitter:description" content={resolvedOgDescription} />}
