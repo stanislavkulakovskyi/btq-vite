@@ -11,6 +11,15 @@
     flex-direction: column;
     gap: 14px;
     z-index: 10;
+
+    @include bp-mobile {
+        left: 50%;
+        top: auto;
+        bottom: 16px;
+        transform: translateX(-50%);
+        flex-direction: row;
+        gap: 12px;
+    }
 }
 
 .card {
@@ -44,6 +53,11 @@
 
     &:hover img {
         filter: brightness(0.82);
+    }
+
+    @include bp-mobile {
+        width: 100px;
+        height: 100px;
     }
 }
 

@@ -19,6 +19,10 @@
     pointer-events: none;
     z-index: 8;
     transition: color 0.4s, opacity 0.4s;
+
+    @include bp-mobile {
+        bottom: 130px;
+    }
 }
 
 .bars {
