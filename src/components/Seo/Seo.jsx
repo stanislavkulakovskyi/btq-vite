@@ -17,6 +17,7 @@ export const Seo = ({
 }) => {
   const resolvedOgTitle = ogTitle ?? title;
   const resolvedOgDescription = ogDescription ?? description;
+  const ogLocale = lang === 'uk' ? 'uk_UA' : 'en_US';
   const jsonLdBlocks = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
 
   return (
@@ -26,17 +27,17 @@ export const Seo = ({
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
-      {!noindex && <meta property="og:title" content={resolvedOgTitle} />}
-      {!noindex && <meta property="og:description" content={resolvedOgDescription} />}
-      {!noindex && <meta property="og:image" content={ogImage} />}
-      {!noindex && <meta property="og:type" content={ogType} />}
-      {!noindex && <meta property="og:url" content={canonical} />}
-      {!noindex && <meta property="og:site_name" content="belletriq" />}
-      {!noindex && <meta property="og:locale" content="en_US" />}
-      {!noindex && <meta name="twitter:card" content="summary_large_image" />}
-      {!noindex && <meta name="twitter:title" content={resolvedOgTitle} />}
-      {!noindex && <meta name="twitter:description" content={resolvedOgDescription} />}
-      {!noindex && <meta name="twitter:image" content={ogImage} />}
+      <meta property="og:title" content={resolvedOgTitle} />
+      <meta property="og:description" content={resolvedOgDescription} />
+      <meta property="og:image" content={ogImage} />
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:site_name" content="belletriq" />
+      <meta property="og:locale" content={ogLocale} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={resolvedOgTitle} />
+      <meta name="twitter:description" content={resolvedOgDescription} />
+      <meta name="twitter:image" content={ogImage} />
       {jsonLdBlocks.map((block, index) => (
         <script key={index} type="application/ld+json">
           {JSON.stringify(block)}

@@ -35,6 +35,9 @@ export const SEO = {
     description: 'Internal press kit.',
     canonical: `${SITE_URL}/cutmylips`,
     lang: 'uk',
+    ogTitle: 'Cutmylips — DISANTREFACT',
+    ogDescription: 'Прес-кіт альбому DISANTREFACT від Cutmylips.',
+    ogImage: DISANTREFACT_OG_IMAGE,
     noindex: true,
   },
 };

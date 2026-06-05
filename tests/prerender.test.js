@@ -118,9 +118,10 @@ describe('dist/cutmylips/index.html', () => {
     expect(cutmylips).toMatch(canonicalMatcher('https://belletriq.com/cutmylips'));
   });
 
-  it('suppresses OG tags on noindex (REV-002)', () => {
-    expect(cutmylips).not.toContain('og:image');
-    expect(cutmylips).not.toContain('property="og:');
+  it('still ships OG tags for link previews despite noindex (press kit is shared by direct link)', () => {
+    expect(cutmylips).toContain('property="og:title"');
+    expect(cutmylips).toContain('property="og:image"');
+    expect(cutmylips).toContain('content="https://belletriq.com/og-disantrefact.png"');
   });
 });
 
