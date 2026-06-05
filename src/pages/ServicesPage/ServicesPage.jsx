@@ -4,6 +4,7 @@ import { VideoModal } from '../../components/VideoModal';
 import { FormModal } from '../../components/FormModal';
 import { useState } from 'react';
 import { useViewportWidth } from '../../hooks/useViewportWidth';
+import { SERVICES } from '../../api/services';
 // import bgText from '../../assets/images/bg_illustration.webp';
 
 export const ServicesPage = () => {
@@ -72,7 +73,15 @@ export const ServicesPage = () => {
           </article>
         </div>
 
-        {isModalOpen && (       
+        <nav className={styles.serviceLinks} aria-label="Services">
+          {SERVICES.map((service) => (
+            <a key={service.slug} href={`/services/${service.slug}`}>
+              {service.name}
+            </a>
+          ))}
+        </nav>
+
+        {isModalOpen && (
             <VideoModal url={selectedVideoUrl} closeModal={closeModal} />
         )}
 

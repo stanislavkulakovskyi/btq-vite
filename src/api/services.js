@@ -1,0 +1,111 @@
+export const CONTACT_EMAIL = 'hello@belletriq.com';
+
+export const CLIENT_ROSTER = [
+  'Aerotim',
+  'Puma',
+  'Specialized',
+  'Adidas',
+  "J'AMEMME",
+  'mdf italia',
+  'Universal Music Group',
+  'Vogue',
+  'Pepsi',
+  'Napapijri',
+  'Asak',
+  'Escofet',
+  'BMW',
+  'Coca-Cola',
+  'RØDE Microphones',
+  'Poltrona Frau',
+  'MOYO',
+  'Snøhetta',
+  'Sony Music',
+  'GUZEMA',
+  'Ultramusic',
+  'Setanta Sports',
+  'Foster + Partners',
+];
+
+export const TRACK_RECORD =
+  'Belletriq has created music for brands including Adidas, Coca-Cola, Foster + Partners, Specialized and Setanta, and worked with the major labels Warner, Sony and Universal.';
+
+export const SERVICES = [
+  {
+    slug: 'bespoke-music',
+    seoKey: 'servicesBespokeMusic',
+    name: 'Bespoke Music Composition',
+    serviceType: 'Bespoke Music Composition',
+    h1: 'Bespoke music composition',
+    lead: 'Original music, composed to your picture and brief — scores and songs written from scratch for advertising, film and brand storytelling.',
+    paragraphs: [
+      'Bespoke composition is where sonic vision starts. We write original music to picture and brief, shaping how a story feels, moves and resonates instead of dropping a stock cue over the edit. Every theme, tempo and texture is built for the spot it lives in.',
+      'Our writing is rooted in electronic, rhythm-driven, bass-heavy production, yet the range is wide — from pop and acoustic compositions to experimental, cutting-edge soundscapes. As a studio grounded in the forward-thinking electronic music scene of Ukraine and Eastern Europe, we bring a fresh palette to commercial soundtracks and music for motion pictures.',
+      'We work across advertising, film, digital and mixed media, delivering full-cycle music tailored to each project — from first sketch to a mixed, mastered and cleared master, ready to air.',
+    ],
+  },
+  {
+    slug: 'sound-design',
+    seoKey: 'servicesSoundDesign',
+    name: 'Sound Design & SFX',
+    serviceType: 'Sound Design & SFX',
+    h1: 'Sound design & SFX',
+    lead: 'Custom sound design and SFX for commercial video production, film and digital — designed sound that makes every frame land.',
+    paragraphs: [
+      'Sound design is the detail layer that makes an image believable and a brand memorable. We build custom SFX and sonic textures for commercial video production, treating sound as an essential narrative layer rather than a background afterthought.',
+      'From hyperreal product Foley and motion-graphics sweeps to abstract, otherworldly atmospheres, we craft intentional details that shape rhythm, emotion and storytelling. Our electronic, bass-heavy roots make us as comfortable with cutting-edge, experimental sound as with clean, broadcast-ready effects.',
+      'Sound design rarely travels alone — it pairs naturally with bespoke music and a final mix, so we deliver SFX inside a full-cycle audio workflow built for advertising, film and digital.',
+    ],
+  },
+  {
+    slug: 'audio-post-production',
+    seoKey: 'servicesAudioPost',
+    name: 'Audio Post-Production',
+    serviceType: 'Audio Post-Production',
+    h1: 'Audio post-production',
+    lead: 'Full-cycle audio post for video and film — from dialogue and sound design to the final mix and delivery.',
+    paragraphs: [
+      'Audio post-production is where every sonic element comes together. We take a project from picture-lock to finished soundtrack — dialogue editing and cleanup, sound design, music integration, mix and delivery — so the audio carries the story as one coherent layer.',
+      'We work across advertising, film, digital and mixed media, delivering full-cycle audio solutions tailored to each project and its deliverables. From bespoke music to final mix, we keep a single creative thread across the entire post chain.',
+      'Working with one team end to end keeps the sonic vision intact: the score, the sound design and the mix are made to fit each other, not stitched together from separate vendors.',
+    ],
+  },
+  {
+    slug: 'mixing',
+    seoKey: 'servicesMixing',
+    name: 'Mixing (Stereo & Surround)',
+    serviceType: 'Mixing (Stereo & Surround)',
+    h1: 'Mixing — stereo & surround',
+    lead: 'Mixing for picture and music, in stereo and surround — balanced, translation-ready masters for broadcast, cinema and streaming.',
+    paragraphs: [
+      'The mix is where a soundtrack earns its impact. We balance dialogue, music and effects into a clear, dynamic whole that translates from cinema systems to phone speakers — in stereo and in surround for immersive and theatrical delivery.',
+      'Rooted in electronic, rhythm-driven, bass-heavy music, we mix with energy and precision and a real feel for low end and detail. Whether it is a six-second bumper or a long-form film, the mix is built to meet broadcast and streaming loudness specs without losing its punch.',
+      'Mixing sits near the end of the post chain, so it pairs naturally with our audio post-production and mastering — one team carrying the sound from first stem to final deliverable.',
+    ],
+  },
+  {
+    slug: 'mastering',
+    seoKey: 'servicesMastering',
+    name: 'Mastering',
+    serviceType: 'Mastering',
+    h1: 'Mastering',
+    lead: 'Final masters for release and broadcast — translation, loudness and format ready for streaming, cinema and air.',
+    paragraphs: [
+      'Mastering is the final quality pass that readies a track for the world. We deliver masters that translate across systems and meet the loudness and format specs of streaming platforms, broadcast and cinema.',
+      'For our own catalogue of forward-thinking electronic music and for commercial soundtracks alike, we master with precision and restraint — protecting dynamics and detail while giving the music the level and polish it needs to compete.',
+      'Mastering closes the loop on a full-cycle workflow that can begin at bespoke composition, run through sound design and mixing, and finish as a release- or air-ready master.',
+    ],
+  },
+  {
+    slug: 'sonic-branding',
+    seoKey: 'servicesSonicBranding',
+    name: 'Sonic Branding',
+    serviceType: 'Sonic Branding',
+    h1: 'Sonic branding',
+    lead: 'Audio identity for brands — sonic logos, brand themes and sound systems that stay consistent across every touchpoint.',
+    paragraphs: [
+      'Sonic branding gives a brand a recognisable voice in sound. We design audio identities — sonic logos, brand themes and adaptable sound systems — so a brand feels the same across ads, social, product and events.',
+      'We provide sonic vision: crafting intentional details that shape rhythm, emotion and storytelling, then systematising them so they scale. Rooted in electronic, rhythm-driven music with a wide range, we build identities that feel current rather than generic.',
+      'An audio identity is strongest when it is built alongside the bespoke music and sound design that bring it to life across campaigns — full-cycle, from strategy to the sounds that ship.',
+    ],
+  },
+];
