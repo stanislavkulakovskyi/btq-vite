@@ -40,4 +40,28 @@ export const SEO = {
     ogImage: DISANTREFACT_OG_IMAGE,
     noindex: true,
   },
+  servicesBespokeMusic: {
+    path: '/services/bespoke-music',
+    title: 'Bespoke Music for Advertising & Film | belletriq',
+    description:
+      'Bespoke music composition for advertising, film and brands. Original commercial soundtracks and scoring from concept to final master by belletriq.',
+    canonical: `${SITE_URL}/services/bespoke-music`,
+    ogTitle: 'Bespoke Music for Advertising & Film | belletriq',
+    ogDescription:
+      'Original bespoke music and commercial soundtracks for brands, advertising and motion pictures.',
+    ogImage: DEFAULT_OG_IMAGE,
+    ogType: 'website',
+  },
+  servicesSoundDesign: {
+    path: '/services/sound-design',
+    title: 'Sound Design for Advertising & Film | belletriq',
+    description:
+      'Sound design and SFX for advertising, film and brand content. Detailed sound effects, audio post-production and final mix for video by belletriq.',
+    canonical: `${SITE_URL}/services/sound-design`,
+    ogTitle: 'Sound Design for Advertising & Film | belletriq',
+    ogDescription:
+      'Sound design, SFX and audio post-production for brands, advertising and motion pictures.',
+    ogImage: DEFAULT_OG_IMAGE,
+    ogType: 'website',
+  },
 };
