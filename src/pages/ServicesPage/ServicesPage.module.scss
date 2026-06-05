@@ -4,6 +4,7 @@
 
 .container {
   @extend %container;
+  align-items: flex-start;
 
   @include bp-tablet {
     min-height: min-content;
@@ -14,55 +15,17 @@
   }
 }
 
-.slider_container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-  margin: 0 0 0 -200px;
-  
-  @include bp-desktop {
-    width: calc(100vw - 300px);
-  }
-  
-  @include bp-tablet {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    margin-top: 20px;
-  }
-
-  @include bp-mobile {
-    margin-top: 0;
-  }
-}
-
 .page {
   display: flex;
-  max-width: 100%;
   flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 100%;
   position: relative;
-
-  @include bp-desktop {
-    height: 100%;
-  }
-
-  @include bp-custom-down(1440px) {
-    margin-top: 100px;
-  }
-
-  @include bp-tablet {
-    margin-top: 0;
-    align-items: center;
-  }
+  z-index: 1;
 
   @include bp-mobile {
-    align-items: normal;
-  }
-
-  @include bp-custom-up(1600px) {
-    height: 82%;
+    gap: 32px;
   }
 }
 
@@ -76,37 +39,89 @@
   @include bp-custom-down(950px) {
     margin-left: 0;
   }
+}
+
+.showreel {
+  width: 100%;
+  max-width: 820px;
 
   @include bp-mobile {
-    margin-bottom: 20px;
+    max-width: 100%;
   }
 }
 
-.description {
+.intro {
   @include font-orditron-400;
   font-size: 18px;
-  margin: 0 30px 0 0;
-  width: 350px;
+  line-height: 1.6;
+  max-width: 720px;
+  color: $carbon;
 
-  @include bp-desktop {
-    font-size: 22px;
-    min-width: 500px;
-    max-width: 500px;
+  @include bp-mobile-small {
+    font-size: 16px;
   }
+}
+
+.services {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.servicesHeading {
+  @include font-orditron-600;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: $carbon;
+
+  @include bp-mobile-small {
+    font-size: 16px;
+  }
+}
+
+.serviceList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.serviceItem {
+  @include font-orditron-400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $carbon;
+
+  @include bp-mobile-small {
+    font-size: 14px;
+  }
+}
+
+.serviceLink {
+  color: $lava;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.cta {
+  @include font-orditron-400;
+  font-size: 18px;
+  margin-right: 30px;
+  color: $carbon;
 
   @include bp-tablet {
-    width: 90%;
-    margin-bottom: 30px;
+    margin: 0 0 24px 0;
+    text-align: center;
   }
 
   @include bp-mobile {
-    font-size: 22px;
-    margin: 0 0 36px 0;
-  }
-
-  @include bp-mobile-small {
-    font-size: 18px;
-    line-height: 1.5;
+    color: $salt;
   }
 }
 
@@ -118,13 +133,12 @@
   transition: all 0.3s;
   @extend %flexCenter;
   height: max-content;
-  
+  align-self: flex-start;
+
   box-shadow: $shadow;
 
   @include bp-desktop {
-    align-self: center;
     padding: 40px 65px;
-    transform: translateY(-100px);
 
     &:hover {
       max-width: 950px;
@@ -139,10 +153,6 @@
 
   @include bp-mobile {
     width: 100%;
-  }
-
-  @include bp-mobile-small {
-    transform: translateY(-300px);
   }
 
   @include bp-custom-up(1600px) {
@@ -177,18 +187,15 @@
   }
 
   @include bp-tablet {
-    margin: 0 60px;
+    margin: 0;
     max-width: 600px;
     flex-direction: column;
-    transform: translate(0, -50px);
+    align-self: center;
   }
 
   @include bp-mobile {
     background-color: $carbon;
     color: $salt;
-    margin-top: 10px;
-    z-index: 8;
-    transform: translate(0, 0);
   }
 }
 
@@ -196,7 +203,7 @@
   @extend %transition01;
   @extend %flexBetween;
   @include square(70px);
-  
+
   justify-content: center;
   background-color: $salt;
   padding: 20px;
@@ -208,7 +215,6 @@
     content: url(../../assets/icons/arrow.svg);
     @extend %flexCenter;
     @extend %transition01;
-    // @include square(20px);
 
     transform: translate(1px, 1px) scale(0.9);
 
@@ -244,12 +250,4 @@
       }
     }
   }
-}
-
-.bgIllustration {
-  @extend %bgIllustration;
-  z-index: 0;
-  position: fixed;
-
-  animation: opacity 2s;
 }

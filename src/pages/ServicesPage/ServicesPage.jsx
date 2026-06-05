@@ -1,15 +1,18 @@
-import styles from './ServicesPage.module.scss';
-import { Slider } from '../../components/Slider';
-import { VideoModal } from '../../components/VideoModal';
-import { FormModal } from '../../components/FormModal';
 import { useState } from 'react';
-import { useViewportWidth } from '../../hooks/useViewportWidth';
-// import bgText from '../../assets/images/bg_illustration.webp';
+
+import styles from './ServicesPage.module.scss';
+import { FormModal } from '../../components/FormModal';
+import { Showreel } from '../../components/Showreel';
+import { ClientShowcase } from './molecules/ClientShowcase';
+import {
+  SHOWREEL,
+  SERVICES_INTRO,
+  CLIENT_ROSTER,
+  HOME_CASES,
+  SERVICE_LINKS,
+} from './data';
 
 export const ServicesPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedVideoUrl, setSelectedVideoUrl] = useState(null);
-  const windowWidth = useViewportWidth();
   const [isFormOpened, setIsFormOpened] = useState(false);
 
   const handleFormOpen = () => {
@@ -18,68 +21,53 @@ export const ServicesPage = () => {
 
   const handleFormClose = () => {
     setIsFormOpened(false);
-  }
-
-  const openModal = (videoUrl) => {
-    setSelectedVideoUrl(videoUrl);
-    setIsModalOpen(true);
   };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setSelectedVideoUrl(null);
-  };
-
-  const isMobile = windowWidth <= 640;
 
   return (
     <section className={styles.container} id="services">
       <div className={styles.page}>
         <h2 className={styles.title}>SERVICES</h2>
 
-        <div className={styles.slider_container}> 
-          <div
-            className={styles.slider_box}
-            style={{ clipPath: !isMobile ? 'url(#mask)' : null }}
-          >
-            <Slider openModal={openModal} />
-            <svg height="0">
-              <clipPath
-                id="mask"
-                clipPathUnits="objectBoundingBox"
-                transform={`scale(0.0009, 0.0023)`}
-                height="0"
-              >
-                <path
-                  d="M0,400V.05C274.82,36.84,865.29,36.83,1140,0V400C865.29,363.18,274.83,363.16,0,400Z"
-                  fill="black"
-                  fillOpacity="0.2"
-                  height="0"
-                />
-              </clipPath>
-            </svg>
-          </div>
-
-          <article className={styles.description_box}>
-            <p className={styles.description}>
-              We deliver high-quality, end-to-end audio solutions, including music production, mixing, mastering, scoring and SFX. 
-              We also offer licensing and sync services, ensuring seamless sound integration into any creative project.
-            </p>
-
-            <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
-              <div className={styles.svg_icon}></div>
-            </button>
-          </article>
+        <div className={styles.showreel}>
+          <Showreel url={SHOWREEL.url} title={SHOWREEL.title} />
         </div>
 
-        {isModalOpen && (       
-            <VideoModal url={selectedVideoUrl} closeModal={closeModal} />
-        )}
+        <p className={styles.intro}>{SERVICES_INTRO}</p>
 
-        {isFormOpened && (
-            <FormModal onClose={handleFormClose} />
-        )}
-      </div>      
+        <div className={styles.services}>
+          <h3 className={styles.servicesHeading}>What we do</h3>
+          <ul className={styles.serviceList}>
+            {SERVICE_LINKS.map((link) => (
+              <li key={link.label} className={styles.serviceItem}>
+                {link.href ? (
+                  <a href={link.href} className={styles.serviceLink}>
+                    {link.label}
+                  </a>
+                ) : (
+                  link.label
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <ClientShowcase
+          roster={CLIENT_ROSTER}
+          cases={HOME_CASES}
+          rosterHeading="Selected clients"
+          casesHeading="Selected work"
+        />
+
+        <article className={styles.description_box}>
+          <p className={styles.cta}>Have a project in mind?</p>
+
+          <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
+            <div className={styles.svg_icon}></div>
+          </button>
+        </article>
+
+        {isFormOpened && <FormModal onClose={handleFormClose} />}
+      </div>
     </section>
   );
 };

@@ -1,0 +1,72 @@
+@import "@styles/variables.scss";
+@import "@styles/mixins.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: $carbon;
+}
+
+.heading {
+    @include font-orditron-600;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: $carbon;
+
+    @include bp-mobile-small {
+        font-size: 16px;
+    }
+}
+
+.roster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 12px;
+}
+
+.rosterItem {
+    @include font-orditron-500;
+    font-size: 15px;
+    line-height: 1;
+    padding: 8px 14px;
+    border: 1px solid $fog;
+    border-radius: 999px;
+    color: $carbon;
+    white-space: nowrap;
+
+    @include bp-mobile-small {
+        font-size: 13px;
+        padding: 6px 12px;
+    }
+}
+
+.cases {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.caseItem {
+    @include font-orditron-400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $carbon;
+
+    @include bp-mobile-small {
+        font-size: 14px;
+    }
+}
+
+.brand {
+    @include font-orditron-600;
+    color: $lava;
+}
