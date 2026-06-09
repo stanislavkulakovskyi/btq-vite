@@ -62,8 +62,8 @@ export const ServicesPage = () => {
 
           <article className={styles.description_box}>
             <p className={styles.description}>
-              We deliver high-quality, end-to-end audio solutions, including music production, mixing, mastering, scoring and SFX. 
-              We also offer licensing and sync services, ensuring seamless sound integration into any creative project.
+              We craft bespoke music, sound design and SFX for commercial video production — full-cycle audio post-production, mixing and mastering for advertising, film and brands.
+              Clients include Adidas, Coca-Cola, Pepsi, BMW, Puma and Sony Music, with licensing and sync for seamless integration into any project.
             </p>
 
             <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
