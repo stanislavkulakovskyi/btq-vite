@@ -1,5 +1,3 @@
-export const CONTACT_EMAIL = 'hello@belletriq.com';
-
 export const CLIENT_ROSTER = [
   'Aerotim',
   'Puma',

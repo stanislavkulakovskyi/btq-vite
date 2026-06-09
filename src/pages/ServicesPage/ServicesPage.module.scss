@@ -267,12 +267,10 @@
     font-size: 14px;
     letter-spacing: 0.03em;
     color: $carbon;
-    border-bottom: 1px solid transparent;
-    transition: all 0.2s;
+    transition: color 0.2s;
 
     &:hover {
       color: $lava;
-      border-color: $lava;
     }
   }
 

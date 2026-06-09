@@ -1,21 +1,21 @@
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 import { Seo } from '../../components/Seo';
+import { FormModal } from '../../components/FormModal';
 import { SEO, SITE_URL } from '../../api/seo';
 import { buildServiceLd, buildBreadcrumbLd } from '../../api/jsonLd';
-import {
-  SERVICES,
-  CLIENT_ROSTER,
-  TRACK_RECORD,
-  CONTACT_EMAIL,
-} from '../../api/services';
+import { SERVICES, CLIENT_ROSTER, TRACK_RECORD } from '../../api/services';
 
 import styles from './ServicesLandingPage.module.scss';
 
 export const ServicesLandingPage = ({ service }) => {
   const seo = SEO[service.seoKey];
   const related = SERVICES.filter((item) => item.slug !== service.slug);
-  const mailto = `mailto:${CONTACT_EMAIL}`;
+  const [isFormOpened, setIsFormOpened] = useState(false);
+
+  const openForm = () => setIsFormOpened(true);
+  const closeForm = () => setIsFormOpened(false);
 
   const jsonLd = [
     buildServiceLd({
@@ -39,9 +39,9 @@ export const ServicesLandingPage = ({ service }) => {
           <a className={styles.wordmark} href="/">
             belletriq
           </a>
-          <a className={styles.navCta} href={mailto}>
-            {CONTACT_EMAIL}
-          </a>
+          <button className={styles.navCta} onClick={openForm}>
+            Start a project
+          </button>
         </div>
       </header>
 
@@ -54,9 +54,9 @@ export const ServicesLandingPage = ({ service }) => {
           </nav>
           <h1 className={styles.h1}>{service.h1}</h1>
           <p className={styles.lead}>{service.lead}</p>
-          <a className={styles.cta} href={mailto}>
+          <button className={styles.cta} onClick={openForm}>
             Start a project
-          </a>
+          </button>
         </div>
       </section>
 
@@ -105,15 +105,17 @@ export const ServicesLandingPage = ({ service }) => {
             Tell us about the picture, the brief and the deadline — we will shape
             the sound.
           </p>
-          <a className={styles.cta} href={mailto}>
-            {CONTACT_EMAIL}
-          </a>
+          <button className={styles.cta} onClick={openForm}>
+            Start a project
+          </button>
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.container}>belletriq — sound for brands © 2026</div>
       </footer>
+
+      {isFormOpened && <FormModal onClose={closeForm} />}
     </div>
   );
 };
