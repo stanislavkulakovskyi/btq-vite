@@ -12,7 +12,7 @@
     gap: 14px;
     z-index: 10;
 
-    @include bp-mobile {
+    @include bp-custom-down(1140px) {
         left: 50%;
         top: auto;
         bottom: 16px;
@@ -55,7 +55,7 @@
         filter: brightness(0.82);
     }
 
-    @include bp-mobile {
+    @include bp-custom-down(1140px) {
         width: 100px;
         height: 100px;
     }

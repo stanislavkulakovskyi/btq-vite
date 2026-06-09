@@ -13,7 +13,7 @@
     z-index: 10;
     width: min(280px, 32vw);
 
-    @include bp-mobile {
+    @include bp-custom-down(1140px) {
         right: auto;
         left: 50%;
         top: 14px;
@@ -34,7 +34,7 @@
     -webkit-backdrop-filter: blur(18px);
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
 
-    @include bp-mobile {
+    @include bp-custom-down(1140px) {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
@@ -48,7 +48,7 @@
     color: rgba(255, 255, 255, 0.42);
     padding: 0 2px 2px;
 
-    @include bp-mobile {
+    @include bp-custom-down(1140px) {
         width: 100%;
         text-align: center;
     }
