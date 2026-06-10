@@ -10,7 +10,7 @@ export const MusicPage = () => {
         <h2 className={styles.title}>DISCOGRAPHY</h2>
 
         <p className={styles.subtitle}>
-          New, forward-thinking electronic music from Ukraine and Eastern Europe.
+          New, forward-thinking electronic music from Ukraine.
         </p>
 
         <div className={styles.animation_container}>
