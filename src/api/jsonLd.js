@@ -52,3 +52,29 @@ export const buildMusicAlbumLd = () => ({
   image: DISANTREFACT_OG_IMAGE,
   url: `${SITE_URL}/disantrefact`,
 });
+
+export const buildServiceLd = ({ name, serviceType, description, url }) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  serviceType,
+  description,
+  url,
+  areaServed: 'Worldwide',
+  provider: {
+    '@type': 'ProfessionalService',
+    name: ORGANIZATION_NAME,
+    url: SITE_URL,
+  },
+});
+
+export const buildBreadcrumbLd = (crumbs) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: crumbs.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.url,
+  })),
+});

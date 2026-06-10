@@ -15,22 +15,62 @@ const canonicalMatcher = (url) =>
 const robotsNoindexMatcher =
   /<meta[^>]*name="robots"[^>]*content="noindex,nofollow"/;
 
+const SERVICE_PAGES = [
+  {
+    dir: 'bespoke-music',
+    title: 'Bespoke music composition for brands &amp; film | belletriq',
+    canonical: 'https://belletriq.com/services/bespoke-music',
+  },
+  {
+    dir: 'sound-design',
+    title: 'Sound design &amp; SFX for advertising &amp; film | belletriq',
+    canonical: 'https://belletriq.com/services/sound-design',
+  },
+  {
+    dir: 'audio-post-production',
+    title: 'Audio post-production for video &amp; film | belletriq',
+    canonical: 'https://belletriq.com/services/audio-post-production',
+  },
+  {
+    dir: 'mixing',
+    title: 'Mixing — stereo &amp; surround sound | belletriq',
+    canonical: 'https://belletriq.com/services/mixing',
+  },
+  {
+    dir: 'mastering',
+    title: 'Audio mastering for streaming &amp; broadcast | belletriq',
+    canonical: 'https://belletriq.com/services/mastering',
+  },
+  {
+    dir: 'sonic-branding',
+    title: 'Sonic branding &amp; audio identity | belletriq',
+    canonical: 'https://belletriq.com/services/sonic-branding',
+  },
+];
+
 let home;
 let disantrefact;
 let cutmylips;
+const serviceHtml = {};
 
 beforeAll(() => {
   execSync('npm run build', { stdio: 'inherit', timeout: BUILD_TIMEOUT_MS });
   home = read('index.html');
   disantrefact = read('disantrefact', 'index.html');
   cutmylips = read('cutmylips', 'index.html');
+  SERVICE_PAGES.forEach((page) => {
+    serviceHtml[page.dir] = read('services', page.dir, 'index.html');
+  });
 }, BUILD_TIMEOUT_MS);
 
 describe('prerendered build output', () => {
-  it('emits exactly the three static routes and no stray catch-all file', () => {
+  it('emits a prerendered file for every static route and no stray catch-all file', () => {
     expect(existsSync(distPath('index.html'))).toBe(true);
     expect(existsSync(distPath('disantrefact', 'index.html'))).toBe(true);
     expect(existsSync(distPath('cutmylips', 'index.html'))).toBe(true);
+    SERVICE_PAGES.forEach((page) => {
+      expect(existsSync(distPath('services', page.dir, 'index.html'))).toBe(true);
+    });
     expect(home.length).toBeGreaterThan(2000);
     expect(disantrefact.length).toBeGreaterThan(2000);
     expect(cutmylips.length).toBeGreaterThan(2000);
@@ -79,6 +119,47 @@ describe('dist/index.html (home)', () => {
 
   it('does not inline the heavy background video into prerendered HTML (HIGH-1)', () => {
     expect(home).not.toMatch(/bgAnimation/);
+  });
+
+  it('links to the six service landing pages', () => {
+    SERVICE_PAGES.forEach((page) => {
+      expect(home).toContain(`href="/services/${page.dir}"`);
+    });
+  });
+});
+
+describe('dist/services/* (service landing pages)', () => {
+  SERVICE_PAGES.forEach((page) => {
+    describe(`/services/${page.dir}`, () => {
+      it('is prerendered with real content', () => {
+        expect(serviceHtml[page.dir].length).toBeGreaterThan(2000);
+        expect(serviceHtml[page.dir]).not.toContain('<div id="root"></div>');
+      });
+
+      it('renders its <title> in the prerendered head', () => {
+        expect(serviceHtml[page.dir]).toContain(
+          `<title data-rh="true">${page.title}</title>`,
+        );
+      });
+
+      it('renders a self-referential canonical', () => {
+        expect(serviceHtml[page.dir]).toMatch(canonicalMatcher(page.canonical));
+      });
+
+      it('embeds Service + BreadcrumbList JSON-LD', () => {
+        expect(serviceHtml[page.dir]).toContain('type="application/ld+json"');
+        expect(serviceHtml[page.dir]).toContain('"@type":"Service"');
+        expect(serviceHtml[page.dir]).toContain('"@type":"BreadcrumbList"');
+      });
+
+      it('renders exactly one h1', () => {
+        expect((serviceHtml[page.dir].match(/<h1[ >]/g) || []).length).toBe(1);
+      });
+
+      it('is indexable (no robots noindex)', () => {
+        expect(serviceHtml[page.dir]).not.toContain('noindex');
+      });
+    });
   });
 });
 
@@ -133,11 +214,14 @@ describe('dist/robots.txt', () => {
 });
 
 describe('dist/sitemap.xml', () => {
-  it('lists the two indexable routes and excludes cutmylips', () => {
+  it('lists every indexable route (home, disantrefact, services) and excludes cutmylips', () => {
     expect(existsSync(distPath('sitemap.xml'))).toBe(true);
     const sitemap = read('sitemap.xml');
-    expect(sitemap).toContain('https://belletriq.com');
-    expect(sitemap).toContain('https://belletriq.com/disantrefact');
+    expect(sitemap).toContain('<loc>https://belletriq.com</loc>');
+    expect(sitemap).toContain('<loc>https://belletriq.com/disantrefact</loc>');
+    SERVICE_PAGES.forEach((page) => {
+      expect(sitemap).toContain(`<loc>${page.canonical}</loc>`);
+    });
     expect(sitemap).not.toContain('cutmylips');
   });
 });

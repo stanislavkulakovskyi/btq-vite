@@ -7,11 +7,18 @@ export const AboutPage = () => {
       <div className={styles.content}>
         <CubeText />
 
-        <p className={styles.description}>
-          We are the Ukrainian creative community which unites likeminded people
-          and promotes cultural development in it’s own way. Mostly focused on
-          sound, but featured in a vast variety of art forms.
-        </p>
+        <div className={styles.description}>
+          <h1 className={styles.headline}>sonic vision</h1>
+          <p className={styles.tagline}>Sound for brands.</p>
+          <p className={styles.lead}>
+            Audio post-production, mixing, sound design, and bespoke music.
+          </p>
+          <p className={styles.note}>
+            Beyond commissioned work, belletriq functions as a music label and
+            creative platform — releasing forward-thinking electronic music from
+            Ukraine and developing cultural projects.
+          </p>
+        </div>
       </div>
 
       <div className={styles.line}></div>

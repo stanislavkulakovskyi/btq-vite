@@ -4,3 +4,4 @@ node_modules
 .env
 .feature-dev
 .DS_Store
+.vercel

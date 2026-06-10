@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react';
 
 const SIZE_RATIO = 0.5;
+const STACK_SIZE_RATIO = 0.42;
+const STACK_BREAKPOINT = 1140;
 const DRAG_THRESHOLD = 6;
 const REVEAL_THRESHOLD_RATIO = 0.22;
 const REVEAL_RANGE_RATIO = 0.4;
@@ -25,7 +27,8 @@ const createDragController = (wrap, micro, onTapRef) => {
   const layout = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    state.size = Math.min(width, height) * SIZE_RATIO;
+    const ratio = width <= STACK_BREAKPOINT ? STACK_SIZE_RATIO : SIZE_RATIO;
+    state.size = Math.min(width, height) * ratio;
     state.centerX = width / 2;
     state.centerY = height / 2;
     Object.assign(wrap.style, {

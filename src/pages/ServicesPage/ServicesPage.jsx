@@ -4,6 +4,7 @@ import { VideoModal } from '../../components/VideoModal';
 import { FormModal } from '../../components/FormModal';
 import { useState } from 'react';
 import { useViewportWidth } from '../../hooks/useViewportWidth';
+import { SERVICES } from '../../api/services';
 // import bgText from '../../assets/images/bg_illustration.webp';
 
 export const ServicesPage = () => {
@@ -62,8 +63,8 @@ export const ServicesPage = () => {
 
           <article className={styles.description_box}>
             <p className={styles.description}>
-              We deliver high-quality, end-to-end audio solutions, including music production, mixing, mastering, scoring and SFX. 
-              We also offer licensing and sync services, ensuring seamless sound integration into any creative project.
+              We craft bespoke music, sound design and SFX for commercial video production — full-cycle audio post-production, mixing and mastering for advertising, film and brands.
+              Clients include Adidas, Coca-Cola, Pepsi, BMW, Puma and Sony Music, with licensing and sync for seamless integration into any project.
             </p>
 
             <button className={styles.link} onClick={handleFormOpen} aria-label="contact us">
@@ -72,7 +73,15 @@ export const ServicesPage = () => {
           </article>
         </div>
 
-        {isModalOpen && (       
+        <nav className={styles.serviceLinks} aria-label="Services">
+          {SERVICES.map((service) => (
+            <a key={service.slug} href={`/services/${service.slug}`}>
+              {service.name}
+            </a>
+          ))}
+        </nav>
+
+        {isModalOpen && (
             <VideoModal url={selectedVideoUrl} closeModal={closeModal} />
         )}
 

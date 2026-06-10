@@ -1,0 +1,264 @@
+@import '@styles/mixins.scss';
+@import '@styles/variables.scss';
+@import '@styles/extends.scss';
+
+.page {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #0d0e10;
+  color: $salt;
+  line-height: 1.65;
+}
+
+:where(.page) * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include bp-mobile {
+    padding: 0 22px;
+  }
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(13, 14, 16, 0.86);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba($salt, 0.08);
+}
+
+.navInner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include bp-mobile {
+    padding: 0 22px;
+  }
+}
+
+.wordmark {
+  @include font-orditron-600;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  color: $salt;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $lava;
+  }
+}
+
+.navCta {
+  @include font-orditron-400;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: $quarz;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $salt;
+  }
+}
+
+.hero {
+  padding: 96px 0 64px;
+
+  @include bp-mobile {
+    padding: 64px 0 44px;
+  }
+}
+
+.crumbs {
+  @include font-orditron-400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: $fog;
+  margin-bottom: 28px;
+
+  a {
+    color: $fog;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $salt;
+    }
+  }
+}
+
+.h1 {
+  @include font-archivo-900;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  max-width: 16ch;
+}
+
+.lead {
+  @include font-orditron-400;
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  line-height: 1.5;
+  color: $salt;
+  max-width: 60ch;
+  margin-top: 28px;
+}
+
+.cta {
+  @include font-orditron-500;
+  display: inline-block;
+  margin-top: 36px;
+  padding: 15px 30px;
+  font-size: 18px;
+  color: $salt;
+  background: transparent;
+  border: 1px solid $quarz;
+  border-radius: 5px;
+  transition: all 0.3s;
+
+  &:hover {
+    background: $lava;
+    border-color: $lava;
+  }
+}
+
+.section {
+  padding: 64px 0;
+  border-top: 1px solid rgba($salt, 0.08);
+
+  @include bp-mobile {
+    padding: 48px 0;
+  }
+}
+
+.prose {
+  max-width: 760px;
+}
+
+.paragraph {
+  @include font-orditron-400;
+  font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+  line-height: 1.8;
+  color: rgba($salt, 0.84);
+
+  & + & {
+    margin-top: 22px;
+  }
+}
+
+.h2 {
+  @include font-orditron-600;
+  font-size: clamp(1.2rem, 2.4vw, 1.85rem);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.trackRecord {
+  @include font-orditron-400;
+  font-size: clamp(1rem, 1.5vw, 1.12rem);
+  line-height: 1.75;
+  color: rgba($salt, 0.78);
+  max-width: 72ch;
+  margin-bottom: 30px;
+}
+
+.roster {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    @include font-orditron-400;
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: $salt;
+    background: $carbon;
+    border: 1px solid rgba($salt, 0.1);
+    border-radius: 999px;
+    transition: border-color 0.2s;
+
+    &:hover {
+      border-color: rgba($salt, 0.35);
+    }
+  }
+}
+
+.related {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 28px;
+  margin-bottom: 34px;
+
+  @include bp-mobile {
+    grid-template-columns: 1fr;
+  }
+
+  a {
+    @include font-orditron-500;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: $salt;
+    transition: color 0.2s;
+
+    &::before {
+      content: '↗';
+      color: $lava;
+    }
+
+    &:hover {
+      color: $lava;
+    }
+  }
+}
+
+.backHome {
+  @include font-orditron-400;
+  display: inline-block;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: $quarz;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $salt;
+  }
+}
+
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid rgba($salt, 0.08);
+  text-align: center;
+
+  div {
+    @include font-orditron-400;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: $fog;
+  }
+}
