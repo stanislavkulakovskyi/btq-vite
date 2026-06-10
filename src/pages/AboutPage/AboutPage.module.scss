@@ -61,10 +61,12 @@
 }
 
 .headline {
-  @include font-orditron-700;
+  @include font-orditron-500;
   font-size: 26px;
-  letter-spacing: 2px;
   line-height: 1.1;
+  width: fit-content;
+  transform: scaleX(1.58);
+  transform-origin: left;
 
   @include bp-mobile {
     font-size: 22px;
@@ -72,8 +74,7 @@
 }
 
 .tagline {
-  @include font-orditron-500;
-  font-size: 20px;
+  @include font-orditron-400;
 }
 
 .lead {

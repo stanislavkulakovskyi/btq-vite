@@ -8,7 +8,7 @@ export const AboutPage = () => {
         <CubeText />
 
         <div className={styles.description}>
-          <h1 className={styles.headline}>SONIC VISION</h1>
+          <h1 className={styles.headline}>sonic vision</h1>
           <p className={styles.tagline}>Sound for brands.</p>
           <p className={styles.lead}>
             Audio post-production, mixing, sound design, and bespoke music.
@@ -16,7 +16,7 @@ export const AboutPage = () => {
           <p className={styles.note}>
             Beyond commissioned work, belletriq functions as a music label and
             creative platform — releasing forward-thinking electronic music from
-            Ukraine and Eastern Europe and developing cultural projects.
+            Ukraine and developing cultural projects.
           </p>
         </div>
       </div>
