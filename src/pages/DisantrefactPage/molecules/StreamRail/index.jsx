@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import { STREAM_LINKS } from '../../data';
 import { Icon } from '../../icons';
 import styles from './index.module.scss';
@@ -14,7 +12,7 @@ export const StreamRail = () => {
         {STREAM_LINKS.map((stream) => (
           <a
             key={stream.label}
-            className={classNames(styles.pill, { [styles.pill_presave]: stream.isPresave })}
+            className={styles.pill}
             href={stream.href}
             target="_blank"
             rel="noopener noreferrer"

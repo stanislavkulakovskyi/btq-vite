@@ -35,9 +35,8 @@
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.12);
 
     @include bp-custom-down(1140px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -49,7 +48,7 @@
     padding: 0 2px 2px;
 
     @include bp-custom-down(1140px) {
-        width: 100%;
+        grid-column: 1 / -1;
         text-align: center;
     }
 }
@@ -80,16 +79,13 @@
         box-shadow: 0 0 18px rgba(242, 165, 190, 0.22);
         color: #fff;
     }
-}
 
-.pill_presave {
-    border-color: rgba(242, 165, 190, 0.22);
-    background: rgba(242, 165, 190, 0.08);
+    @include bp-custom-down(1140px) {
+        justify-content: center;
 
-    &:hover {
-        background: rgba(242, 165, 190, 0.16);
-        border-color: rgba(242, 165, 190, 0.58);
-        box-shadow: 0 0 22px rgba(242, 165, 190, 0.26);
+        &:last-child {
+            grid-column: 1 / -1;
+        }
     }
 }
 

@@ -91,13 +91,13 @@ export const SEO = {
   },
   disantrefact: {
     path: '/disantrefact',
-    title: 'DISANTREFACT — new album by Cutmylips | pre-save',
+    title: 'DISANTREFACT — new album by Cutmylips',
     description:
-      'Pre-save DISANTREFACT, the new 25-track album by Cutmylips — futuristic pop, indietronica and IDM. Pre-save on Spotify, Apple Music, YouTube Music and Deezer.',
+      'Stream DISANTREFACT, the new 25-track album by Cutmylips — futuristic pop, indietronica and IDM. Out now on Spotify, Apple Music, YouTube Music, Deezer, Tidal and Bandcamp.',
     canonical: `${SITE_URL}/disantrefact`,
     ogTitle: 'DISANTREFACT — new album by Cutmylips',
     ogDescription:
-      'Pre-save the new 25-track album by Cutmylips. Futuristic pop, indietronica, IDM.',
+      'Stream the new 25-track album by Cutmylips. Futuristic pop, indietronica, IDM.',
     ogImage: DISANTREFACT_OG_IMAGE,
     ogType: 'music.album',
   },
