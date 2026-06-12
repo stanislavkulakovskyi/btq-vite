@@ -21,7 +21,7 @@
 
   @include bp-desktop {
     padding-left: 300px;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
   }
 
   @include bp-tablet {
