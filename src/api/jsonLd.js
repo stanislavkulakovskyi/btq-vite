@@ -1,3 +1,4 @@
+import { ALBUM_STREAM_URLS } from './disantrefact';
 import links from './links';
 import { SITE_URL, DISANTREFACT_OG_IMAGE } from './seo';
 
@@ -7,6 +8,11 @@ const ORGANIZATION_NAME = 'belletriq';
 const ALBUM_NAME = 'DISANTREFACT';
 const ALBUM_ARTIST = 'Cutmylips';
 const ALBUM_NUM_TRACKS = 25;
+const ALBUM_GENRE = ['Futuristic pop', 'Indietronica', 'IDM'];
+const ALBUM_ARTIST_SAME_AS = [
+  'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2',
+  'https://soundcloud.com/cutmylips',
+];
 
 const getSameAs = () => {
   const resolved = SAME_AS_TITLES.map(
@@ -47,10 +53,13 @@ export const buildMusicAlbumLd = () => ({
   byArtist: {
     '@type': 'MusicGroup',
     name: ALBUM_ARTIST,
+    sameAs: ALBUM_ARTIST_SAME_AS,
   },
   numTracks: ALBUM_NUM_TRACKS,
+  genre: ALBUM_GENRE,
   image: DISANTREFACT_OG_IMAGE,
   url: `${SITE_URL}/disantrefact`,
+  sameAs: ALBUM_STREAM_URLS,
 });
 
 export const buildServiceLd = ({ name, serviceType, description, url }) => ({

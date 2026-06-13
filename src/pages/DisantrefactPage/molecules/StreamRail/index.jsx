@@ -1,4 +1,4 @@
-import { STREAM_LINKS } from '../../data';
+import { STREAM_LINKS } from '../../../../api/disantrefact';
 import { Icon } from '../../icons';
 import styles from './index.module.scss';
 
