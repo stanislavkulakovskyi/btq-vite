@@ -166,7 +166,7 @@ describe('dist/services/* (service landing pages)', () => {
 describe('dist/disantrefact/index.html', () => {
   it('renders the disantrefact title', () => {
     expect(disantrefact).toContain(
-      '<title data-rh="true">DISANTREFACT — new album by Cutmylips | pre-save</title>',
+      '<title data-rh="true">DISANTREFACT — new album by Cutmylips</title>',
     );
   });
 
@@ -181,8 +181,33 @@ describe('dist/disantrefact/index.html', () => {
     );
   });
 
-  it('embeds MusicAlbum JSON-LD', () => {
-    expect(disantrefact).toContain('"@type":"MusicAlbum"');
+  it('embeds MusicAlbum JSON-LD enriched with album sameAs, genre and artist profiles', () => {
+    const album = [
+      ...disantrefact.matchAll(
+        /<script[^>]*application\/ld\+json[^>]*>(.*?)<\/script>/g,
+      ),
+    ]
+      .map((match) => JSON.parse(match[1]))
+      .find((block) => block['@type'] === 'MusicAlbum');
+
+    expect(album).toBeDefined();
+    expect(album.genre).toEqual(['Futuristic pop', 'Indietronica', 'IDM']);
+    expect(album.byArtist.sameAs).toContain(
+      'https://open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2',
+    );
+    expect(album.byArtist.sameAs).toContain('https://soundcloud.com/cutmylips');
+    expect(album.sameAs).toHaveLength(6);
+    expect(album.sameAs).toContain(
+      'https://cutmylips.bandcamp.com/album/disantrefact',
+    );
+    expect(album.sameAs).not.toContain('https://youtu.be/Tm_GbJLUew4');
+  });
+
+  it('still renders all seven streaming links in the StreamRail (youtu.be excluded only from schema)', () => {
+    expect(disantrefact).toContain('href="https://youtu.be/Tm_GbJLUew4"');
+    expect(disantrefact).toContain(
+      'href="https://cutmylips.bandcamp.com/album/disantrefact"',
+    );
   });
 
   it('is indexable (no robots noindex)', () => {
