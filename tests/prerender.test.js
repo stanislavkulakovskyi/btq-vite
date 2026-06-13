@@ -201,6 +201,15 @@ describe('dist/disantrefact/index.html', () => {
       'https://cutmylips.bandcamp.com/album/disantrefact',
     );
     expect(album.sameAs).not.toContain('https://youtu.be/Tm_GbJLUew4');
+    expect(album.datePublished).toBe('2026-06-11');
+    expect(album.numTracks).toBe(26);
+    expect(album.track).toHaveLength(26);
+    expect(album.track[0]).toMatchObject({
+      '@type': 'MusicRecording',
+      name: 'Aaa',
+      position: 1,
+    });
+    expect(album.track[25]).toMatchObject({ name: 'Pleochronic', position: 26 });
   });
 
   it('still renders all seven streaming links in the StreamRail (youtu.be excluded only from schema)', () => {

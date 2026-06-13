@@ -46,3 +46,32 @@ export const STREAM_LINKS = [
 export const ALBUM_STREAM_URLS = STREAM_LINKS.filter(
   (link) => link.isAlbumPage,
 ).map((link) => link.href);
+
+export const TRACK_NAMES = [
+  'Aaa',
+  'Palladium',
+  '062',
+  'Zymno',
+  'Olovo',
+  'Qusto',
+  'Gladiola',
+  'Oos Oom',
+  'Crashwreck',
+  'Love U Down',
+  'Xm2',
+  'Dream Club',
+  'Mind Race',
+  'Cry Mriy',
+  'Post Cry',
+  'Olfactorium',
+  'Kimberlite',
+  'Ikigai',
+  'Manifesting',
+  'Rechi 555',
+  'Haunt',
+  'Akou',
+  'Pink',
+  'Sophisticated',
+  'Nuke Rain',
+  'Pleochronic',
+];
