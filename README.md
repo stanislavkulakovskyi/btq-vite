@@ -70,6 +70,8 @@ src/
 ├─ layouts/MainLayout/  ← the home page ("/") — stitches the scroll sections together
 ├─ components/          ← reusable UI (menus, buttons, modals, slider…)
 ├─ api/                 ← static data (artists, menu links, thumbnails)
+├─ hooks/               ← small shared bits of logic (e.g. "how wide is the screen?")
+├─ i18n/                ← language switching (Ukrainian / English) — used on /cutmylips
 ├─ assets/              ← images, icons, video
 └─ styles/              ← global SCSS (variables, mixins)
 ```
@@ -155,41 +157,79 @@ export * from './MerchPage';
 
 ### Step 2. Connect the page to an address
 
-Open **`src/App.jsx`**. Right now it looks like this — a list of pages, where each line ties an **address** (`path`) to a **page** (`element`):
+Open **`src/App.jsx`**. Right now it looks like this. Don't worry about most of it — the part you need is the **`children:` list**, where each line ties an **address** (`path`) to a **page** (`element`):
 
 ```jsx
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout/MainLayout';
 import { DisantrefactPage } from './pages/DisantrefactPage';
 import { CutmylipsPage } from './pages/CutmylipsPage';
+import { ServicesLandingPage } from './pages/ServicesLandingPage';
+import { SERVICES } from './api/services';
+import { LocaleProvider } from './i18n/LocaleProvider';
+
+const serviceRoutes = SERVICES.map((service) => ({
+  path: `/services/${service.slug}`,
+  element: <ServicesLandingPage service={service} />,
+}));
 
 export const routes = [
-  { path: '/', element: <MainLayout /> },
-  { path: '/disantrefact', element: <DisantrefactPage /> },
-  { path: '/cutmylips', element: <CutmylipsPage /> },
-  { path: '*', element: <Navigate to="/" replace /> },
+  {
+    element: (
+      <LocaleProvider>
+        <Outlet />
+      </LocaleProvider>
+    ),
+    children: [
+      { path: '/', element: <MainLayout /> },
+      { path: '/disantrefact', element: <DisantrefactPage /> },
+      { path: '/cutmylips', element: <CutmylipsPage /> },
+      ...serviceRoutes,
+      { path: '*', element: <Navigate to="/" replace /> },
+    ],
+  },
 ];
 ```
 
 Add **two lines** (marked `// ←`):
 
 ```jsx
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout/MainLayout';
 import { DisantrefactPage } from './pages/DisantrefactPage';
 import { CutmylipsPage } from './pages/CutmylipsPage';
-import { MerchPage } from './pages/MerchPage';              // ← 1. import the new page
+import { ServicesLandingPage } from './pages/ServicesLandingPage';
+import { SERVICES } from './api/services';
+import { LocaleProvider } from './i18n/LocaleProvider';
+import { MerchPage } from './pages/MerchPage';                  // ← 1. import the new page
+
+const serviceRoutes = SERVICES.map((service) => ({
+  path: `/services/${service.slug}`,
+  element: <ServicesLandingPage service={service} />,
+}));
 
 export const routes = [
-  { path: '/', element: <MainLayout /> },
-  { path: '/disantrefact', element: <DisantrefactPage /> },
-  { path: '/cutmylips', element: <CutmylipsPage /> },
-  { path: '/merch', element: <MerchPage /> },               // ← 2. give it the address /merch
-  { path: '*', element: <Navigate to="/" replace /> },
+  {
+    element: (
+      <LocaleProvider>
+        <Outlet />
+      </LocaleProvider>
+    ),
+    children: [
+      { path: '/', element: <MainLayout /> },
+      { path: '/disantrefact', element: <DisantrefactPage /> },
+      { path: '/cutmylips', element: <CutmylipsPage /> },
+      ...serviceRoutes,
+      { path: '/merch', element: <MerchPage /> },               // ← 2. give it the address /merch
+      { path: '*', element: <Navigate to="/" replace /> },
+    ],
+  },
 ];
 ```
 
-> Put your new line **next to the other `{ path: …, element: … }` lines, above the one with `path: '*'`**. That last line with the star is a "catch-all": it sends every unknown address back to the home page, so keep it at the very bottom.
+> Put your new line **inside the `children:` list**, next to the other `{ path: …, element: … }` lines and above the one with `path: '*'`. That last line with the star is a "catch-all": it sends every unknown address back to the home page, so keep it at the very bottom. (`...serviceRoutes` just above it is the six `/services/…` pages, added in one go. Leave it as it is.)
+>
+> The `<LocaleProvider>` wrapped around the list is the site's language switching — leave it alone, but do make sure your line lands **inside `children:`** like every other page. If it ends up outside, the page still opens and nothing looks broken, which is exactly why it's worth a second look.
 >
 > ⚠️ The `// ←` comments are only here to show what changes — **do not put them in the real file**; copy the lines without them.
 
@@ -223,7 +263,7 @@ After a couple of minutes the page will be live at `https://belletriq-eaedc.web.
 
 You don't have to do it by hand — paste this prompt into ChatGPT or Claude:
 
-> "In my React + Vite project (it uses vite-react-ssg), pages live in `src/pages/`, each one is a folder with three files (`Name.jsx`, `Name.module.scss`, `index.js`), and routes are entries in the exported `routes` array in `src/App.jsx`, each shaped `{ path: '…', element: <…/> }`. Following the same pattern, create a new page called **NAME** with the address **/ADDRESS**, and show me exactly what to add to `App.jsx`. An existing page to copy from is `DisantrefactPage` (`/disantrefact`)."
+> "In my React + Vite project (it uses vite-react-ssg), pages live in `src/pages/`, each one is a folder with three files (`Name.jsx`, `Name.module.scss`, `index.js`). Routes live in the exported `routes` array in `src/App.jsx`: that array holds a single wrapper entry that mounts a `LocaleProvider` around an `<Outlet />`, and the pages themselves are entries in its `children:` list, each shaped `{ path: '…', element: <…/> }`. Following the same pattern, create a new page called **NAME** with the address **/ADDRESS**, and show me exactly what to add to `App.jsx` — the new route must go inside `children:`, above the `{ path: '*' }` catch-all. An existing page to copy from is `DisantrefactPage` (`/disantrefact`)."
 
 ### Linking the page in the menu
 
