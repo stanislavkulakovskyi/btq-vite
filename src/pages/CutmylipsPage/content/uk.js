@@ -6,7 +6,7 @@ export const UK = {
     media: 'Посилання',
     contacts: 'Контакти',
   },
-  releaseLink: '↗ Release Link (Запрацює в день релізу)',
+  releaseLink: '↗ Release Link',
   collapseLabel: 'Згорнути',
   bio: {
     title: 'Біо',
