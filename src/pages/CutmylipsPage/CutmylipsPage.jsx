@@ -25,38 +25,20 @@ export const CutmylipsPage = () => {
 
       <section className={styles.section} id="stream">
         <div className={styles.container}>
-          <StreamEmbed />
+          <StreamEmbed title={content.streamEmbedTitle} />
         </div>
       </section>
 
       <section className={styles.section} id="bio">
         <div className={`${styles.container} ${styles.twoCol}`}>
-          <CollapsibleCard
-            title={content.bio.title}
-            shortText={content.bio.shortText}
-            longParagraphs={content.bio.longParagraphs}
-            closedLabel={content.bio.closedLabel}
-            collapseLabel={content.collapseLabel}
-          />
-          <CollapsibleCard
-            title={content.about.title}
-            shortText={content.about.shortText}
-            longParagraphs={content.about.longParagraphs}
-            closedLabel={content.about.closedLabel}
-            collapseLabel={content.collapseLabel}
-          />
+          <CollapsibleCard {...content.bio} collapseLabel={content.collapseLabel} />
+          <CollapsibleCard {...content.about} collapseLabel={content.collapseLabel} />
         </div>
       </section>
 
       <section className={styles.section} id="press">
         <div className={styles.container}>
-          <CollapsibleCard
-            title={content.press.title}
-            shortText={content.press.shortText}
-            longParagraphs={content.press.longParagraphs}
-            closedLabel={content.press.closedLabel}
-            collapseLabel={content.collapseLabel}
-          />
+          <CollapsibleCard {...content.press} collapseLabel={content.collapseLabel} />
         </div>
       </section>
 

@@ -223,6 +223,39 @@ describe('selectContent', () => {
   });
 });
 
+const undefinedPaths = (value, path = '') => {
+  if (value === undefined) return [path];
+  if (Array.isArray(value)) return value.flatMap((v, i) => undefinedPaths(v, `${path}[${i}]`));
+  if (value && typeof value === 'object') {
+    return Object.entries(value).flatMap(([k, v]) => undefinedPaths(v, path ? `${path}.${k}` : k));
+  }
+  return [];
+};
+
+describe('the spine-to-dictionary join', () => {
+  LOCALES.forEach((locale) => {
+    it(`resolves every label for ${locale}, so no spine id renders as undefined`, () => {
+      expect(undefinedPaths(selectContent(locale))).toEqual([]);
+    });
+  });
+
+  it('gives every locale the same set of resolved content keys', () => {
+    expect(Object.keys(selectContent('en')).sort()).toEqual(Object.keys(selectContent('uk')).sort());
+  });
+
+  LOCALES.forEach((locale) => {
+    it(`labels every nav item, media box and contact box for ${locale}`, () => {
+      const content = selectContent(locale);
+      const labels = [
+        ...content.navLinks.map((link) => link.label),
+        ...content.mediaGroups.flat().map((box) => box.label),
+        ...content.contacts.map((box) => box.label),
+      ];
+      expect(labels.every((label) => typeof label === 'string' && label.length > 0)).toBe(true);
+    });
+  });
+});
+
 describe('the UK and EN dictionaries', () => {
   it('share an identical recursive shape, so no locale can ship an undefined string', () => {
     expect(shapeOf(EN)).toEqual(shapeOf(UK));

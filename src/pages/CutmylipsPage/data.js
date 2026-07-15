@@ -3,7 +3,6 @@ import { UK } from './content/uk';
 import { EN } from './content/en';
 
 export const STREAM_EMBED_URL = 'https://untitled.stream/embed/H3xSaOijozAe';
-export const STREAM_EMBED_TITLE = 'Cutmylips — DISANTREFACT stream player';
 export const FOOTER_TEXT = 'Cutmylips — DISANTREFACT © 2026';
 
 const DISANTREFACT_URL = 'https://belletriq.com/disantrefact';
@@ -72,6 +71,8 @@ const buildContent = (t) => ({
   navLinks: NAV_ITEMS.map(({ id, href }) => ({ href, label: t.nav[id] })),
   releaseLink: { href: DISANTREFACT_URL, label: t.releaseLink },
   collapseLabel: t.collapseLabel,
+  langSwitchLabel: t.langSwitchLabel,
+  streamEmbedTitle: t.streamEmbedTitle,
   bio: t.bio,
   about: t.about,
   press: t.press,
@@ -88,4 +89,4 @@ const CONTENT = {
 };
 
 export const selectContent = (locale) =>
-  isSupportedLocale(locale) ? CONTENT[locale] : CONTENT[DEFAULT_LOCALE];
+  (isSupportedLocale(locale) && CONTENT[locale]) || CONTENT[DEFAULT_LOCALE];

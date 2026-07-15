@@ -8,6 +8,8 @@ export const UK = {
   },
   releaseLink: '↗ Release Link',
   collapseLabel: 'Згорнути',
+  langSwitchLabel: 'Мова',
+  streamEmbedTitle: 'Cutmylips — DISANTREFACT, аудіоплеєр',
   bio: {
     title: 'Біо',
     closedLabel: 'Повна біографія',

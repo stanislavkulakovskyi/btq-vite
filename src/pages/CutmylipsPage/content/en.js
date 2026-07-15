@@ -8,6 +8,8 @@ export const EN = {
   },
   releaseLink: '↗ Release Link',
   collapseLabel: 'Collapse',
+  langSwitchLabel: 'Language',
+  streamEmbedTitle: 'Cutmylips — DISANTREFACT stream player',
   bio: {
     title: 'Bio',
     closedLabel: 'Read the full bio',
