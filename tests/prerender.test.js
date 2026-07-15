@@ -238,6 +238,28 @@ describe('dist/cutmylips/index.html', () => {
     expect(cutmylips).toContain('property="og:image"');
     expect(cutmylips).toContain('content="https://belletriq.com/og-disantrefact.png"');
   });
+
+  it('prerenders in Ukrainian, the default locale', () => {
+    expect(cutmylips).toContain('<html lang="uk"');
+  });
+
+  it('renders og:locale uk_UA', () => {
+    expect(cutmylips).toMatch(/property="og:locale"[^>]*content="uk_UA"/);
+  });
+
+  it('renders the Ukrainian body copy', () => {
+    expect(cutmylips).toContain('Прес-реліз');
+  });
+
+  it('ships no English press copy, so a regressed default locale fails loudly', () => {
+    expect(cutmylips).not.toContain('Inventive indietronica');
+  });
+
+  it('ships the language switcher, with Ukrainian pressed', () => {
+    expect(cutmylips).toContain('УКР');
+    expect(cutmylips).toContain('ENG');
+    expect((cutmylips.match(/aria-pressed="true"/g) || []).length).toBe(1);
+  });
 });
 
 describe('dist/robots.txt', () => {
