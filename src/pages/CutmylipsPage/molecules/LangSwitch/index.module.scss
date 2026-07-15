@@ -1,0 +1,41 @@
+@import "@styles/mixins.scss";
+@import "@styles/variables.scss";
+@import "@styles/extends.scss";
+
+.group {
+  display: flex;
+  gap: 8px;
+}
+
+.option {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-family: 'Helvetica Bold Oblique', Arial, sans-serif;
+  font-size: 0.68rem;
+  transition: 0.22s;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #ff8fd0;
+    outline-offset: 2px;
+  }
+
+  &.active {
+    color: #ff8fd0;
+    border-color: #ff8fd0;
+
+    &:hover {
+      background: #ff8fd0;
+      color: #000;
+    }
+  }
+}

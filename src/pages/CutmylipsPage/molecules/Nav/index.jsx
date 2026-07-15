@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { LangSwitch } from '../LangSwitch';
+
 import styles from './index.module.scss';
 
 export const Nav = ({ navLinks, releaseLink }) => {
@@ -19,6 +21,7 @@ export const Nav = ({ navLinks, releaseLink }) => {
         >
           {releaseLink.label}
         </a>
+        <LangSwitch />
       </div>
     </nav>
   );
