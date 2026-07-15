@@ -1,89 +1,25 @@
-export const NAV_LINKS = [
-  { label: 'Послухати', href: '#stream' },
-  { label: 'Біо', href: '#bio' },
-  { label: 'Прес-реліз', href: '#press' },
-  { label: 'Посилання', href: '#media' },
-  { label: 'Контакти', href: '#contacts' },
-];
-
-export const RELEASE_LINK = {
-  label: '↗ Release Link (Запрацює в день релізу)',
-  href: 'https://belletriq.com/disantrefact',
-};
+import { DEFAULT_LOCALE, isSupportedLocale } from '../../i18n/locale';
+import { UK } from './content/uk';
+import { EN } from './content/en';
 
 export const STREAM_EMBED_URL = 'https://untitled.stream/embed/H3xSaOijozAe';
+export const FOOTER_TEXT = 'Cutmylips — DISANTREFACT © 2026';
 
-export const STREAM_EMBED_TITLE = 'Cutmylips — DISANTREFACT stream player';
+const DISANTREFACT_URL = 'https://belletriq.com/disantrefact';
 
-export const BIO = {
-  title: 'Біо',
-  closedLabel: 'Повна біографія',
-  shortText:
-  "Cutmylips — український електронний музикант та саунд-продюсер із Донецька. Натхненний сучасною електронною сценою, він створює музику, де складний саунд-дизайн, футуристичне звучання й поп-мелодії працюють разом, а не суперечать одне одному. Його творчий концепт вкладається в просту формулу: «Too cheesy for underground, too sophisticated for pop».",
-  longParagraphs: [
-  "Свою музичну кар'єру Cutmylips почав ще у 2009 році в рідному Донецьку. Крізь діджей-сети, техно, захоплення саунд-дизайном, future beats та IDM він поступово прийшов до власного бачення музики, в якому експеримент і доступність не суперечать одне одному.",
+const NAV_ITEMS = [
+  { id: 'stream', href: '#stream' },
+  { id: 'bio', href: '#bio' },
+  { id: 'press', href: '#press' },
+  { id: 'media', href: '#media' },
+  { id: 'contacts', href: '#contacts' },
+];
 
-  "Протягом останніх десяти років український продюсер створював музику для Adidas, Coca-Cola, Foster+Partners, Specialized та Setanta, а також встиг попрацювати з усіма представниками музичної «великої трійки» — Warner, Sony та Universal. Ранні авторські релізи артиста виходили на незалежних закордонних лейблах, серед яких Secret Songs — імпринт канадського продюсера Ryan Hemsworth. У 2020 році разом з Inodi (fka Kulakostas) заснував продакшн-компанію / лейбл Belletriq, де продовжує працювати як над комерційними проєктами, так і над випуском музичних релізів.",
-
-  "Паралельно з комерційною діяльністю Cutmylips шукав власний впізнаваний саунд. У якийсь момент він усвідомив, що поп-музика не є антагоністом андеграунду — навпаки, вони можуть підсилювати одна одну. Саме ця ідея стала фундаментом його творчості.",
-
-  "Натхненний сучасною електронною сценою від Flume, James Blake, Skrillex до Son Lux та Bring Me The Horizon, Cutmylips створює треки, в яких крізь складні конструкції IDM, click & cuts, bass music та електроніки завжди пробивається чуттєва мелодійність.",
-
-  "Сьогодні Cutmylips формує власний звуковий світ, де технологічність поєднується з емоційністю, органіка з синтетикою, а продакшн стає повноцінним інструментом сторітелінгу."
-],
-};
-
-export const ABOUT = {
-  title: 'Про альбом',
-  closedLabel: 'Докладніше про альбом',
-  shortText:
-  "«DISANTREFACT» — стоп-слово: використай його, коли хочеш зупинити час, згорнути простір або змінити тему. Це рожеві окуляри, які вдягаєш, щоб відмежуватися від приголомшливої реальності. 25 треків складаються у футуристичну аудіоподорож між індітронікою, попом, IDM, глітчем та електронікою без жанрових кордонів.",
- longParagraphs: [
-  "«DISANTREFACT» — другий альбом Cutmylips та найбільш масштабна робота артиста на сьогодні. Музично «DISANTREFACT» побудований на контрастах: легке та важке, танцювальне й експериментальне, синтетичне та органічне, емоційне й відсторонене, краса та руйнування, спокій та інтенсивність, інтимність та емоційна дистанція.",
-
-  "Альбом звучить як саундтрек до життя у 2026 році: тривожний, красивий, перевантажений інформацією і водночас дуже людяний. Сторітелінг, побудований за тропом Voyage & Return, з одного боку є автобіографічним, а з іншого — дарує слухачеві трансформуючий досвід. Тут вистачає моментів, дропів і сюжетних твістів, гідних реакції: «Я такого ще не чув».",
-
-  "Особливу увагу привертає продакшн. Багатошарові текстури, мікроскопічна робота з деталями, глітчеві елементи та велика кількість звукових нюансів створюють відчуття живого середовища, яке постійно змінюється. Водночас музика залишається мелодійною, емоційною та орієнтованою на сильні пісенні форми.",
-
-  "«DISANTREFACT» сподобається як прихильникам FKA twigs, Oklou, Arca та SOPHIE, так і слухачам Flume, Skrillex, Flying Lotus чи сучасної індітроніки загалом."
-],
-};
-
-export const PRESS = {
-  title: 'Прес-реліз',
-  shortText:
-  "Винахідлива індітроніка, футуристичний поп та передовий саунд-дизайн: Cutmylips презентує альбом «DISANTREFACT»",
-  closedLabel: 'Читати повний прес-реліз',
- longParagraphs: [
-  "Український електронний музикант та саунд-продюсер Cutmylips презентує свій другий студійний альбом «DISANTREFACT» — масштабний реліз із 25 композицій, що поєднує футуристичний поп, індітроніку, IDM, glitch, електроніку та сучасну біт-музику.",
-
-  "Протягом останніх десяти років Cutmylips створював музику для міжнародних брендів Adidas, Coca-Cola, Foster+Partners, Specialized та Setanta, працював із лейблами Warner, Sony та Universal, а також розвивав власний творчий почерк на перетині поп-музики та передового саунд-дизайну.",
-
-  "Натхненний творчістю Flume, James Blake, Skrillex, Son Lux та новою хвилею електронних продюсерів, артист поступово сформував власну звукову мову. У його композиціях складні конструкції IDM, click & cuts, техно та bass-музики співіснують із сильними мелодіями, емоційністю та пісенною формою.",
-
-  "«DISANTREFACT» став найбільш амбітною роботою Cutmylips на сьогодні. Альбом побудований як довга подорож із власною драматургією, сюжетними поворотами та постійним відчуттям руху. Протягом понад години слухач опиняється серед футуристичних текстур, несподіваних дропів і звукових деталей, які змушують поставити запитання: «Як це взагалі зроблено?»",
-
-  "Водночас головна сила альбому полягає не лише в технічній майстерності. «DISANTREFACT» побудований на контрастах: легке та важке, танцювальне й експериментальне, синтетичне та органічне, емоційне й відсторонене. Через ці протилежності Cutmylips створює кінематографічний звуковий світ, який відображає досвід життя у часи інформаційного перевантаження та постійних змін.",
-
-  "Назва альбому також працює як частина концепції. «DISANTREFACT» — це вигадане стоп-слово, яке можна використати тоді, коли хочеться зупинити час, згорнути простір або змінити тему. Це реакція на момент, коли реальність стає надто швидкою та складною для сприйняття.",
-
-  "Попри величезну кількість деталей, музика Cutmylips не втрачає ані мелодійності, ані груву, ані хітового потенціалу. Саме тому альбом може зацікавити як прихильників FKA twigs, Oklou, Arca та SOPHIE, так і слухачів Flume, Skrillex, Flying Lotus або сучасної електронної поп-сцени.",
-
-  "«DISANTREFACT» продовжує творчу філософію артиста, яку він формулює коротко: «Too cheesy for underground, too sophisticated for pop». Це альбом про пошук балансу між хаосом і контролем, між технологіями та людяністю, між експериментом і доступністю. Саме в цьому просторі Cutmylips знаходить власний голос — і пропонує слухачам побачити сучасний світ крізь рожеві окуляри хоча б на одну годину."
-],
-};
-
-export const MEDIA_TITLE = 'Посилання';
-
-export const MEDIA_GROUPS = [
+const MEDIA_BOXES = [
   [
+    { id: 'release', accent: 'pink', links: [{ text: 'belletriq.com/disantrefact', href: DISANTREFACT_URL }] },
     {
-      label: 'Release Link',
-      accent: 'pink',
-      links: [{ text: 'belletriq.com/disantrefact', href: 'https://belletriq.com/disantrefact' }],
-    },
-    {
-      label: 'Фото Artwork & Відео',
+      id: 'photos',
       accent: 'blue',
       links: [
         {
@@ -94,22 +30,13 @@ export const MEDIA_GROUPS = [
     },
   ],
   [
-    {
-      label: 'Instagram',
-      links: [{ text: 'instagram.com/cutmylips', href: 'https://www.instagram.com/cutmylips/' }],
-    },
-    {
-      label: 'BandCamp',
-      links: [{ text: 'cutmylips.bandcamp.com', href: 'https://cutmylips.bandcamp.com' }],
-    },
-    {
-      label: 'Youtube Music',
-      links: [{ text: 'music.youtube.com/@cutmylips', href: 'https://music.youtube.com/@cutmylips' }],
-    },
+    { id: 'instagram', links: [{ text: 'instagram.com/cutmylips', href: 'https://www.instagram.com/cutmylips/' }] },
+    { id: 'bandcamp', links: [{ text: 'cutmylips.bandcamp.com', href: 'https://cutmylips.bandcamp.com' }] },
+    { id: 'youtubeMusic', links: [{ text: 'music.youtube.com/@cutmylips', href: 'https://music.youtube.com/@cutmylips' }] },
   ],
   [
     {
-      label: 'Spotify',
+      id: 'spotify',
       links: [
         {
           text: 'open.spotify.com/artist/107LVbAcRXB1TBzqo6itz2',
@@ -118,7 +45,7 @@ export const MEDIA_GROUPS = [
       ],
     },
     {
-      label: 'Apple Music',
+      id: 'appleMusic',
       links: [
         {
           text: 'music.apple.com/us/artist/cutmylips',
@@ -129,20 +56,37 @@ export const MEDIA_GROUPS = [
   ],
 ];
 
-export const CONTACTS_TITLE = 'Контакти';
-
-export const CONTACTS = [
+const CONTACT_BOXES = [
   {
-    label: 'Email',
+    id: 'email',
     links: [
       { text: 'belletriq@gmail.com', href: 'mailto:belletriq@gmail.com' },
       { text: 'cutmylips@gmail.com', href: 'mailto:cutmylips@gmail.com' },
     ],
   },
-  {
-    label: 'WhatsApp',
-    links: [{ text: '+38 063 782 36 86', href: 'tel:+380637823686' }],
-  },
+  { id: 'whatsapp', links: [{ text: '+38 063 782 36 86', href: 'tel:+380637823686' }] },
 ];
 
-export const FOOTER_TEXT = 'Cutmylips — DISANTREFACT © 2026';
+const buildContent = (t) => ({
+  navLinks: NAV_ITEMS.map(({ id, href }) => ({ href, label: t.nav[id] })),
+  releaseLink: { href: DISANTREFACT_URL, label: t.releaseLink },
+  collapseLabel: t.collapseLabel,
+  langSwitchLabel: t.langSwitchLabel,
+  streamEmbedTitle: t.streamEmbedTitle,
+  bio: t.bio,
+  about: t.about,
+  press: t.press,
+  mediaTitle: t.mediaTitle,
+  mediaGroups: MEDIA_BOXES.map((group) => group.map((box) => ({ ...box, label: t.mediaLabels[box.id] }))),
+  contactsTitle: t.contactsTitle,
+  contacts: CONTACT_BOXES.map((box) => ({ ...box, label: t.contactLabels[box.id] })),
+  ogDescription: t.ogDescription,
+});
+
+const CONTENT = {
+  uk: buildContent(UK),
+  en: buildContent(EN),
+};
+
+export const selectContent = (locale) =>
+  (isSupportedLocale(locale) && CONTENT[locale]) || CONTENT[DEFAULT_LOCALE];

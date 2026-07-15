@@ -1,14 +1,16 @@
-import { STREAM_EMBED_URL, STREAM_EMBED_TITLE } from '../../data';
+import PropTypes from 'prop-types';
+
+import { STREAM_EMBED_URL } from '../../data';
 
 import styles from './index.module.scss';
 
-export const StreamEmbed = () => {
+export const StreamEmbed = ({ title }) => {
   return (
     <div className={styles.playerWrap}>
       <iframe
         style={{ borderRadius: '24px', display: 'block' }}
         src={STREAM_EMBED_URL}
-        title={STREAM_EMBED_TITLE}
+        title={title}
         width="100%"
         height="344"
         allowFullScreen
@@ -18,4 +20,8 @@ export const StreamEmbed = () => {
       />
     </div>
   );
+};
+
+StreamEmbed.propTypes = {
+  title: PropTypes.string.isRequired,
 };

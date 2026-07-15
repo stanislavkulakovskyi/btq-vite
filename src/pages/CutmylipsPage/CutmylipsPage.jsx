@@ -1,4 +1,5 @@
-import { BIO, ABOUT, PRESS } from './data';
+import { useLocale } from '../../i18n/LocaleProvider';
+import { selectContent } from './data';
 
 import { Nav } from './molecules/Nav';
 import { StreamEmbed } from './molecules/StreamEmbed';
@@ -13,52 +14,40 @@ import { Seo } from '../../components/Seo';
 import { SEO } from '../../api/seo';
 
 export const CutmylipsPage = () => {
+  const { locale } = useLocale();
+  const content = selectContent(locale);
+
   return (
     <div className={styles.page}>
-      <Seo {...SEO.cutmylips} />
+      <Seo {...SEO.cutmylips} lang={locale} ogDescription={content.ogDescription} />
 
-      <Nav />
+      <Nav navLinks={content.navLinks} releaseLink={content.releaseLink} />
 
       <section className={styles.section} id="stream">
         <div className={styles.container}>
-          <StreamEmbed />
+          <StreamEmbed title={content.streamEmbedTitle} />
         </div>
       </section>
 
       <section className={styles.section} id="bio">
         <div className={`${styles.container} ${styles.twoCol}`}>
-          <CollapsibleCard
-            title={BIO.title}
-            shortText={BIO.shortText}
-            longParagraphs={BIO.longParagraphs}
-            closedLabel={BIO.closedLabel}
-          />
-          <CollapsibleCard
-            title={ABOUT.title}
-            shortText={ABOUT.shortText}
-            longParagraphs={ABOUT.longParagraphs}
-            closedLabel={ABOUT.closedLabel}
-          />
+          <CollapsibleCard {...content.bio} collapseLabel={content.collapseLabel} />
+          <CollapsibleCard {...content.about} collapseLabel={content.collapseLabel} />
         </div>
       </section>
 
       <section className={styles.section} id="press">
         <div className={styles.container}>
-          <CollapsibleCard
-            title={PRESS.title}
-            shortText={PRESS.shortText}
-            longParagraphs={PRESS.longParagraphs}
-            closedLabel={PRESS.closedLabel}
-          />
+          <CollapsibleCard {...content.press} collapseLabel={content.collapseLabel} />
         </div>
       </section>
 
       <section className={styles.section} id="media">
-        <MediaLinks />
+        <MediaLinks title={content.mediaTitle} groups={content.mediaGroups} />
       </section>
 
       <section className={styles.section} id="contacts">
-        <Contacts />
+        <Contacts title={content.contactsTitle} boxes={content.contacts} />
       </section>
 
       <Footer />

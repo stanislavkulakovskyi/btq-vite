@@ -4,8 +4,6 @@ import classNames from 'classnames';
 
 import styles from './index.module.scss';
 
-const COLLAPSE_LABEL = 'Згорнути';
-
 const renderParagraph = (paragraph) => {
   if (typeof paragraph === 'string') {
     return paragraph;
@@ -24,7 +22,13 @@ const renderParagraph = (paragraph) => {
   });
 };
 
-export const CollapsibleCard = ({ title, shortText, longParagraphs, closedLabel }) => {
+export const CollapsibleCard = ({
+  title,
+  shortText,
+  longParagraphs,
+  closedLabel,
+  collapseLabel,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,7 +41,7 @@ export const CollapsibleCard = ({ title, shortText, longParagraphs, closedLabel 
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <span className={styles.arrow}>▼</span>
-        <span>{isOpen ? COLLAPSE_LABEL : closedLabel}</span>
+        <span>{isOpen ? collapseLabel : closedLabel}</span>
       </button>
       <div className={classNames(styles.textLong, { [styles.open]: isOpen })}>
         {longParagraphs.map((paragraph, index) => (
@@ -63,4 +67,5 @@ CollapsibleCard.propTypes = {
   shortText: PropTypes.string.isRequired,
   longParagraphs: PropTypes.arrayOf(paragraphType).isRequired,
   closedLabel: PropTypes.string.isRequired,
+  collapseLabel: PropTypes.string.isRequired,
 };
