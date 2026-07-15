@@ -1,25 +1,35 @@
-import { NAV_LINKS, RELEASE_LINK } from '../../data';
+import PropTypes from 'prop-types';
 
 import styles from './index.module.scss';
 
-export const Nav = () => {
+export const Nav = ({ navLinks, releaseLink }) => {
   return (
     <nav className={styles.nav}>
       <div className={styles.navInner}>
-        {NAV_LINKS.map((link) => (
+        {navLinks.map((link) => (
           <a key={link.href} href={link.href}>
             {link.label}
           </a>
         ))}
         <a
           style={{ marginLeft: 'auto', color: '#ff8fd0' }}
-          href={RELEASE_LINK.href}
+          href={releaseLink.href}
           target="_blank"
           rel="noreferrer"
         >
-          {RELEASE_LINK.label}
+          {releaseLink.label}
         </a>
       </div>
     </nav>
   );
+};
+
+const navLinkType = PropTypes.shape({
+  label: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+});
+
+Nav.propTypes = {
+  navLinks: PropTypes.arrayOf(navLinkType).isRequired,
+  releaseLink: navLinkType.isRequired,
 };
