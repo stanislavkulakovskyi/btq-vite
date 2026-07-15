@@ -1,7 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { DEFAULT_LOCALE, readStoredLocale, writeStoredLocale } from './locale';
+import { DEFAULT_LOCALE, isSupportedLocale, readStoredLocale, writeStoredLocale } from './locale';
 
 const LocaleContext = createContext({ locale: DEFAULT_LOCALE, setLocale: () => {} });
 
@@ -13,6 +13,10 @@ export const LocaleProvider = ({ children }) => {
   }, []);
 
   const setLocale = useCallback((next) => {
+    if (!isSupportedLocale(next)) {
+      return;
+    }
+
     setLocaleState(next);
     writeStoredLocale(next);
   }, []);
